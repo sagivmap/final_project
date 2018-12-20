@@ -1,8 +1,9 @@
 class Edge:
 
-    def __init__(self, src, dest):
+    def __init__(self, src, dest, fd):
         self.src = src
         self.dest = dest
+        self.fd = fd
         self.weight = -1
 
     def __eq__(self, other):
@@ -12,4 +13,4 @@ class Edge:
         return hash(('src', self.src ,'dest' , self.dest))
 
     def __str__(self):
-        return str("Src: " + self.src + " ,Dest: " + self.dest)
+        return str("Src: " + self.src + " ,Dest: " + self.dest + " ,Friendship Duration: " + self.fd +"\n")

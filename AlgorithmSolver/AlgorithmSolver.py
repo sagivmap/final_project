@@ -14,6 +14,8 @@ class AlgorithmSolver:
         self.edges = []
         self.first_circle_nodes = []
         self.second_circle_nodes = []
+        self.first_circle_edges = []
+        self.second_circle_edges = []
 
     def decode_name(self):
 
@@ -35,10 +37,18 @@ class AlgorithmSolver:
         for node in self.nodes:
             tmp = list(set(node.cf))
             if len(tmp) == 1:
-                ans.append(Edge(currUser if tmp[0] == '0' else tmp[0] , node.idd))
+                if tmp[0] == '0':
+                    edge = Edge(currUser, node.idd, node.fd)
+                    self.first_circle_edges.append(edge)
+                else:
+                    edge = Edge(tmp[0], node.idd, node.fd)
+                    self.second_circle_edges.append(edge)
+                ans.append(edge)
             else:
                 for user in tmp:
-                    ans.append(Edge(user, node.idd))
+                    edge = Edge(user, node.idd, node.fd)
+                    ans.append(edge)
+                    self.first_circle_edges.append(edge)
 
         return list(set(ans))
 

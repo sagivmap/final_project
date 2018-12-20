@@ -1,0 +1,2597 @@
+id: 100000129644933
+Name: Tenzing Kunsang
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 0
+Friendship duration: -1
+
+id: 100000359170998
+Name: Roei Elmoalem
+Total number of friends: 1009
+Number of mutual friends: 19
+Age of user account in years: 9
+Friendship duration: 60
+
+id: 100000359396039
+Name: Avichai Akrai
+Total number of friends: 1716
+Number of mutual friends: 43
+Age of user account in years: 9
+Friendship duration: 103
+
+id: 100000442861646
+Name: Shlomi Joseph
+Total number of friends: 684
+Number of mutual friends: 6
+Age of user account in years: 9
+Friendship duration: 110
+
+id: 100000993979012
+Name: Vonoq Zopin
+Total number of friends: 19
+Number of mutual friends: 3
+Age of user account in years: 8
+Friendship duration: 104
+
+id: 100001722723770
+Name: Wiqow Facet
+Total number of friends: 23
+Number of mutual friends: 7
+Age of user account in years: 8
+Friendship duration: 98
+
+id: 100002231303115
+Name: Itay Dabush
+Total number of friends: 1153
+Number of mutual friends: 21
+Age of user account in years: 6
+Friendship duration: 66
+
+id: 100003045587065
+Name: Nipep Tobip
+Total number of friends: 574
+Number of mutual friends: 16
+Age of user account in years: 19
+Friendship duration: 86
+
+id: 100004773675250
+Name: Ayelet Yitzhak
+Total number of friends: 155
+Number of mutual friends: 11
+Age of user account in years: 4
+Friendship duration: 20
+
+id: 100005136289453
+Name: Yuval Gross
+Total number of friends: -1
+Number of mutual friends: 5
+Age of user account in years: 6
+Friendship duration: -1
+
+id: 100006644657653
+Name: Yusuw Bodoj
+Total number of friends: 75
+Number of mutual friends: 0
+Age of user account in years: 9
+Friendship duration: 14
+
+id: 100007995046947
+Name: Tamir Magnezi
+Total number of friends: 355
+Number of mutual friends: 23
+Age of user account in years: 5
+Friendship duration: 41
+
+id: 100011530863182
+Name: Ilya Gorelik
+Total number of friends: 324
+Number of mutual friends: 11
+Age of user account in years: 3
+Friendship duration: 8
+
+id: 100012591609719
+Name: Tymur Berdyiev
+Total number of friends: 256
+Number of mutual friends: 0
+Age of user account in years: 2
+Friendship duration: 14
+
+id: 1218247651
+Name: Ariel Ashtamker
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 0
+Friendship duration: -1
+
+id: 1391443698
+Name: Avi Cohen
+Total number of friends: 279
+Number of mutual friends: 20
+Age of user account in years: 9
+Friendship duration: 105
+
+id: 1544911013
+Name: Avi Hashuel
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 0
+Friendship duration: -1
+
+id: 1655954271
+Name: Noya Franco
+Total number of friends: 450
+Number of mutual friends: 6
+Age of user account in years: 10
+Friendship duration: 3
+
+id: 1793621400
+Name: Tal Cohen
+Total number of friends: 680
+Number of mutual friends: 50
+Age of user account in years: 0
+Friendship duration: 103
+
+id: 1807973956
+Name: Jewiq Yevib
+Total number of friends: 1562
+Number of mutual friends: 36
+Age of user account in years: 9
+Friendship duration: 107
+
+id: 502901736
+Name: Catt Dee
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 11
+Friendship duration: -1
+
+id: 535904455
+Name: Will Bliss
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 11
+Friendship duration: -1
+
+id: 719487141
+Name: Ben And'joy
+Total number of friends: -1
+Number of mutual friends: 0
+Age of user account in years: 9
+Friendship duration: -1
+
+id: achiad.gelerenter
+Name: Achiad Gelerenter
+Total number of friends: 817
+Number of mutual friends: 26
+Age of user account in years: 9
+Friendship duration: 3
+
+id: adi.cohen.7549
+Name: Adi Cohen
+Total number of friends: 469
+Number of mutual friends: 31
+Age of user account in years: 9
+Friendship duration: 38
+
+id: adi.zaguri
+Name: Adi Zaguri
+Total number of friends: 817
+Number of mutual friends: 31
+Age of user account in years: 10
+Friendship duration: 38
+
+id: adron.gurung
+Name: Lokendra Gurung
+Total number of friends: 2845
+Number of mutual friends: 0
+Age of user account in years: 5
+Friendship duration: 54
+
+id: adva.santo.9
+Name: Adva Santo
+Total number of friends: 598
+Number of mutual friends: 60
+Age of user account in years: 10
+Friendship duration: 56
+
+id: AlexChinyan
+Name: Alexander Chinyan
+Total number of friends: -1
+Number of mutual friends: 20
+Age of user account in years: 10
+Friendship duration: -1
+
+id: almog.sanker
+Name: Almog Sanker
+Total number of friends: 327
+Number of mutual friends: 28
+Age of user account in years: 10
+Friendship duration: 114
+
+id: alonw2
+Name: Alon Weisman
+Total number of friends: 1371
+Number of mutual friends: 29
+Age of user account in years: 9
+Friendship duration: 118
+
+id: amir.fridler
+Name: Amir Fridler
+Total number of friends: 694
+Number of mutual friends: 7
+Age of user account in years: 9
+Friendship duration: 34
+
+id: amir.mazig
+Name: Amir Mazig
+Total number of friends: 3071
+Number of mutual friends: 34
+Age of user account in years: 10
+Friendship duration: 87
+
+id: amit.shwartzman
+Name: Amit Shwartzman
+Total number of friends: 395
+Number of mutual friends: 25
+Age of user account in years: 10
+Friendship duration: 71
+
+id: anastasiyary
+Name: Anastasia Ryabushkina
+Total number of friends: -1
+Number of mutual friends: 1
+Age of user account in years: 9
+Friendship duration: -1
+
+id: andrea.dipaola.5243
+Name: Andrea Di Paola
+Total number of friends: 305
+Number of mutual friends: 5
+Age of user account in years: 8
+Friendship duration: 1
+
+id: annabel.ley2
+Name: Annabel Ley
+Total number of friends: 1738
+Number of mutual friends: 2
+Age of user account in years: 11
+Friendship duration: 54
+
+id: ariel.arusi
+Name: Ariel Arusi
+Total number of friends: 802
+Number of mutual friends: 23
+Age of user account in years: 9
+Friendship duration: 106
+
+id: ariel.dar.31
+Name: Ariel Dar
+Total number of friends: 1066
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 9
+
+id: ariel.vitver
+Name: Ariel Vitver
+Total number of friends: -1
+Number of mutual friends: 21
+Age of user account in years: 10
+Friendship duration: -1
+
+id: artiom.gutnic
+Name: Artiom Gutnik
+Total number of friends: 701
+Number of mutual friends: 21
+Age of user account in years: 8
+Friendship duration: 67
+
+id: assaf.einhoren
+Name: Assaf Einhoren
+Total number of friends: 794
+Number of mutual friends: 6
+Age of user account in years: 9
+Friendship duration: 120
+
+id: avi.melnikov
+Name: Avi Melnikov
+Total number of friends: 1386
+Number of mutual friends: 28
+Age of user account in years: 9
+Friendship duration: 90
+
+id: avi.natan
+Name: Avi Natan
+Total number of friends: 472
+Number of mutual friends: 14
+Age of user account in years: 10
+Friendship duration: 46
+
+id: avi.tagau
+Name: Avi Tagau
+Total number of friends: 882
+Number of mutual friends: 28
+Age of user account in years: 8
+Friendship duration: 86
+
+id: avia.itzhak
+Name: Avia Yizhak
+Total number of friends: 895
+Number of mutual friends: 38
+Age of user account in years: 9
+Friendship duration: 46
+
+id: aviad.hershko
+Name: Aviad Hershko
+Total number of friends: 320
+Number of mutual friends: 31
+Age of user account in years: 10
+Friendship duration: 82
+
+id: aviram.rosenfald
+Name: Aviram Rosenfald
+Total number of friends: 886
+Number of mutual friends: 51
+Age of user account in years: 9
+Friendship duration: 121
+
+id: avital.santo
+Name: Avital Santo
+Total number of friends: 452
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 20
+
+id: avital.solomon.7
+Name: Avital Solomon Bar
+Total number of friends: -1
+Number of mutual friends: 26
+Age of user account in years: 12
+Friendship duration: -1
+
+id: aviv.b.haim
+Name: Aviv Ben Haim
+Total number of friends: 511
+Number of mutual friends: 12
+Age of user account in years: 9
+Friendship duration: 47
+
+id: aviv.brami
+Name: Aviv Brami
+Total number of friends: 731
+Number of mutual friends: 21
+Age of user account in years: 10
+Friendship duration: 12
+
+id: aviv.gueta.12
+Name: Aviv Gueta
+Total number of friends: 549
+Number of mutual friends: 44
+Age of user account in years: 11
+Friendship duration: 84
+
+id: aviv.kest
+Name: Aviv Kest
+Total number of friends: 1172
+Number of mutual friends: 8
+Age of user account in years: 11
+Friendship duration: 54
+
+id: avivh3
+Name: Aviv Hazan
+Total number of friends: 909
+Number of mutual friends: 35
+Age of user account in years: 9
+Friendship duration: 87
+
+id: bar.amoyal.33
+Name: Bar Amoyal
+Total number of friends: -1
+Number of mutual friends: 23
+Age of user account in years: 10
+Friendship duration: -1
+
+id: bar.shofer
+Name: Bar Shofer
+Total number of friends: -1
+Number of mutual friends: 15
+Age of user account in years: 8
+Friendship duration: -1
+
+id: barak.goldhirsh
+Name: Barak Goldhirsh
+Total number of friends: 1222
+Number of mutual friends: 33
+Age of user account in years: 10
+Friendship duration: 104
+
+id: ben.shemtov.33
+Name: Ben Shem Tov
+Total number of friends: 1194
+Number of mutual friends: 58
+Age of user account in years: 11
+Friendship duration: 12
+
+id: benhiram.binyamini
+Name: Ben Hiram Binyamini
+Total number of friends: 163
+Number of mutual friends: 23
+Age of user account in years: 9
+Friendship duration: 108
+
+id: blaise.barretto
+Name: Blaise Barretto
+Total number of friends: -1
+Number of mutual friends: 20
+Age of user account in years: 14
+Friendship duration: -1
+
+id: bshafir
+Name: Batel Shafir
+Total number of friends: 1877
+Number of mutual friends: 41
+Age of user account in years: 9
+Friendship duration: 121
+
+id: calanit.shapira
+Name: Calanit Shapira
+Total number of friends: 167
+Number of mutual friends: 30
+Age of user account in years: 11
+Friendship duration: 119
+
+id: CathalOhInse
+Name: Cathal Henchy
+Total number of friends: 592
+Number of mutual friends: 0
+Age of user account in years: 14
+Friendship duration: 57
+
+id: clara.cabezassanchez
+Name: Clara Cabezas S\xc3\xa1nchez
+Total number of friends: 331
+Number of mutual friends: 0
+Age of user account in years: 8
+Friendship duration: 51
+
+id: clipar
+Name: Or Kalev
+Total number of friends: 858
+Number of mutual friends: 1
+Age of user account in years: 0
+Friendship duration: 20
+
+id: crenathomas
+Name: Rena Thomas
+Total number of friends: 1554
+Number of mutual friends: 14
+Age of user account in years: 9
+Friendship duration: 31
+
+id: dafnao
+Name: Dafna Or
+Total number of friends: 461
+Number of mutual friends: 24
+Age of user account in years: 9
+Friendship duration: 37
+
+id: Dan.Ben.Moshe
+Name: Dan Ben Moshe
+Total number of friends: 685
+Number of mutual friends: 43
+Age of user account in years: 10
+Friendship duration: 108
+
+id: dan.shifrin.3
+Name: Dan Shifrin
+Total number of friends: 576
+Number of mutual friends: 41
+Age of user account in years: 10
+Friendship duration: 90
+
+id: daniel.barcesat
+Name: Daniel Barcesat
+Total number of friends: 822
+Number of mutual friends: 18
+Age of user account in years: 12
+Friendship duration: 66
+
+id: daniel.feldman.184
+Name: Daniel Feldman
+Total number of friends: 1013
+Number of mutual friends: 39
+Age of user account in years: 10
+Friendship duration: 110
+
+id: daniel.goldberg.792
+Name: Daniel Goldi Goldberg
+Total number of friends: 909
+Number of mutual friends: 45
+Age of user account in years: 15
+Friendship duration: 118
+
+id: daniel.tripolsky
+Name: Daniel Tripolsky
+Total number of friends: 4073
+Number of mutual friends: 46
+Age of user account in years: 9
+Friendship duration: 121
+
+id: daniella.hodedad
+Name: Daniella Hodedad
+Total number of friends: 990
+Number of mutual friends: 16
+Age of user account in years: 10
+Friendship duration: 18
+
+id: danit.sheffer
+Name: Danit Sheffer
+Total number of friends: 800
+Number of mutual friends: 3
+Age of user account in years: 9
+Friendship duration: 99
+
+id: DanLabs
+Name: Dan Labcovsky
+Total number of friends: -1
+Number of mutual friends: 21
+Age of user account in years: 9
+Friendship duration: -1
+
+id: Deanmal
+Name: Dean Malachi
+Total number of friends: 986
+Number of mutual friends: 24
+Age of user account in years: 10
+Friendship duration: 106
+
+id: dima.boriskovsky
+Name: Dima Boriskovsky
+Total number of friends: 532
+Number of mutual friends: 28
+Age of user account in years: 10
+Friendship duration: 38
+
+id: dima.mintz
+Name: Dima Mintz
+Total number of friends: -1
+Number of mutual friends: 34
+Age of user account in years: 10
+Friendship duration: -1
+
+id: dolev.shukrun
+Name: Dolev Shukrun
+Total number of friends: 1165
+Number of mutual friends: 35
+Age of user account in years: 10
+Friendship duration: 119
+
+id: dorian.azan
+Name: Dor Azan
+Total number of friends: 705
+Number of mutual friends: 37
+Age of user account in years: 9
+Friendship duration: 100
+
+id: dorit.b.haim
+Name: Dorit Bar Haim
+Total number of friends: 855
+Number of mutual friends: 31
+Age of user account in years: 10
+Friendship duration: 39
+
+id: doronrot
+Name: Doron Rotman
+Total number of friends: 818
+Number of mutual friends: 29
+Age of user account in years: 10
+Friendship duration: 37
+
+id: dudi.shoval
+Name: Dudi Shoval
+Total number of friends: 4999
+Number of mutual friends: 46
+Age of user account in years: 10
+Friendship duration: 112
+
+id: dumb.ass.crow
+Name: Yonel Valvatker
+Total number of friends: 669
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 117
+
+id: dvir.lugasi
+Name: Dvir Lugasi
+Total number of friends: 432
+Number of mutual friends: 16
+Age of user account in years: 9
+Friendship duration: 58
+
+id: dvir.reich
+Name: Dvir Reich
+Total number of friends: 643
+Number of mutual friends: 12
+Age of user account in years: 9
+Friendship duration: 19
+
+id: eden.mapgaonkar
+Name: Eden Davidov
+Total number of friends: 704
+Number of mutual friends: 8
+Age of user account in years: 10
+Friendship duration: 112
+
+id: edoardo.lio
+Name: Edoardo Lio
+Total number of friends: 1027
+Number of mutual friends: 4
+Age of user account in years: 10
+Friendship duration: 1
+
+id: eitan.shahar
+Name: Eitan Shahar
+Total number of friends: 270
+Number of mutual friends: 28
+Age of user account in years: 9
+Friendship duration: 90
+
+id: elad.daniels
+Name: Elad Daniels
+Total number of friends: 970
+Number of mutual friends: 25
+Age of user account in years: 15
+Friendship duration: 68
+
+id: Elad.Elimelech
+Name: Elad Elimelech
+Total number of friends: 853
+Number of mutual friends: 31
+Age of user account in years: 8
+Friendship duration: 74
+
+id: Elena.getzels
+Name: Elena Getzels
+Total number of friends: -1
+Number of mutual friends: 20
+Age of user account in years: 0
+Friendship duration: -1
+
+id: eli.khliaf
+Name: Eli Khlief
+Total number of friends: -1
+Number of mutual friends: 34
+Age of user account in years: 10
+Friendship duration: -1
+
+id: eliav.mor
+Name: Eliav Mor
+Total number of friends: 1279
+Number of mutual friends: 9
+Age of user account in years: 11
+Friendship duration: 2
+
+id: eliran.benmoshe
+Name: Eliran Ben Moshe
+Total number of friends: 823
+Number of mutual friends: 35
+Age of user account in years: 9
+Friendship duration: 120
+
+id: eliran.tal
+Name: Eliran Tal
+Total number of friends: 602
+Number of mutual friends: 19
+Age of user account in years: 10
+Friendship duration: 14
+
+id: eliranb1
+Name: Eliran Binyamini
+Total number of friends: 813
+Number of mutual friends: 25
+Age of user account in years: 9
+Friendship duration: 108
+
+id: elishav
+Name: Elishav Binyamini
+Total number of friends: 909
+Number of mutual friends: 28
+Age of user account in years: 9
+Friendship duration: 122
+
+id: eran.notkin
+Name: Eran Notkin
+Total number of friends: 578
+Number of mutual friends: 20
+Age of user account in years: 11
+Friendship duration: 39
+
+id: evelyn.mapgaonkar
+Name: Evelyn Mapgaonkar
+Total number of friends: 724
+Number of mutual friends: 11
+Age of user account in years: 10
+Friendship duration: 117
+
+id: evyatar.malka.9
+Name: Evyatar Malka
+Total number of friends: 1014
+Number of mutual friends: 17
+Age of user account in years: 12
+Friendship duration: 38
+
+id: eyal.trefler
+Name: Eyal Trefler
+Total number of friends: 602
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 98
+
+id: ezequielalejo.pilnik
+Name: Ezequiel Alejo Pilnik
+Total number of friends: 259
+Number of mutual friends: 12
+Age of user account in years: 8
+Friendship duration: 110
+
+id: gal.tfilin
+Name: Gal Tfilin
+Total number of friends: 508
+Number of mutual friends: 10
+Age of user account in years: 9
+Friendship duration: 27
+
+id: gal.yogev.9
+Name: Gal Yogev
+Total number of friends: 1188
+Number of mutual friends: 6
+Age of user account in years: 9
+Friendship duration: 83
+
+id: gali.katz1
+Name: Gali Katz
+Total number of friends: 1231
+Number of mutual friends: 1
+Age of user account in years: 9
+Friendship duration: 22
+
+id: galit.naim.mapgavker
+Name: Galit Naim
+Total number of friends: 496
+Number of mutual friends: 31
+Age of user account in years: 9
+Friendship duration: 119
+
+id: gil.shteinberg
+Name: Gil Steinberg
+Total number of friends: 984
+Number of mutual friends: 41
+Age of user account in years: 10
+Friendship duration: 120
+
+id: gilad.ram.9
+Name: Gilad Ram
+Total number of friends: 895
+Number of mutual friends: 4
+Age of user account in years: 10
+Friendship duration: 5
+
+id: gilad.tal.5
+Name: Gilad Tal
+Total number of friends: 701
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 49
+
+id: gilad.tam
+Name: Gilad Tam
+Total number of friends: 1329
+Number of mutual friends: 35
+Age of user account in years: 8
+Friendship duration: 39
+
+id: gilad.uzan.5
+Name: Gilad Uzan
+Total number of friends: 772
+Number of mutual friends: 33
+Age of user account in years: 10
+Friendship duration: 38
+
+id: gilfrenkel89
+Name: Gil Frenkel
+Total number of friends: 1005
+Number of mutual friends: 33
+Age of user account in years: 0
+Friendship duration: 39
+
+id: Gili319
+Name: Gil-Or Israeli
+Total number of friends: 495
+Number of mutual friends: 15
+Age of user account in years: 9
+Friendship duration: 18
+
+id: giliwe
+Name: Gili Weinberg
+Total number of friends: 1135
+Number of mutual friends: 31
+Age of user account in years: 11
+Friendship duration: 38
+
+id: goldmangal90
+Name: Gal Goldman
+Total number of friends: 296
+Number of mutual friends: 9
+Age of user account in years: 10
+Friendship duration: 48
+
+id: guy.avital.7
+Name: Guy Avital
+Total number of friends: 351
+Number of mutual friends: 24
+Age of user account in years: 7
+Friendship duration: 93
+
+id: guy.ayalon.5
+Name: Guy Ayalon
+Total number of friends: 1064
+Number of mutual friends: 4
+Age of user account in years: 10
+Friendship duration: 97
+
+id: guy.b.israel
+Name: Guy Ben Israel
+Total number of friends: 881
+Number of mutual friends: 21
+Age of user account in years: 10
+Friendship duration: 37
+
+id: GuyGarbi
+Name: Guy Garbi
+Total number of friends: 562
+Number of mutual friends: 13
+Age of user account in years: 9
+Friendship duration: 71
+
+id: hadastorm
+Name: Hadas Elbaz
+Total number of friends: 494
+Number of mutual friends: 2
+Age of user account in years: 10
+Friendship duration: 38
+
+id: hagar.yungman
+Name: Hagar Yungman
+Total number of friends: 497
+Number of mutual friends: 10
+Age of user account in years: 9
+Friendship duration: 48
+
+id: hanna.mapgavker
+Name: Hanna Mapgavker
+Total number of friends: 48
+Number of mutual friends: 18
+Age of user account in years: 3
+Friendship duration: 40
+
+id: hannahwood42
+Name: Hannah Wood
+Total number of friends: -1
+Number of mutual friends: 2
+Age of user account in years: 14
+Friendship duration: -1
+
+id: hartido
+Name: Ido Hartmann
+Total number of friends: 1586
+Number of mutual friends: 10
+Age of user account in years: 10
+Friendship duration: 24
+
+id: hen.paldi
+Name: Hen Paldi
+Total number of friends: 1060
+Number of mutual friends: 3
+Age of user account in years: 11
+Friendship duration: 38
+
+id: henros0
+Name: Hen Rosenberg
+Total number of friends: -1
+Number of mutual friends: 38
+Age of user account in years: 9
+Friendship duration: -1
+
+id: hila.benhamou.3
+Name: Hila Ben Hamou
+Total number of friends: -1
+Number of mutual friends: 38
+Age of user account in years: 9
+Friendship duration: -1
+
+id: hilla.galili.5
+Name: Hilla Galili
+Total number of friends: 698
+Number of mutual friends: 28
+Age of user account in years: 11
+Friendship duration: 38
+
+id: hpsaman
+Name: Saman Hosseinpuor
+Total number of friends: 3965
+Number of mutual friends: 3
+Age of user account in years: 7
+Friendship duration: 1
+
+id: i.z.sardinas
+Name: Yukos Beyik
+Total number of friends: 778
+Number of mutual friends: 29
+Age of user account in years: 8
+Friendship duration: 99
+
+id: ibitton
+Name: Itamar Bitton
+Total number of friends: 1050
+Number of mutual friends: 23
+Age of user account in years: 8
+Friendship duration: 66
+
+id: idan.dahan
+Name: Idan Dahan
+Total number of friends: 394
+Number of mutual friends: 24
+Age of user account in years: 11
+Friendship duration: 118
+
+id: idan.shamir.7
+Name: Yehuda Shamir
+Total number of friends: 654
+Number of mutual friends: 7
+Age of user account in years: 11
+Friendship duration: 6
+
+id: igal.kerzner
+Name: Igal Kerzner
+Total number of friends: -1
+Number of mutual friends: 26
+Age of user account in years: 9
+Friendship duration: -1
+
+id: igal.ozik
+Name: Igal Zush Ozik
+Total number of friends: 1754
+Number of mutual friends: 15
+Age of user account in years: 12
+Friendship duration: 24
+
+id: igor.gudich.7
+Name: Igor Gudich
+Total number of friends: 534
+Number of mutual friends: 2
+Age of user account in years: 10
+Friendship duration: 55
+
+id: ikutiel.golberg
+Name: Ikutiel Golberg
+Total number of friends: 100
+Number of mutual friends: 2
+Age of user account in years: 8
+Friendship duration: 21
+
+id: ilayshapiro
+Name: Ilay Kostya Shapiro
+Total number of friends: -1
+Number of mutual friends: 21
+Age of user account in years: 10
+Friendship duration: -1
+
+id: inatayev
+Name: Ran Nathan
+Total number of friends: 855
+Number of mutual friends: 17
+Age of user account in years: 10
+Friendship duration: 84
+
+id: inbar.hertsvolf
+Name: Inbar Hertsvolf
+Total number of friends: 696
+Number of mutual friends: 30
+Age of user account in years: 12
+Friendship duration: 39
+
+id: irit.tohamy
+Name: Irit Tohamy
+Total number of friends: 616
+Number of mutual friends: 1
+Age of user account in years: 11
+Friendship duration: 24
+
+id: isaac.shenkar
+Name: Isaac Shenkar
+Total number of friends: 267
+Number of mutual friends: 19
+Age of user account in years: 0
+Friendship duration: 103
+
+id: isabela.carvalho
+Name: Isabela Carvalho
+Total number of friends: 739
+Number of mutual friends: 0
+Age of user account in years: 13
+Friendship duration: 58
+
+id: israel.bakshy
+Name: Seva Bakshy
+Total number of friends: 360
+Number of mutual friends: 21
+Age of user account in years: 8
+Friendship duration: 91
+
+id: israeligal
+Name: Gal Israeli
+Total number of friends: 625
+Number of mutual friends: 25
+Age of user account in years: 9
+Friendship duration: 42
+
+id: itamar.shumen
+Name: Itamar Shumen
+Total number of friends: 1037
+Number of mutual friends: 34
+Age of user account in years: 10
+Friendship duration: 81
+
+id: itay.davidpur
+Name: Itay DavidPur
+Total number of friends: 854
+Number of mutual friends: 15
+Age of user account in years: 8
+Friendship duration: 117
+
+id: itay.ginat
+Name: Itay Ginat
+Total number of friends: 972
+Number of mutual friends: 21
+Age of user account in years: 10
+Friendship duration: 74
+
+id: itay.porat
+Name: Itay Porat
+Total number of friends: 1128
+Number of mutual friends: 63
+Age of user account in years: 12
+Friendship duration: 106
+
+id: itay.turgeman
+Name: Itay Turgeman
+Total number of friends: 858
+Number of mutual friends: 40
+Age of user account in years: 10
+Friendship duration: 119
+
+id: ivan.sagorsky
+Name: Ivan Sagorsky
+Total number of friends: 705
+Number of mutual friends: 33
+Age of user account in years: 11
+Friendship duration: 90
+
+id: izel.furuncuoglu
+Name: Izel Furuncuoglu
+Total number of friends: 788
+Number of mutual friends: 3
+Age of user account in years: 11
+Friendship duration: 2
+
+id: jan.chizhevski
+Name: Jan Chizhevski
+Total number of friends: 423
+Number of mutual friends: 11
+Age of user account in years: 8
+Friendship duration: 115
+
+id: jeremie.piton.5
+Name: J\xc3\xa9r\xc3\xa9mie Piton
+Total number of friends: 226
+Number of mutual friends: 0
+Age of user account in years: 6
+Friendship duration: 57
+
+id: jeremy240
+Name: Jeremy Harouche
+Total number of friends: 975
+Number of mutual friends: 32
+Age of user account in years: 10
+Friendship duration: 114
+
+id: jonathan.dagan.14
+Name: Yonatan Dagan
+Total number of friends: 998
+Number of mutual friends: 5
+Age of user account in years: 11
+Friendship duration: 56
+
+id: jpeaceforest
+Name: Jennipferd Peaceforest
+Total number of friends: -1
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: -1
+
+id: karin.morbeker.3
+Name: Karin Morbeker
+Total number of friends: -1
+Number of mutual friends: 13
+Age of user account in years: 1
+Friendship duration: -1
+
+id: kfir.jacobi
+Name: Kfir Jacobi
+Total number of friends: 583
+Number of mutual friends: 33
+Age of user account in years: 9
+Friendship duration: 106
+
+id: klil.noy
+Name: Klil Noy
+Total number of friends: 838
+Number of mutual friends: 17
+Age of user account in years: 10
+Friendship duration: 55
+
+id: korenoaher
+Name: Koren Korleker
+Total number of friends: 904
+Number of mutual friends: 0
+Age of user account in years: 8
+Friendship duration: 86
+
+id: leon.lamm
+Name: Leon Lamm
+Total number of friends: 975
+Number of mutual friends: 17
+Age of user account in years: 8
+Friendship duration: 117
+
+id: lia.harchenko
+Name: Lia Harchenko
+Total number of friends: 406
+Number of mutual friends: 6
+Age of user account in years: 11
+Friendship duration: 5
+
+id: lian.perry
+Name: Lian Perry
+Total number of friends: 809
+Number of mutual friends: 11
+Age of user account in years: 9
+Friendship duration: 9
+
+id: liat.cohen6
+Name: Liat Cohen
+Total number of friends: 525
+Number of mutual friends: 0
+Age of user account in years: 11
+Friendship duration: 73
+
+id: lilach.solomon.ozik
+Name: Lilach Solomon Ozik
+Total number of friends: 751
+Number of mutual friends: 45
+Age of user account in years: 11
+Friendship duration: 122
+
+id: linor.harnik
+Name: Linor Harnik
+Total number of friends: 425
+Number of mutual friends: 23
+Age of user account in years: 10
+Friendship duration: 29
+
+id: lior.benitzchak
+Name: Lior Ben Itzhak
+Total number of friends: 255
+Number of mutual friends: 13
+Age of user account in years: 9
+Friendship duration: 75
+
+id: liranzc
+Name: Liran Calo
+Total number of friends: 599
+Number of mutual friends: 5
+Age of user account in years: 8
+Friendship duration: 56
+
+id: liron.froind
+Name: Liron Froind
+Total number of friends: 669
+Number of mutual friends: 7
+Age of user account in years: 9
+Friendship duration: 95
+
+id: livne.vaserman
+Name: Livne Vaserman
+Total number of friends: 310
+Number of mutual friends: 26
+Age of user account in years: 10
+Friendship duration: 38
+
+id: lizabasov
+Name: Liza Abasov
+Total number of friends: 540
+Number of mutual friends: 1
+Age of user account in years: 9
+Friendship duration: 47
+
+id: maormta
+Name: Maor Ben Shimon
+Total number of friends: 778
+Number of mutual friends: 32
+Age of user account in years: 11
+Friendship duration: 39
+
+id: marcus.emek
+Name: Julius Mamedov
+Total number of friends: 437
+Number of mutual friends: 0
+Age of user account in years: 10
+Friendship duration: 48
+
+id: matanel.tassa
+Name: Matanel Tassa
+Total number of friends: 643
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 35
+
+id: meital.katz.1
+Name: Meital Katz
+Total number of friends: 727
+Number of mutual friends: 28
+Age of user account in years: 11
+Friendship duration: 39
+
+id: mendel.melloul
+Name: Mendel Melloul
+Total number of friends: 839
+Number of mutual friends: 24
+Age of user account in years: 10
+Friendship duration: 69
+
+id: Meyassed
+Name: Omer Meyassed
+Total number of friends: 976
+Number of mutual friends: 9
+Age of user account in years: 11
+Friendship duration: 36
+
+id: micaela.piciaccia
+Name: Micaela Piciaccia
+Total number of friends: 979
+Number of mutual friends: 0
+Age of user account in years: 10
+Friendship duration: 52
+
+id: michael.schwartz.96155
+Name: Michael Schwartz
+Total number of friends: 1184
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 45
+
+id: michael.shoval
+Name: Michael Shoval
+Total number of friends: 944
+Number of mutual friends: 46
+Age of user account in years: 9
+Friendship duration: 117
+
+id: michal.hazan.94
+Name: Michal Hazan Smith
+Total number of friends: 3323
+Number of mutual friends: 4
+Age of user account in years: 14
+Friendship duration: 16
+
+id: michel.mizrachi
+Name: Michel Mizrachi
+Total number of friends: 818
+Number of mutual friends: 6
+Age of user account in years: 11
+Friendship duration: 98
+
+id: mikaila.hogan
+Name: Mikaila Hogan
+Total number of friends: 163
+Number of mutual friends: 1
+Age of user account in years: 11
+Friendship duration: 56
+
+id: miritn
+Name: Mirit Naim
+Total number of friends: 352
+Number of mutual friends: 4
+Age of user account in years: 6
+Friendship duration: 119
+
+id: misha.katz.3
+Name: Kitoq Ruyiy
+Total number of friends: 652
+Number of mutual friends: 21
+Age of user account in years: 8
+Friendship duration: 61
+
+id: molly.maps
+Name: Elly Molly Mapgaonkar
+Total number of friends: 150
+Number of mutual friends: 8
+Age of user account in years: 10
+Friendship duration: 105
+
+id: mor.ariam
+Name: Mor Ariam
+Total number of friends: 1192
+Number of mutual friends: 30
+Age of user account in years: 9
+Friendship duration: 54
+
+id: mor.peretz17
+Name: Mor Peretz
+Total number of friends: -1
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: -1
+
+id: mor.taub.7
+Name: Mor Taub
+Total number of friends: 411
+Number of mutual friends: 21
+Age of user account in years: 13
+Friendship duration: 109
+
+id: mordi.bendavid
+Name: Mordi Ben David
+Total number of friends: 924
+Number of mutual friends: 62
+Age of user account in years: 9
+Friendship duration: 104
+
+id: moriel.veksler
+Name: Moriel Veksler
+Total number of friends: 761
+Number of mutual friends: 7
+Age of user account in years: 10
+Friendship duration: 14
+
+id: moris.dadon
+Name: Moris Dadon
+Total number of friends: 1106
+Number of mutual friends: 22
+Age of user account in years: 10
+Friendship duration: 64
+
+id: moshe.mailler
+Name: Moshe Mailler
+Total number of friends: 509
+Number of mutual friends: 22
+Age of user account in years: 9
+Friendship duration: 38
+
+id: moshiko.rozenberg
+Name: Moshik Roz
+Total number of friends: 887
+Number of mutual friends: 8
+Age of user account in years: 8
+Friendship duration: 90
+
+id: muszkal
+Name: Omry Muszkal
+Total number of friends: 773
+Number of mutual friends: 14
+Age of user account in years: 12
+Friendship duration: 24
+
+id: naftali.smith.1
+Name: Naftali Smith
+Total number of friends: 709
+Number of mutual friends: 2
+Age of user account in years: 13
+Friendship duration: 26
+
+id: naor.garbian
+Name: Naor Garbian
+Total number of friends: 408
+Number of mutual friends: 28
+Age of user account in years: 10
+Friendship duration: 84
+
+id: naor.zioni
+Name: Naor Zioni
+Total number of friends: 1282
+Number of mutual friends: 40
+Age of user account in years: 9
+Friendship duration: 114
+
+id: natalie.zargarian
+Name: Natalie Zargarian
+Total number of friends: 1812
+Number of mutual friends: 37
+Age of user account in years: 11
+Friendship duration: 120
+
+id: natann.yaaloofcado
+Name: Natan Yalo Fcado
+Total number of friends: 324
+Number of mutual friends: 32
+Age of user account in years: 9
+Friendship duration: 95
+
+id: nateglz
+Name: Natan Glozman
+Total number of friends: -1
+Number of mutual friends: 35
+Age of user account in years: 9
+Friendship duration: -1
+
+id: nati.dokarker
+Name: Netanel Dokerker
+Total number of friends: 477
+Number of mutual friends: 14
+Age of user account in years: 14
+Friendship duration: 65
+
+id: neta.cohen.18
+Name: Neta Cohen
+Total number of friends: 384
+Number of mutual friends: 16
+Age of user account in years: 11
+Friendship duration: 29
+
+id: netakap
+Name: Neta Kaplan
+Total number of friends: 843
+Number of mutual friends: 7
+Age of user account in years: 10
+Friendship duration: 26
+
+id: netatsur1
+Name: Neta Tsur
+Total number of friends: 1098
+Number of mutual friends: 6
+Age of user account in years: 14
+Friendship duration: 42
+
+id: netta.weksler
+Name: Netta Weksler
+Total number of friends: 1036
+Number of mutual friends: 7
+Age of user account in years: 10
+Friendship duration: 52
+
+id: nevo.mashiach
+Name: Nevo Mashiach
+Total number of friends: 1037
+Number of mutual friends: 32
+Age of user account in years: 9
+Friendship duration: 36
+
+id: nimrod.israelit
+Name: Nimrod Israelit
+Total number of friends: 671
+Number of mutual friends: 10
+Age of user account in years: 10
+Friendship duration: 56
+
+id: nir.asidon.9
+Name: Nir Asidon
+Total number of friends: 2571
+Number of mutual friends: 24
+Age of user account in years: 8
+Friendship duration: 68
+
+id: nir.dayan.12
+Name: Nir Dayan
+Total number of friends: 641
+Number of mutual friends: 31
+Age of user account in years: 15
+Friendship duration: 98
+
+id: nirdror
+Name: Nir Dror
+Total number of friends: 1392
+Number of mutual friends: 32
+Age of user account in years: 14
+Friendship duration: 116
+
+id: nitzamir
+Name: Nitzan Amir
+Total number of friends: 418
+Number of mutual friends: 32
+Age of user account in years: 14
+Friendship duration: 38
+
+id: nitzan.beach
+Name: Nitzan Beach
+Total number of friends: 996
+Number of mutual friends: 24
+Age of user account in years: 11
+Friendship duration: 38
+
+id: niv.lipetz
+Name: Niv Lipetz
+Total number of friends: 754
+Number of mutual friends: 26
+Age of user account in years: 12
+Friendship duration: 42
+
+id: nizan.ifrach
+Name: Nizan Ifrach
+Total number of friends: 504
+Number of mutual friends: 19
+Age of user account in years: 10
+Friendship duration: 45
+
+id: noa.06
+Name: Noa Ben Ami
+Total number of friends: 397
+Number of mutual friends: 27
+Age of user account in years: 11
+Friendship duration: 38
+
+id: noa.golani.5
+Name: Noa Golani
+Total number of friends: 486
+Number of mutual friends: 8
+Age of user account in years: 9
+Friendship duration: 30
+
+id: noam.fein.1
+Name: Noam Fein
+Total number of friends: 425
+Number of mutual friends: 4
+Age of user account in years: 9
+Friendship duration: 33
+
+id: noam.sabbag
+Name: Noam Sabbag
+Total number of friends: 712
+Number of mutual friends: 10
+Age of user account in years: 10
+Friendship duration: 8
+
+id: noam.shany
+Name: Noam Shany
+Total number of friends: 525
+Number of mutual friends: 19
+Age of user account in years: 10
+Friendship duration: 38
+
+id: noam.shvarts.7
+Name: Noam Shvarts
+Total number of friends: 1163
+Number of mutual friends: 37
+Age of user account in years: 9
+Friendship duration: 103
+
+id: nofar.alfasi.7
+Name: Nofar Alfasi
+Total number of friends: 777
+Number of mutual friends: 7
+Age of user account in years: 12
+Friendship duration: 30
+
+id: nuni.boaz
+Name: Naya Be
+Total number of friends: 928
+Number of mutual friends: 22
+Age of user account in years: 11
+Friendship duration: 56
+
+id: oded.niv
+Name: Oded Niv
+Total number of friends: 251
+Number of mutual friends: 1
+Age of user account in years: 14
+Friendship duration: 37
+
+id: oded.rojtblat
+Name: Oded Rojtblat
+Total number of friends: 452
+Number of mutual friends: 35
+Age of user account in years: 9
+Friendship duration: 43
+
+id: ofersuli
+Name: Ofer Sulimani
+Total number of friends: 576
+Number of mutual friends: 25
+Age of user account in years: 9
+Friendship duration: 41
+
+id: ofir.b.yacov
+Name: Ofir Ben Yacov
+Total number of friends: 680
+Number of mutual friends: 14
+Age of user account in years: 9
+Friendship duration: 79
+
+id: ofir.gariani
+Name: Ofir Gariani
+Total number of friends: 633
+Number of mutual friends: 22
+Age of user account in years: 0
+Friendship duration: 106
+
+id: ohad.ohana.9
+Name: Ohad Ohana
+Total number of friends: 518
+Number of mutual friends: 19
+Age of user account in years: 8
+Friendship duration: 48
+
+id: omri.boozi
+Name: Omri Boozi
+Total number of friends: 639
+Number of mutual friends: 23
+Age of user account in years: 9
+Friendship duration: 98
+
+id: omri.davidyan
+Name: Omri Davidyan
+Total number of friends: 1141
+Number of mutual friends: 37
+Age of user account in years: 8
+Friendship duration: 86
+
+id: OmriAlon09
+Name: Omri Alon
+Total number of friends: 687
+Number of mutual friends: 36
+Age of user account in years: 9
+Friendship duration: 107
+
+id: omrizarko
+Name: Omri Zarko
+Total number of friends: 962
+Number of mutual friends: 41
+Age of user account in years: 8
+Friendship duration: 103
+
+id: or.avital
+Name: Or Avital
+Total number of friends: 779
+Number of mutual friends: 37
+Age of user account in years: 11
+Friendship duration: 104
+
+id: or.cohen.140
+Name: Or Cohen
+Total number of friends: 983
+Number of mutual friends: 10
+Age of user account in years: 10
+Friendship duration: 55
+
+id: or.naimark
+Name: Or Naimark
+Total number of friends: 421
+Number of mutual friends: 11
+Age of user account in years: 9
+Friendship duration: 30
+
+id: orbitton276
+Name: Or Bitton
+Total number of friends: 914
+Number of mutual friends: 14
+Age of user account in years: 8
+Friendship duration: 112
+
+id: orel.finkel
+Name: Orel Finkel
+Total number of friends: -1
+Number of mutual friends: 34
+Age of user account in years: 10
+Friendship duration: -1
+
+id: orel.sultan
+Name: Orel Sultan
+Total number of friends: 1303
+Number of mutual friends: 51
+Age of user account in years: 9
+Friendship duration: 105
+
+id: orelie.shahar
+Name: Orelie Shahar
+Total number of friends: 457
+Number of mutual friends: 22
+Age of user account in years: 10
+Friendship duration: 45
+
+id: oria.itzhak
+Name: Oria Itzhak
+Total number of friends: 537
+Number of mutual friends: 38
+Age of user account in years: 10
+Friendship duration: 96
+
+id: orr.raved
+Name: Orr Raved
+Total number of friends: 950
+Number of mutual friends: 4
+Age of user account in years: 12
+Friendship duration: 55
+
+id: ortal.sanker
+Name: Ortal Sanker
+Total number of friends: -1
+Number of mutual friends: 19
+Age of user account in years: 10
+Friendship duration: -1
+
+id: pshaidenfish
+Name: Polina Shaidenfish
+Total number of friends: 605
+Number of mutual friends: 27
+Age of user account in years: 9
+Friendship duration: 120
+
+id: ran.rabi.5
+Name: Ran Rabi
+Total number of friends: 902
+Number of mutual friends: 9
+Age of user account in years: 0
+Friendship duration: 83
+
+id: raz.yacobian
+Name: Raz Yacobian
+Total number of friends: 1163
+Number of mutual friends: 10
+Age of user account in years: 10
+Friendship duration: 98
+
+id: rbismut1
+Name: Roy Bismut
+Total number of friends: 1301
+Number of mutual friends: 38
+Age of user account in years: 10
+Friendship duration: 62
+
+id: reid.reale
+Name: Reid Reale
+Total number of friends: 1485
+Number of mutual friends: 0
+Age of user account in years: 11
+Friendship duration: 57
+
+id: roei.tzur.3
+Name: Roei Tzur
+Total number of friends: 1481
+Number of mutual friends: 74
+Age of user account in years: 8
+Friendship duration: 118
+
+id: roi.dahan.18
+Name: Roi Dahan
+Total number of friends: 858
+Number of mutual friends: 34
+Age of user account in years: 9
+Friendship duration: 91
+
+id: ronap
+Name: Ron Peleg
+Total number of friends: 1010
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 116
+
+id: ronyitzhak1990
+Name: Ron Yitzhak
+Total number of friends: 320
+Number of mutual friends: 18
+Age of user account in years: 10
+Friendship duration: 37
+
+id: rotem.ferber
+Name: Rotem Ferber
+Total number of friends: 916
+Number of mutual friends: 2
+Age of user account in years: 11
+Friendship duration: 57
+
+id: rotem.gabay.3
+Name: Rotem Gabay
+Total number of friends: 1152
+Number of mutual friends: 27
+Age of user account in years: 11
+Friendship duration: 38
+
+id: rotem.lavi.90
+Name: Rotem Lavi
+Total number of friends: 700
+Number of mutual friends: 18
+Age of user account in years: 10
+Friendship duration: 67
+
+id: roy.alon.39
+Name: Roy Alon
+Total number of friends: 529
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 1
+
+id: roy.naim
+Name: Roy Naim
+Total number of friends: 1327
+Number of mutual friends: 28
+Age of user account in years: 11
+Friendship duration: 122
+
+id: roy.sadeh.3
+Name: Roy Sadeh
+Total number of friends: 603
+Number of mutual friends: 9
+Age of user account in years: 11
+Friendship duration: 55
+
+id: roy.ygael
+Name: Roy Ygael
+Total number of friends: 767
+Number of mutual friends: 4
+Age of user account in years: 10
+Friendship duration: 14
+
+id: ruben.diazfarina
+Name: Ruben Diaz Fari\xc3\xb1a
+Total number of friends: 141
+Number of mutual friends: 0
+Age of user account in years: 9
+Friendship duration: 58
+
+id: saar.dinar.1
+Name: Saar Dinar
+Total number of friends: 1458
+Number of mutual friends: 1
+Age of user account in years: 11
+Friendship duration: 31
+
+id: saar.shapira
+Name: Saar Shapira
+Total number of friends: 410
+Number of mutual friends: 26
+Age of user account in years: 13
+Friendship duration: 122
+
+id: sagi.aharon.16
+Name: Sagi Aharon
+Total number of friends: 520
+Number of mutual friends: 10
+Age of user account in years: 9
+Friendship duration: 120
+
+id: sagi.tohami
+Name: Sagi Tohami
+Total number of friends: -1
+Number of mutual friends: 26
+Age of user account in years: 10
+Friendship duration: -1
+
+id: saleh.naarane
+Name: Saleh Naarane
+Total number of friends: -1
+Number of mutual friends: 4
+Age of user account in years: 9
+Friendship duration: -1
+
+id: sara.sanker
+Name: Sara Sanker
+Total number of friends: 112
+Number of mutual friends: 19
+Age of user account in years: 8
+Friendship duration: 101
+
+id: sean.ocheri
+Name: Sean Ocheri
+Total number of friends: 635
+Number of mutual friends: 13
+Age of user account in years: 10
+Friendship duration: 42
+
+id: serg.kogen
+Name: Serg Kogen
+Total number of friends: 859
+Number of mutual friends: 5
+Age of user account in years: 9
+Friendship duration: 111
+
+id: sestrin2
+Name: Semyon Estrin
+Total number of friends: -1
+Number of mutual friends: 4
+Age of user account in years: 14
+Friendship duration: -1
+
+id: Shaby
+Name: Roy Shaul
+Total number of friends: 816
+Number of mutual friends: 9
+Age of user account in years: 11
+Friendship duration: 84
+
+id: shachar.rosenman
+Name: Shachar Rosenman
+Total number of friends: 293
+Number of mutual friends: 26
+Age of user account in years: 11
+Friendship duration: 38
+
+id: shahaffinder
+Name: Shahaf Finderr
+Total number of friends: 901
+Number of mutual friends: 9
+Age of user account in years: 9
+Friendship duration: 24
+
+id: shahar.dadush
+Name: Shahar Dadush
+Total number of friends: 599
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 40
+
+id: shahar.flek
+Name: Shahar Flek
+Total number of friends: 1618
+Number of mutual friends: 33
+Age of user account in years: 9
+Friendship duration: 119
+
+id: shahar.maor.12
+Name: Shahar Maor
+Total number of friends: 354
+Number of mutual friends: 17
+Age of user account in years: 14
+Friendship duration: 29
+
+id: shai.kikozashvily.9
+Name: Shai Kiko
+Total number of friends: 528
+Number of mutual friends: 39
+Age of user account in years: 10
+Friendship duration: 118
+
+id: shai.sastiel
+Name: Shai Sastiel
+Total number of friends: 774
+Number of mutual friends: 34
+Age of user account in years: 9
+Friendship duration: 74
+
+id: shai.zahavi
+Name: Shai Zahavi
+Total number of friends: 535
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 98
+
+id: shani.sudrie
+Name: Shani Soudry
+Total number of friends: 734
+Number of mutual friends: 11
+Age of user account in years: 8
+Friendship duration: 8
+
+id: sharon.druk
+Name: Sharon Druk
+Total number of friends: 1091
+Number of mutual friends: 15
+Age of user account in years: 11
+Friendship duration: 56
+
+id: shavit.chernihov
+Name: Shavit Chernihov
+Total number of friends: 744
+Number of mutual friends: 20
+Age of user account in years: 13
+Friendship duration: 45
+
+id: shavit.yecheskel
+Name: Shavit Yecheskel
+Total number of friends: 1253
+Number of mutual friends: 27
+Age of user account in years: 9
+Friendship duration: 77
+
+id: shay.ambar.3
+Name: Shay Ambar
+Total number of friends: 1151
+Number of mutual friends: 44
+Age of user account in years: 9
+Friendship duration: 107
+
+id: shay.engel.1
+Name: Shay Engel
+Total number of friends: 892
+Number of mutual friends: 39
+Age of user account in years: 10
+Friendship duration: 91
+
+id: shay.peer.1
+Name: Shay Peer
+Total number of friends: 932
+Number of mutual friends: 44
+Age of user account in years: 10
+Friendship duration: 100
+
+id: shay.shachar.7
+Name: Shay Shachar
+Total number of friends: 803
+Number of mutual friends: 40
+Age of user account in years: 10
+Friendship duration: 98
+
+id: sheli.kohan
+Name: Sheli Kohan
+Total number of friends: -1
+Number of mutual friends: 3
+Age of user account in years: 11
+Friendship duration: -1
+
+id: shellyshemtov0096
+Name: Shelly Shem-tov Peretz
+Total number of friends: 1892
+Number of mutual friends: 17
+Age of user account in years: 7
+Friendship duration: 102
+
+id: shimshon.walvatker.1
+Name: Shimshon Walvatker
+Total number of friends: 98
+Number of mutual friends: 9
+Age of user account in years: 4
+Friendship duration: 47
+
+id: shir.schaham
+Name: Shir Schaham
+Total number of friends: 418
+Number of mutual friends: 4
+Age of user account in years: 9
+Friendship duration: 56
+
+id: shirel.brandes
+Name: Shir-el Brandes
+Total number of friends: 538
+Number of mutual friends: 23
+Age of user account in years: 8
+Friendship duration: 41
+
+id: shirel.sanker.5
+Name: Shirel Sanker
+Total number of friends: 594
+Number of mutual friends: 15
+Age of user account in years: 8
+Friendship duration: 63
+
+id: shirtsu
+Name: Shir Tzuberi
+Total number of friends: 1440
+Number of mutual friends: 8
+Age of user account in years: 11
+Friendship duration: 17
+
+id: shlomo.preissbloom
+Name: Shlomo Preiss-Bloom
+Total number of friends: 1333
+Number of mutual friends: 8
+Age of user account in years: 11
+Friendship duration: 29
+
+id: shmuel.damoza
+Name: Shmuel Damoza
+Total number of friends: 402
+Number of mutual friends: 42
+Age of user account in years: 10
+Friendship duration: 93
+
+id: shmuel.sardines
+Name: Shmuel Sardines
+Total number of friends: 1468
+Number of mutual friends: 40
+Age of user account in years: 9
+Friendship duration: 99
+
+id: shoham.nir.1
+Name: Shoham Nir
+Total number of friends: 337
+Number of mutual friends: 26
+Age of user account in years: 8
+Friendship duration: 39
+
+id: shulamith.binyamini
+Name: Shulamith Binyamini
+Total number of friends: 95
+Number of mutual friends: 17
+Age of user account in years: 7
+Friendship duration: 87
+
+id: simon.ley
+Name: Simon Ley
+Total number of friends: 1006
+Number of mutual friends: 2
+Age of user account in years: 10
+Friendship duration: 54
+
+id: simson.ta
+Name: Huwan Zazun
+Total number of friends: 488
+Number of mutual friends: 18
+Age of user account in years: 10
+Friendship duration: 116
+
+id: sinaid
+Name: Sinai Elran Davidpur
+Total number of friends: 901
+Number of mutual friends: 47
+Age of user account in years: 15
+Friendship duration: 12
+
+id: sivan.mamistalov
+Name: Sivan Mamistalov
+Total number of friends: 541
+Number of mutual friends: 5
+Age of user account in years: 9
+Friendship duration: 38
+
+id: skileta
+Name: Idan Shefer
+Total number of friends: -1
+Number of mutual friends: 58
+Age of user account in years: 9
+Friendship duration: -1
+
+id: slava.kagan.3
+Name: Slava Kagan
+Total number of friends: 1108
+Number of mutual friends: 26
+Age of user account in years: 14
+Friendship duration: 47
+
+id: snir.shahar
+Name: Snir Shahar
+Total number of friends: 620
+Number of mutual friends: 22
+Age of user account in years: 10
+Friendship duration: 91
+
+id: snir.shushan
+Name: Snir Shushan
+Total number of friends: 695
+Number of mutual friends: 29
+Age of user account in years: 9
+Friendship duration: 90
+
+id: srul62
+Name: Israel Ohayon
+Total number of friends: 434
+Number of mutual friends: 35
+Age of user account in years: 8
+Friendship duration: 107
+
+id: tal.bebchuk
+Name: Tal Bebchuk
+Total number of friends: 1676
+Number of mutual friends: 31
+Age of user account in years: 11
+Friendship duration: 25
+
+id: tal.dabush.5
+Name: Tal Dabush
+Total number of friends: 530
+Number of mutual friends: 7
+Age of user account in years: 9
+Friendship duration: 23
+
+id: tal.feldman.7
+Name: Tal Feldman
+Total number of friends: 636
+Number of mutual friends: 23
+Age of user account in years: 9
+Friendship duration: 122
+
+id: tal.hajaj.5
+Name: Tal Hajaj
+Total number of friends: 974
+Number of mutual friends: 14
+Age of user account in years: 10
+Friendship duration: 73
+
+id: tal.rozalis
+Name: Tal Rozalis
+Total number of friends: 4579
+Number of mutual friends: 54
+Age of user account in years: 10
+Friendship duration: 107
+
+id: talbaramii
+Name: Tal Barami
+Total number of friends: 767
+Number of mutual friends: 24
+Age of user account in years: 10
+Friendship duration: 24
+
+id: talyariel
+Name: Talya Ariel
+Total number of friends: 800
+Number of mutual friends: 13
+Age of user account in years: 11
+Friendship duration: 47
+
+id: tamar.koltin
+Name: Tamar Koltin
+Total number of friends: 745
+Number of mutual friends: 11
+Age of user account in years: 11
+Friendship duration: 45
+
+id: tamarbm
+Name: Tamar Ben Moshe
+Total number of friends: 886
+Number of mutual friends: 32
+Age of user account in years: 11
+Friendship duration: 39
+
+id: tamir.levi.336
+Name: Tamir Levy
+Total number of friends: -1
+Number of mutual friends: 51
+Age of user account in years: 11
+Friendship duration: -1
+
+id: tanhum.slutski
+Name: Tanhum Sltskin
+Total number of friends: 1430
+Number of mutual friends: 50
+Age of user account in years: 17
+Friendship duration: 107
+
+id: tjallerens
+Name: Tjalle Rens
+Total number of friends: -1
+Number of mutual friends: 2
+Age of user account in years: 15
+Friendship duration: -1
+
+id: tom.dror.7
+Name: Tom Dror
+Total number of friends: 722
+Number of mutual friends: 25
+Age of user account in years: 10
+Friendship duration: 93
+
+id: tom.epstin
+Name: Tom Epstine
+Total number of friends: 2264
+Number of mutual friends: 10
+Age of user account in years: 9
+Friendship duration: 97
+
+id: tom.horvitz
+Name: Tom Horvitz
+Total number of friends: 576
+Number of mutual friends: 5
+Age of user account in years: 10
+Friendship duration: 4
+
+id: tom.lichter
+Name: Tom Lichter
+Total number of friends: 445
+Number of mutual friends: 42
+Age of user account in years: 9
+Friendship duration: 106
+
+id: tom.talmon.7
+Name: Tom Talmon
+Total number of friends: 584
+Number of mutual friends: 10
+Age of user account in years: 9
+Friendship duration: 54
+
+id: tom.weinberg2
+Name: Tom Weinberg
+Total number of friends: 829
+Number of mutual friends: 9
+Age of user account in years: 12
+Friendship duration: 20
+
+id: tom.zaeger
+Name: Tom Zaeger
+Total number of friends: 1092
+Number of mutual friends: 8
+Age of user account in years: 11
+Friendship duration: 27
+
+id: tomer.raanan.9
+Name: Tomer Raanan
+Total number of friends: -1
+Number of mutual friends: 8
+Age of user account in years: 10
+Friendship duration: -1
+
+id: tomer.sasson
+Name: Tomer Sasson
+Total number of friends: 609
+Number of mutual friends: 26
+Age of user account in years: 13
+Friendship duration: 38
+
+id: tomer.shapiro
+Name: Tomer Shapiro
+Total number of friends: 842
+Number of mutual friends: 13
+Age of user account in years: 11
+Friendship duration: 13
+
+id: tomprezman
+Name: Tom Prezman
+Total number of friends: 1115
+Number of mutual friends: 14
+Age of user account in years: 19
+Friendship duration: 30
+
+id: tyitzhak
+Name: Tal Yitzhak
+Total number of friends: 2368
+Number of mutual friends: 40
+Age of user account in years: 14
+Friendship duration: 30
+
+id: tzipi.sapir
+Name: Tzipi Sapir
+Total number of friends: 874
+Number of mutual friends: 29
+Age of user account in years: 8
+Friendship duration: 46
+
+id: tzorrr
+Name: Tzor Edery-Mordekovich
+Total number of friends: 336
+Number of mutual friends: 7
+Age of user account in years: 9
+Friendship duration: 26
+
+id: tzuri.eilat
+Name: Tzuri Eilat
+Total number of friends: -1
+Number of mutual friends: 25
+Age of user account in years: 11
+Friendship duration: -1
+
+id: verena.henger
+Name: Verena Henger
+Total number of friends: 696
+Number of mutual friends: 0
+Age of user account in years: 10
+Friendship duration: 54
+
+id: vlad.lozkin
+Name: Vlad Lozkin
+Total number of friends: 1246
+Number of mutual friends: 61
+Age of user account in years: 11
+Friendship duration: 122
+
+id: vladimir.ashurov.5
+Name: Vladimir Ashurov
+Total number of friends: 826
+Number of mutual friends: 19
+Age of user account in years: 10
+Friendship duration: 66
+
+id: yaad1986
+Name: Yaad Shapira
+Total number of friends: -1
+Number of mutual friends: 8
+Age of user account in years: 14
+Friendship duration: -1
+
+id: yael.b.erez
+Name: Yael Bar- Erez
+Total number of friends: -1
+Number of mutual friends: 31
+Age of user account in years: 10
+Friendship duration: -1
+
+id: yaelazar
+Name: Yaeli Elazar
+Total number of friends: 681
+Number of mutual friends: 12
+Age of user account in years: 13
+Friendship duration: 31
+
+id: yair.nisani
+Name: Yair Nisani
+Total number of friends: 1098
+Number of mutual friends: 32
+Age of user account in years: 10
+Friendship duration: 39
+
+id: Yairlandmann
+Name: Yair Landmann
+Total number of friends: 793
+Number of mutual friends: 11
+Age of user account in years: 13
+Friendship duration: 28
+
+id: yam.erez.7
+Name: Yam Shmueli Erez
+Total number of friends: 1067
+Number of mutual friends: 13
+Age of user account in years: 10
+Friendship duration: 56
+
+id: yaniv.blatt
+Name: Yaniv Blatt
+Total number of friends: -1
+Number of mutual friends: 27
+Age of user account in years: 9
+Friendship duration: -1
+
+id: Yarden.Chen2
+Name: Yarden Chen
+Total number of friends: 1569
+Number of mutual friends: 23
+Age of user account in years: 11
+Friendship duration: 35
+
+id: yarin.altaras
+Name: Yarin Altaras
+Total number of friends: 780
+Number of mutual friends: 41
+Age of user account in years: 10
+Friendship duration: 39
+
+id: yarin912
+Name: Yarin Ifrah
+Total number of friends: 453
+Number of mutual friends: 17
+Age of user account in years: 10
+Friendship duration: 76
+
+id: yehuda.peretz
+Name: Yehuda Peretz
+Total number of friends: -1
+Number of mutual friends: 41
+Age of user account in years: 11
+Friendship duration: -1
+
+id: yeshai.randelman
+Name: Yeshai Randelman
+Total number of friends: 1286
+Number of mutual friends: 2
+Age of user account in years: 11
+Friendship duration: 30
+
+id: yeshy.mengistu
+Name: Yeshy Mengistu
+Total number of friends: -1
+Number of mutual friends: 28
+Age of user account in years: 10
+Friendship duration: -1
+
+id: yiftah.abukrat.1
+Name: Yiftah Abukrat
+Total number of friends: 2553
+Number of mutual friends: 30
+Age of user account in years: 14
+Friendship duration: 98
+
+id: yinon.eliraz
+Name: Yinon Eliraz
+Total number of friends: 545
+Number of mutual friends: 6
+Age of user account in years: 0
+Friendship duration: 49
+
+id: ynisimi
+Name: Yujuj Tetiy
+Total number of friends: 127
+Number of mutual friends: 15
+Age of user account in years: 9
+Friendship duration: 105
+
+id: yoav.hevroni1
+Name: Yoav Hevroni
+Total number of friends: 944
+Number of mutual friends: 40
+Age of user account in years: 9
+Friendship duration: 93
+
+id: YoavEshed
+Name: Yoav Eshed
+Total number of friends: 781
+Number of mutual friends: 33
+Age of user account in years: 12
+Friendship duration: 118
+
+id: yonat.benozer
+Name: Yonat Ben-Ozer
+Total number of friends: 1235
+Number of mutual friends: 1
+Age of user account in years: 10
+Friendship duration: 55
+
+id: yonatan.goren.5
+Name: Yonatan Goren
+Total number of friends: 1831
+Number of mutual friends: 3
+Age of user account in years: 13
+Friendship duration: 54
+
+id: yonatan.g
+Name: Yonatan Geva
+Total number of friends: 504
+Number of mutual friends: 9
+Age of user account in years: 10
+Friendship duration: 24
+
+id: yoni.zehori
+Name: Yoni Zehori
+Total number of friends: 1211
+Number of mutual friends: 7
+Age of user account in years: 9
+Friendship duration: 83
+
+id: yossi.daniels.7
+Name: Yossi Daniels
+Total number of friends: 574
+Number of mutual friends: 14
+Age of user account in years: 14
+Friendship duration: 59
+
+id: yossi.morel
+Name: Yossi Morel
+Total number of friends: -1
+Number of mutual friends: 19
+Age of user account in years: 9
+Friendship duration: -1
+
+id: yuval.amsterdam
+Name: Yuval Amsterdam
+Total number of friends: 580
+Number of mutual friends: 25
+Age of user account in years: 11
+Friendship duration: 38
+
+id: yuval.levy3
+Name: Yuval Levy
+Total number of friends: 1028
+Number of mutual friends: 11
+Age of user account in years: 9
+Friendship duration: 76
+
+id: zahava.santo
+Name: Zahava Santo
+Total number of friends: 499
+Number of mutual friends: 3
+Age of user account in years: 10
+Friendship duration: 28
+
+id: ZivCohenOz
+Name: Ziv Cohen Oz
+Total number of friends: 1192
+Number of mutual friends: 3
+Age of user account in years: 12
+Friendship duration: 48
+
+id: zivdor15
+Name: Dor Ziv
+Total number of friends: 665
+Number of mutual friends: 20
+Age of user account in years: 11
+Friendship duration: 45
+
+id: zoharyam
+Name: Zohar Avigal
+Total number of friends: -1
+Number of mutual friends: 29
+Age of user account in years: 10
+Friendship duration: -1
+

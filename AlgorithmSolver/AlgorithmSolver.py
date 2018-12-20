@@ -1,6 +1,13 @@
 from Node import Node
 from Edge import Edge
-import random, string, csv
+import random
+import string
+import csv
+import configparser
+
+# initiate config file
+config = configparser.ConfigParser()
+config.read('config/config.ini')
 
 VOWELS = "aeiou"
 CONSONANTS = "".join(set(string.ascii_lowercase) - set(VOWELS))
@@ -17,9 +24,8 @@ class AlgorithmSolver:
         self.first_circle_edges = []
         self.second_circle_edges = []
 
-    def decode_name(self):
-
-        return "tmp"
+    def decode_name(self, name_to_decode):
+        return name_to_decode.decode('string-escape')
 
     def makearrayfromstring(self, string):
         ans = []
@@ -85,12 +91,37 @@ class AlgorithmSolver:
             for edge in self.edges:
                 f.write("%s\n" % edge)
 
+    def __calc_c_tf(self, total_friend):
+        if total_friend >= config.getint('VariableConsts','tf_barrier'):
+            return 1
+        else:
+            return total_friend / config.getint('VariableConsts','tf_barrier')
+
+    def __calculate_node_weights(self):
+        """
+        Calculate the c score of node (Facebook user) according to research article
+        :return:
+        """
+        for node in self.nodes:
+            num_of_parameters = 0
+            if node.tf != '-1':
+                num_of_parameters += 1
+                c_tf = self.__calc_c_tf(int(node.tf))
+
+
+    def calculate_weights(self):
+        """
+        function that calculate weights for each node and edge
+        :return:
+        """
+        self.__calculate_node_weights()
+
     def generate(self):
         self.create_nodes_and_edges()
         self.calculate_weights()
 
 
 if __name__ == "__main__":
-    algSolv = AlgorithmSolver("sagiv_data.csv")
+    algSolv = AlgorithmSolver("example.csv")
     algSolv.generate()
     pass

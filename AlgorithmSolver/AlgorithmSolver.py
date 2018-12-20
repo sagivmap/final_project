@@ -25,7 +25,7 @@ class AlgorithmSolver:
         self.second_circle_edges = []
 
     def decode_name(self, name_to_decode):
-        return name_to_decode.decode('string-escape')
+        pass
 
     def makearrayfromstring(self, string):
         ans = []
@@ -66,7 +66,7 @@ class AlgorithmSolver:
             for row in csv_reader:
                 name = row["Name"][2:-1]
                 if not name[0].isalpha():
-                    name = self.decode_name()
+                    name = self.decode_name(name)
 
                 cf = self.makearrayfromstring(row["CF"])
 
@@ -189,9 +189,8 @@ class AlgorithmSolver:
         self.create_nodes_and_edges()
         self.calculate_weights()
         self.calculate_TSP()
-        pass
 
 if __name__ == "__main__":
-    algSolv = AlgorithmSolver("example.csv")
+    algSolv = AlgorithmSolver("sagiv_data.csv")
     algSolv.generate()
     pass

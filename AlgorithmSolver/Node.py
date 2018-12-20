@@ -9,6 +9,8 @@ class Node:
         self.fd = fd  if not fd == "" else "-1"
         self.cf = cf
         self.weight = -1
+        self.tsp = 0
+        self.second_friends_edges = []
 
     def setWeight(self, weight):
         self.weight = weight
@@ -21,4 +23,4 @@ class Node:
         return self.idd == other.idd
 
     def __hash__(self):
-        return hash('idd', self.idd)
+        return hash(self.idd)

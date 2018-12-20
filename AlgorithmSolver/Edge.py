@@ -13,4 +13,4 @@ class Edge:
         return hash(('src', self.src ,'dest' , self.dest))
 
     def __str__(self):
-        return str("Src: " + self.src + " ,Dest: " + self.dest + " ,Friendship Duration: " + self.fd +"\n")
+        return str("Src: " + self.src.idd + " ,Dest: " + self.dest.idd + " ,Friendship Duration: " + self.fd +"\n")

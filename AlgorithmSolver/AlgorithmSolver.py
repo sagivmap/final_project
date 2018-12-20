@@ -25,7 +25,17 @@ class AlgorithmSolver:
         self.second_circle_edges = []
 
     def decode_name(self, name_to_decode):
-        pass
+        try:
+            if not name_to_decode.startswith('\\x'):
+                return name_to_decode[1:]
+            name_to_return = name_to_decode.replace('\'', '\\x27')
+            name_to_return = name_to_return.replace('-', '\\x2d')
+            name_to_return = name_to_return.replace('.', '\\x2e')
+            name_to_return = name_to_return.replace(' ','\\x20')
+            name_to_return = name_to_return.replace('\\x','')
+            return bytes.fromhex(name_to_return).decode('utf-8')
+        except Exception as e:
+            return ''
 
     def makearrayfromstring(self, string):
         ans = []
@@ -52,7 +62,10 @@ class AlgorithmSolver:
                 ans.append(edge)
             else:
                 for user in tmp:
-                    edge = Edge(self.nodes[user], node, node.fd)
+                    try:
+                        edge = Edge(self.nodes[user], node, node.fd)
+                    except Exception as e:
+                        pass
                     self.nodes[user].second_friends_edges.append(edge)
                     ans.append(edge)
                     self.second_circle_edges.append(edge)
@@ -81,16 +94,16 @@ class AlgorithmSolver:
 
         self.edges = self.create_edges()  # after that , we have all nodes and edges
 
-        # sort of a logger
-        with open('./files/firstCircle.txt', 'w') as f:
-            for item in self.first_circle_nodes:
-                f.write("%s\n" % item)
-        with open('./files/secondCircle.txt', 'w') as f:
-            for item in self.second_circle_nodes:
-                f.write("%s\n" % item)
-        with open('./files/allEdges.txt', 'w') as f:
-            for edge in self.edges:
-                f.write("%s\n" % edge)
+        # # sort of a logger
+        # with open('./files/firstCircle.txt', 'w') as f:
+        #     for item in self.first_circle_nodes:
+        #         f.write("%s\n" % item)
+        # with open('./files/secondCircle.txt', 'w') as f:
+        #     for item in self.second_circle_nodes:
+        #         f.write("%s\n" % item)
+        # with open('./files/allEdges.txt', 'w') as f:
+        #     for edge in self.edges:
+        #         f.write("%s\n" % edge)
 
     def __calc_c_tf(self, total_friend):
         if total_friend >= config.getint('VariableConsts','tf_barrier'):

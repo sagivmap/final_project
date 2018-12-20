@@ -4,6 +4,7 @@ import re
 import string
 import csv
 import configparser
+from Graph.GraphBuilder import GraphBuilder
 
 # initiate config file
 config = configparser.ConfigParser()
@@ -218,6 +219,9 @@ class AlgorithmSolver:
         self.calculate_TSP()
 
 if __name__ == "__main__":
-    algSolv = AlgorithmSolver("sagiv_data.csv")
+    algSolv = AlgorithmSolver("example.csv")
     algSolv.generate()
+    graph = GraphBuilder(algSolv)
+    graph.draw()
+
     pass

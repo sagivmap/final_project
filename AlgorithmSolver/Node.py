@@ -16,8 +16,13 @@ class Node:
         self.weight = weight
 
     def __str__(self):
-        return str("id: " + self.idd + "\n" + "Name: " + self.name  + "\nTotal number of friends: " + self.tf
-                   + "\nNumber of mutual friends: " + self.mf + "\nAge of user account in years: " + str(int(int(self.aua)/365)))
+        if self.tsp == 0:
+            return str("id: " + self.idd + "\n" + "Name: " + self.name  + "\nTF: " + self.tf
+                   + "\nMF: " + self.mf + "\nAUA: " + str(int(self.aua)))
+        else:
+            return str("id: " + self.idd + "\n" + "Name: " + self.name  + "\nTF: " + self.tf
+                   + "\nMF: " + self.mf + "\nAUA: " + str(int(self.aua)) +"\nTSP: " +str(round(self.tsp,2)))
+
 
     def __eq__(self, other):
         return self.idd == other.idd

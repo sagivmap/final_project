@@ -54,7 +54,7 @@ class AlgorithmSolver:
                 for user in tmp:
                     edge = Edge(user, node.idd, node.fd)
                     ans.append(edge)
-                    self.first_circle_edges.append(edge)
+                    self.second_circle_edges.append(edge)
 
         return list(set(ans))
 
@@ -97,6 +97,18 @@ class AlgorithmSolver:
         else:
             return total_friend / config.getint('VariableConsts','tf_barrier')
 
+    def __calc_c_mf(self, mutual_friends):
+        if mutual_friends >= config.getint('VariableConsts','mf_barrier'):
+            return 1
+        else:
+            return mutual_friends / config.getint('VariableConsts','mf_barrier')
+
+    def __calc_c_aua(self, age_of_user_account):
+        if age_of_user_account >= config.getint('VariableConsts','aua_barrier'):
+            return 1
+        else:
+            return age_of_user_account / config.getint('VariableConsts','aua_barrier')
+
     def __calculate_node_weights(self):
         """
         Calculate the c score of node (Facebook user) according to research article
@@ -107,7 +119,49 @@ class AlgorithmSolver:
             if node.tf != '-1':
                 num_of_parameters += 1
                 c_tf = self.__calc_c_tf(int(node.tf))
+            else:
+                c_tf = 0
 
+            if node.mf != '-1':
+                num_of_parameters += 1
+                c_mf = self.__calc_c_mf(int(node.mf))
+            else:
+                c_mf = 0
+
+            if node.aua != '-1':
+                num_of_parameters += 1
+                c_aua = self.__calc_c_aua(int(node.aua))
+            else:
+                c_aua = 0
+
+            if num_of_parameters == 0:
+                node.weight = 1
+            else:
+                node.weight = (c_tf + c_mf + c_aua) / num_of_parameters
+
+    def __calc_p_fd(self, friendship_duration):
+        if friendship_duration >= config.getint('VariableConsts','fd_barrier'):
+            return 1
+        else:
+            return friendship_duration / config.getint('VariableConsts','fd_barrier')
+
+    def __calculate_edge_weights(self):
+        """
+        for each edge that have FD attribute (only first circle edges) calc edge weight
+        :return:
+        """
+        for edge in self.first_circle_edges:
+            num_of_parameters = 0
+            if edge.fd != '-1':
+                num_of_parameters += 1
+                p_fd = self.__calc_p_fd(int(edge.fd))
+            else:
+                p_fd = 0
+
+            if num_of_parameters == 0:
+                edge.weight = 1
+            else:
+                edge.weight = p_fd
 
     def calculate_weights(self):
         """
@@ -115,6 +169,8 @@ class AlgorithmSolver:
         :return:
         """
         self.__calculate_node_weights()
+        self.__calculate_edge_weights()
+        pass
 
     def generate(self):
         self.create_nodes_and_edges()

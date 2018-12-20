@@ -164,6 +164,9 @@ class AlgorithmSolver:
             else:
                 edge.weight = p_fd
 
+        for edge in self.second_circle_edges:
+            edge.weight = 1
+
     def calculate_weights(self):
         """
         function that calculate weights for each node and edge
@@ -176,10 +179,9 @@ class AlgorithmSolver:
     def calculate_TSP(self):
         for first_circle_edge in self.first_circle_edges:
             curr_edge_weight = first_circle_edge.weight
-            curr_tsp = curr_edge_weight * first_circle_edge.dest.weight
+            edge_node_score = curr_edge_weight * first_circle_edge.dest.weight
             for second_circle_edge in first_circle_edge.dest.second_friends_edges:
-                curr_tsp *= second_circle_edge.weight
-                curr_tsp *= second_circle_edge.dest.weight
+                curr_tsp = edge_node_score * second_circle_edge.weight * second_circle_edge.dest.weight
                 if curr_tsp > second_circle_edge.dest.tsp:
                     second_circle_edge.dest.tsp = curr_tsp
 

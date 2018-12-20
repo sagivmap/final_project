@@ -1,6 +1,6 @@
 from Node import Node
 from Edge import Edge
-import random
+import re
 import string
 import csv
 import configparser
@@ -28,14 +28,28 @@ class AlgorithmSolver:
         try:
             if not name_to_decode.startswith('\\x'):
                 return name_to_decode[1:]
-            name_to_return = name_to_decode.replace('\'', '\\x27')
-            name_to_return = name_to_return.replace('-', '\\x2d')
-            name_to_return = name_to_return.replace('.', '\\x2e')
-            name_to_return = name_to_return.replace(' ','\\x20')
-            name_to_return = name_to_return.replace('\\x','')
-            return bytes.fromhex(name_to_return).decode('utf-8')
+            res = re.findall(r'\\x[0-9a-f][0-9a-f]', name_to_decode)
+            to_convert = ''
+            for char in res:
+                while not name_to_decode.startswith(char):
+                    to_convert += name_to_decode[:1].encode('utf-8').hex()
+                    name_to_decode = name_to_decode[1:]
+                to_convert += char.replace('\\x', '')
+                name_to_decode = name_to_decode[4:]
+
+            return bytes.fromhex(to_convert).decode('utf-8')
         except Exception as e:
-            return ''
+            res =  re.findall(r'\\x[0-9a-f][0-9a-f]',name_to_decode)
+            to_convert = ''
+            for char in res:
+                while not name_to_decode.startswith(char):
+                    to_convert += name_to_decode[:1].encode('utf-8').hex()
+                    name_to_decode = name_to_decode[1:]
+                to_convert += char.replace('\\x','')
+                name_to_decode = name_to_decode[4:]
+
+            return bytes.fromhex(to_convert).decode('utf-8')
+
 
     def makearrayfromstring(self, string):
         ans = []

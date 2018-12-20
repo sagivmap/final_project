@@ -36,6 +36,8 @@ class FBCrawler:
         self.osn_data_as_list = []
         self.session_and_cookies = []
         self.exception_thrown = []
+        self.json_files_folder = 'first_and_second_data_raw/' + self.run_id + '_' + utils.get_timestamp()
+        os.makedirs(self.json_files_folder)
 
 
     def initiate_csv_file(self):
@@ -554,7 +556,7 @@ class FBCrawler:
                     logger.error("First friend's list soup is None, didn't crawl SC friends")
 
 
-                utils.save_to_json_file(self.osn_data_as_list[thread_id], config.get('General','done_friends_path')+friend['friend_id'])
+                utils.save_to_json_file(self.osn_data_as_list[thread_id], self.json_files_folder+'/'+friend['friend_id'])
 
                 self.osn_data_as_list[thread_id] = {}
 
@@ -618,34 +620,20 @@ class myThread (threading.Thread):
         logger.info("Finished work on thread: " + self.name)
 
 if __name__ == "__main__":
-    fbc = FBCrawler('sagiv_data')
-    #fbc.run_selenium_browser()
+    fbc = FBCrawler('omer_data')
+    fbc.run_selenium_browser()
     csv_file_name = fbc.initiate_csv_file()
-    #session_cookies, session = fbc.login_to_facebook()
+    session_cookies, session = fbc.login_to_facebook()
+    while not session_cookies and not session:
+        session_cookies, session = fbc.login_to_facebook()
 
-    """
-    if session_cookies and session:
-        first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(session_cookies,
+
+    first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(session_cookies,
                                                                                                  session)
-    """
-
-    """
-    try:
-        fbc.crawl_data_of_user_friends('first_circle_initial_data/sagiv_data_2018_12_08_15_46_50/0.json',
-                                       session,
-                                       session_cookies)
-
-        utils.save_to_json_file(fbc.osn_data, 'first_circle_mid_data/' + fbc.run_id)
-
-    except Exception as e:
-        logger.error(str(e))
-    """
 
 
-    """
-    num_of_pages = 59
     num_of_threads = math.ceil(num_of_pages / config.getint('General', 'num_of_json_per_thread'))
-    paths_for_each_thread = utils.get_paths_for_each_thread('first_circle_initial_data/adva_data_2018_12_12_23_41_47/',
+    paths_for_each_thread = utils.get_paths_for_each_thread(first_circle_initial_data_folder,
                                                             config.getint('General', 'num_of_json_per_thread'))
 
     fbc.initiate_osn_dicts_and_sessions(num_of_threads)
@@ -664,9 +652,6 @@ if __name__ == "__main__":
 
     for t in threads:
         t.join()
-
-    utils.save_to_json_file(fbc.osn_data_as_list, 'first_circle_mid_data/' + fbc.run_id)
-    """
-    path_to_csv = fbc.arrange_csv_file_from_mid_data('first_circle_mid_data/Done_friends', 'data/' + csv_file_name)
+    path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
 
     pass

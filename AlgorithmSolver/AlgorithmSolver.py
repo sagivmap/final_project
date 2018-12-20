@@ -11,13 +11,13 @@ config.read('config/config.ini')
 
 VOWELS = "aeiou"
 CONSONANTS = "".join(set(string.ascii_lowercase) - set(VOWELS))
-currUser = "Sagiv"
+currUser = Node('Ego_Node', 'SOURCE', '0','0','0','0',[])
 
 class AlgorithmSolver:
 
     def __init__(self, path_of_csv_file):
         self.path_of_csv_file = path_of_csv_file
-        self.nodes = []
+        self.nodes = {}
         self.edges = []
         self.first_circle_nodes = []
         self.second_circle_nodes = []
@@ -39,20 +39,21 @@ class AlgorithmSolver:
 
     def create_edges(self):
         ans = []
-
-        for node in self.nodes:
+        for key, node in self.nodes.items():
             tmp = list(set(node.cf))
             if len(tmp) == 1:
                 if tmp[0] == '0':
-                    edge = Edge(currUser, node.idd, node.fd)
+                    edge = Edge(currUser, node, node.fd)
                     self.first_circle_edges.append(edge)
                 else:
-                    edge = Edge(tmp[0], node.idd, node.fd)
+                    edge = Edge(self.nodes[tmp[0]], node, node.fd)
+                    self.nodes[tmp[0]].second_friends_edges.append(edge)
                     self.second_circle_edges.append(edge)
                 ans.append(edge)
             else:
                 for user in tmp:
-                    edge = Edge(user, node.idd, node.fd)
+                    edge = Edge(self.nodes[user], node, node.fd)
+                    self.nodes[user].second_friends_edges.append(edge)
                     ans.append(edge)
                     self.second_circle_edges.append(edge)
 
@@ -71,7 +72,7 @@ class AlgorithmSolver:
 
                 node = Node(row["ID"], name, row["TF"], row["MF"], row["AUA"], row["FD"], cf)
 
-                self.nodes.append(node)
+                self.nodes[node.idd] = node
 
                 if '0' in cf:
                     self.first_circle_nodes.append(node)
@@ -114,7 +115,7 @@ class AlgorithmSolver:
         Calculate the c score of node (Facebook user) according to research article
         :return:
         """
-        for node in self.nodes:
+        for keys, node in self.nodes.items():
             num_of_parameters = 0
             if node.tf != '-1':
                 num_of_parameters += 1
@@ -172,10 +173,21 @@ class AlgorithmSolver:
         self.__calculate_edge_weights()
         pass
 
+    def calculate_TSP(self):
+        for first_circle_edge in self.first_circle_edges:
+            curr_edge_weight = first_circle_edge.weight
+            curr_tsp = curr_edge_weight * first_circle_edge.dest.weight
+            for second_circle_edge in first_circle_edge.dest.second_friends_edges:
+                curr_tsp *= second_circle_edge.weight
+                curr_tsp *= second_circle_edge.dest.weight
+                if curr_tsp > second_circle_edge.dest.tsp:
+                    second_circle_edge.dest.tsp = curr_tsp
+
     def generate(self):
         self.create_nodes_and_edges()
         self.calculate_weights()
-
+        self.calculate_TSP()
+        pass
 
 if __name__ == "__main__":
     algSolv = AlgorithmSolver("example.csv")

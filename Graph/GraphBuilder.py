@@ -1,7 +1,10 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from networkx.algorithms import bipartite
-from Node import Node
+try:
+    from AlgorithmSolver.Node import Node
+except Exception as e:
+    from Node import Node
 
 currUser = Node('Ego_Node', 'SOURCE', '0','0','0','0',[])
 

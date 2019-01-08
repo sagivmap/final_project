@@ -1,14 +1,20 @@
-from Node import Node
-from Edge import Edge
+try:
+    from AlgorithmSolver.Node import Node
+    from AlgorithmSolver.Edge import Edge
+    from Graph.GraphBuilder import GraphBuilder
+except Exception as e:
+    from Node import Node
+    from Edge import Edge
+    import Graph.GraphBuilder
 import re
 import string
 import csv
 import configparser
-from Graph.GraphBuilder import GraphBuilder
+
 
 # initiate config file
 config = configparser.ConfigParser()
-config.read('config/config.ini')
+config.read('C:/Users/sagiv/PycharmProjects/ProjectTry/AlgorithmSolver/config/config.ini')
 
 VOWELS = "aeiou"
 CONSONANTS = "".join(set(string.ascii_lowercase) - set(VOWELS))
@@ -25,7 +31,16 @@ class AlgorithmSolver:
         self.first_circle_edges = []
         self.second_circle_edges = []
 
-    def decode_name(self, name_to_decode):
+    def get_nodes(self):
+        return self.nodes
+
+    def get_edges(self):
+        return self.edges
+
+    def get_second_circle_nodes(self):
+        return self.second_circle_nodes
+
+    def _decode_name(self, name_to_decode):
         try:
             if not name_to_decode.startswith('\\x'):
                 return name_to_decode[1:]
@@ -40,16 +55,7 @@ class AlgorithmSolver:
 
             return bytes.fromhex(to_convert).decode('utf-8')
         except Exception as e:
-            res =  re.findall(r'\\x[0-9a-f][0-9a-f]',name_to_decode)
-            to_convert = ''
-            for char in res:
-                while not name_to_decode.startswith(char):
-                    to_convert += name_to_decode[:1].encode('utf-8').hex()
-                    name_to_decode = name_to_decode[1:]
-                to_convert += char.replace('\\x','')
-                name_to_decode = name_to_decode[4:]
-
-            return bytes.fromhex(to_convert).decode('utf-8')
+            return ''
 
 
     def makearrayfromstring(self, string):
@@ -94,7 +100,7 @@ class AlgorithmSolver:
             for row in csv_reader:
                 name = row["Name"][2:-1]
                 if not name[0].isalpha():
-                    name = self.decode_name(name)
+                    name = self._decode_name(name)
 
                 cf = self.makearrayfromstring(row["CF"])
 
@@ -109,16 +115,6 @@ class AlgorithmSolver:
 
         self.edges = self.create_edges()  # after that , we have all nodes and edges
 
-        # # sort of a logger
-        # with open('./files/firstCircle.txt', 'w') as f:
-        #     for item in self.first_circle_nodes:
-        #         f.write("%s\n" % item)
-        # with open('./files/secondCircle.txt', 'w') as f:
-        #     for item in self.second_circle_nodes:
-        #         f.write("%s\n" % item)
-        # with open('./files/allEdges.txt', 'w') as f:
-        #     for edge in self.edges:
-        #         f.write("%s\n" % edge)
 
     def __calc_c_tf(self, total_friend):
         if total_friend >= config.getint('VariableConsts','tf_barrier'):
@@ -219,7 +215,7 @@ class AlgorithmSolver:
         self.calculate_TSP()
 
 if __name__ == "__main__":
-    algSolv = AlgorithmSolver("example.csv")
+    algSolv = AlgorithmSolver("test1.csv")
     algSolv.generate()
     graph = GraphBuilder(algSolv)
     graph.draw()

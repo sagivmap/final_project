@@ -14,10 +14,10 @@ import time
 
 # initiate config file
 config = configparser.ConfigParser()
-config.read('config/config.ini')
+config.read('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/config.ini')
 
 # initiate logger
-fileConfig('config/logger_config.ini')
+fileConfig('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/logger_config.ini')
 fh = logging.FileHandler('main.log')
 formatter = logging.Formatter('%(asctime)s - %(threadName)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
@@ -55,7 +55,7 @@ class FBCrawler:
         return csv_file_name
 
 
-    def login_to_facebook(self):
+    def login_to_facebook(self, email=config.get('LoginDetails', 'email'), password=config.get('LoginDetails', 'pass')):
         """
         login to Facebook according credentials in config.ini
         :return: session cookies, session
@@ -69,8 +69,8 @@ class FBCrawler:
             s = requests.session()
             # login data
             post_data = {
-                'email': config.get('LoginDetails', 'email'),
-                'pass': config.get('LoginDetails', 'pass'),
+                'email': email,
+                'pass': password,
             }
             attempts_num = config.getint('LoginDetails', 'try_amount')
             for i in range(attempts_num):
@@ -78,14 +78,19 @@ class FBCrawler:
                 r = s.post(url, data=post_data, allow_redirects=False)
                 soup = BeautifulSoup(r.text, features="html.parser")
                 if r.status_code == 302:
-                    logger.info('Successfully logged in to Facebook.')
+                    flag, r = utils.customized_get_request(r._next.url, s, r.cookies, 1)
+                    if "התחבר" in r.text:
+                        logger.error('Could not login in: ' + str(i) + '/' + str(attempts_num))
+                    else:
+                        logger.info('Successfully logged in to Facebook.')
 
-                    self.osn_data_lock.release()
-                    return r.cookies, s
+                        self.osn_data_lock.release()
+                        return r.cookies, s
                 else:
-                    logger.error('Could not login in: ' + str(i)+ '/' +attempts_num)
+                    logger.error('Could not login in: ' + str(i)+ '/' +str(attempts_num))
 
             logger.error('Failed to log in!')
+            if s: s.close()
             self.osn_data_lock.release()
             return None, None
         except Exception as e:
@@ -161,7 +166,7 @@ class FBCrawler:
         logger.info('Finished to work on getting user\'s initial Friends list, stored data in:' + json_files_folder)
         return json_files_folder, i
 
-    def __get_friendship_duration_as_months(self, soup):
+    def _get_friendship_duration_as_months(self, soup):
         """
         helper function which get friendship duration as text represented in FB
         :param soup: soup object of friendship page
@@ -239,7 +244,7 @@ class FBCrawler:
 
 
         soup = BeautifulSoup(r.text, 'html.parser')
-        friendship_duration_as_months = self.__get_friendship_duration_as_months(soup)
+        friendship_duration_as_months = self._get_friendship_duration_as_months(soup)
 
         return friendship_duration_as_months
 
@@ -250,7 +255,10 @@ class FBCrawler:
         :param thread_id:
         :return: days since first post
         """
-        url = config.get('General', 'facebook_url') + uri_to_year_timeline
+        if uri_to_year_timeline.startswith('http'):
+            url = uri_to_year_timeline
+        else:
+            url = config.get('General', 'facebook_url') + uri_to_year_timeline
         while True:
             succeed_to_get, r = utils.customized_get_request(url, self.session_and_cookies[thread_id][0],
                                                              self.session_and_cookies[thread_id][1],
@@ -274,7 +282,7 @@ class FBCrawler:
         return utils.get_num_of_days_from_first_post_date(all_posts_dates_tags[0].text)
 
 
-    def __get_FB_user_account_age_as_days(self, soup, thread_id):
+    def _get_FB_user_account_age_as_days(self, soup, thread_id):
         """
         This function finds the earliest year after 2004 (facbook foundation) and search for the first post as
         indication for user initialization and counts the days from now to then
@@ -344,7 +352,7 @@ class FBCrawler:
                 self.__get_new_session_for_thread(thread_id)
 
         soup = BeautifulSoup(r.text, 'html.parser')
-        facebook_user_facebook_age_in_days = self.__get_FB_user_account_age_as_days(soup, thread_id)
+        facebook_user_facebook_age_in_days = self._get_FB_user_account_age_as_days(soup, thread_id)
 
 
         friend_friends_list_uri = self.__get_friend_friend_list_uri(soup)
@@ -362,7 +370,7 @@ class FBCrawler:
             return utils.get_amount_of_friends_from_text(firends_amount_header.text)
 
 
-    def __get_facebook_user_amount_of_friends(self, facebook_user_friend_list_uri, thread_id):
+    def _get_facebook_user_amount_of_friends(self, facebook_user_friend_list_uri, thread_id):
         """
         Function which get the user's amount of friends in facebook
         :param facebook_user_friend_list_uri: facebook id of user
@@ -426,8 +434,8 @@ class FBCrawler:
                 sc_friend_user_age, uri_to_friends_list = None, None
         try:
             if uri_to_friends_list:
-                sc_friend_amount_of_friends, ignore_value = self.__get_facebook_user_amount_of_friends(uri_to_friends_list,
-                                                                                          thread_id)
+                sc_friend_amount_of_friends, ignore_value = self._get_facebook_user_amount_of_friends(
+                    uri_to_friends_list, thread_id)
             else:
                 sc_friend_amount_of_friends = None
         except Exception as e:
@@ -535,8 +543,8 @@ class FBCrawler:
                 # get friend amount of friends
                 try:
                     if friend_friends_list_uri:
-                        friend_amount_of_friends, first_friends_list_soup = self.__get_facebook_user_amount_of_friends(friend_friends_list_uri,
-                                                                                                                   thread_id)
+                        friend_amount_of_friends, first_friends_list_soup = self._get_facebook_user_amount_of_friends(
+                            friend_friends_list_uri, thread_id)
                     else:
                         friend_amount_of_friends, first_friends_list_soup = None, None
                 except Exception as e:
@@ -596,10 +604,6 @@ class FBCrawler:
             rows.append(row)
 
         utils.write_rows_in_csv_file(path_to_csv_file, rows)
-
-
-
-
 
 class myThread (threading.Thread):
     """

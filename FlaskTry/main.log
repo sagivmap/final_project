@@ -123,3 +123,467 @@
 2019-03-05 13:54:04,105 - Thread-28 - INFO - 127.0.0.1 - - [05/Mar/2019 13:54:04] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
 2019-03-05 13:54:04,107 - Thread-29 - INFO - 127.0.0.1 - - [05/Mar/2019 13:54:04] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
 2019-03-05 13:54:04,108 - Thread-30 - INFO - 127.0.0.1 - - [05/Mar/2019 13:54:04] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:43:23,170 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:43:25,555 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET / HTTP/1.1" 200 -
+2019-03-05 16:43:25,651 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:43:25,656 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,663 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,676 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,677 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,679 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,682 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,683 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:25,692 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:43:25,713 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:25] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:26,065 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:26] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:26,106 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:26] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:26,113 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:26] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:26,122 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:26] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:26,128 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:26] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:27,910 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:27] "POST / HTTP/1.1" 200 -
+2019-03-05 16:43:27,949 - Thread-18 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:27] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:43:28,011 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,016 - Thread-20 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,025 - Thread-21 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,027 - Thread-22 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,032 - Thread-23 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,034 - Thread-24 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,041 - Thread-25 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,056 - Thread-26 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:43:28,059 - Thread-27 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,149 - Thread-28 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,161 - Thread-29 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,166 - Thread-30 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,176 - Thread-31 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:28,180 - Thread-32 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:28] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,844 - Thread-33 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "POST / HTTP/1.1" 200 -
+2019-03-05 16:43:51,874 - Thread-34 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:43:51,913 - Thread-35 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,924 - Thread-36 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,925 - Thread-37 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,926 - Thread-38 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,928 - Thread-39 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,933 - Thread-40 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,938 - Thread-41 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:51,956 - Thread-42 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:43:51,994 - Thread-43 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:52,000 - Thread-44 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:51] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:52,007 - Thread-45 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:52] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:43:52,010 - Thread-46 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:52] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:43:52,014 - Thread-47 - INFO - 127.0.0.1 - - [05/Mar/2019 16:43:52] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:27,992 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:45:32,548 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET / HTTP/1.1" 200 -
+2019-03-05 16:45:32,580 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:45:32,641 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,644 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,657 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,660 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,662 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,664 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,666 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,670 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:45:32,933 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:32,996 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:32] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:33,002 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:33] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:33,007 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:33] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:33,012 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:33] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:40,440 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:40] "POST / HTTP/1.1" 400 -
+2019-03-05 16:45:47,342 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET / HTTP/1.1" 200 -
+2019-03-05 16:45:47,444 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:45:47,456 - Thread-18 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,461 - Thread-20 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,465 - Thread-21 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,476 - Thread-22 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,481 - Thread-23 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,487 - Thread-24 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,493 - Thread-25 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:47,494 - Thread-26 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:47] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:45:54,440 - Thread-27 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "POST / HTTP/1.1" 200 -
+2019-03-05 16:45:54,469 - Thread-28 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:45:54,549 - Thread-29 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,563 - Thread-30 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,566 - Thread-31 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,567 - Thread-32 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,574 - Thread-33 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,576 - Thread-34 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,578 - Thread-35 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:45:54,580 - Thread-36 - INFO - 127.0.0.1 - - [05/Mar/2019 16:45:54] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:51:35,000 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:51:35,790 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET / HTTP/1.1" 200 -
+2019-03-05 16:51:35,875 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:51:35,919 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,923 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,926 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:51:35,930 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,931 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,942 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,943 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,945 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:51:35,999 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:35] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,031 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,223 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,279 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,284 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,290 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:51:36,295 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:36] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:51:37,233 - Thread-19 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/sagiv/PycharmProjects/ProjectTry/FlaskTry/mainServer.py", line 11, in run_facebook_crawler
+    flash("ASDSAD")
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\helpers.py", line 410, in flash
+    session['_flashes'] = flashes
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\werkzeug\local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2019-03-05 16:51:37,333 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 16:51:37] "POST / HTTP/1.1" 500 -
+2019-03-05 16:52:24,311 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:52:26,557 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET / HTTP/1.1" 200 -
+2019-03-05 16:52:26,613 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:52:26,667 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,674 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,682 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,696 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,702 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,709 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,710 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:52:26,712 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:26] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:52:31,834 - Thread-11 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/sagiv/PycharmProjects/ProjectTry/FlaskTry/mainServer.py", line 14, in run_facebook_crawler
+    flash("ASDSAD")
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\helpers.py", line 410, in flash
+    session['_flashes'] = flashes
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\werkzeug\local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2019-03-05 16:52:31,843 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:31] "POST / HTTP/1.1" 500 -
+2019-03-05 16:52:37,945 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:52:42,388 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "POST / HTTP/1.1" 200 -
+2019-03-05 16:52:42,416 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:52:42,465 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,466 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,468 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,473 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,475 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,476 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,488 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:52:42,491 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:52:42] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:56:32,295 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:56:33,158 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET / HTTP/1.1" 200 -
+2019-03-05 16:56:33,236 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:56:33,333 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,341 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,347 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,349 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,356 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,367 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,382 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:56:33,394 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:56:33] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:57:03,313 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:57:05,130 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET / HTTP/1.1" 200 -
+2019-03-05 16:57:05,171 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:57:05,225 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,228 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,230 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,232 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,234 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,236 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,240 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:57:05,247 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:57:05] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 16:57:40,257 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:58:52,846 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 16:58:53,750 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET / HTTP/1.1" 200 -
+2019-03-05 16:58:53,810 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 16:58:53,841 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,850 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,861 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,864 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,866 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,869 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,874 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 16:58:53,877 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 16:58:53] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:05:55,434 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:05:59,102 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET / HTTP/1.1" 200 -
+2019-03-05 17:05:59,149 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:05:59,200 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,207 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,210 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,212 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,216 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,222 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,225 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 17:05:59,226 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:05:59] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:06:06,188 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:06] "POST / HTTP/1.1" 400 -
+2019-03-05 17:06:12,113 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "POST / HTTP/1.1" 200 -
+2019-03-05 17:06:12,144 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:06:12,184 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,186 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,193 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,195 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,198 - Thread-18 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,201 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,202 - Thread-20 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 17:06:12,207 - Thread-21 - INFO - 127.0.0.1 - - [05/Mar/2019 17:06:12] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:07:35,355 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:07:36,736 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET / HTTP/1.1" 200 -
+2019-03-05 17:07:36,819 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:07:36,877 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,885 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,891 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,899 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,901 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,911 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,917 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:36,933 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:36] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:07:37,093 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:37,229 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:37,281 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:37,286 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:37,291 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:37,296 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:37] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,161 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "POST / HTTP/1.1" 200 -
+2019-03-05 17:07:39,204 - Thread-18 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:07:39,241 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /vendor/jquery/jquery.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,263 - Thread-20 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,265 - Thread-21 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,267 - Thread-22 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /js/sb-admin-2.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,272 - Thread-23 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /vendor/chart.js/Chart.min.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,280 - Thread-24 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /js/demo/chart-area-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,283 - Thread-25 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /js/demo/chart-pie-demo.js HTTP/1.1" 404 -
+2019-03-05 17:07:39,286 - Thread-26 - INFO - 127.0.0.1 - - [05/Mar/2019 17:07:39] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:08:46,035 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:08:47,539 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET / HTTP/1.1" 200 -
+2019-03-05 17:08:47,600 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:08:47,645 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/vendor/jquery/jquery.min.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,648 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,652 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,659 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/js/sb-admin-2.min.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,662 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/vendor/chart.js/Chart.min.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,668 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/js/demo/chart-area-demo.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,680 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /static/js/demo/chart-pie-demo.js HTTP/1.1" 200 -
+2019-03-05 17:08:47,683 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:08:47] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:09:48,336 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:09:49,984 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:49] "GET / HTTP/1.1" 200 -
+2019-03-05 17:09:50,052 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:50] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:09:50,199 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:50] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:09:51,302 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:51] "POST / HTTP/1.1" 200 -
+2019-03-05 17:09:51,384 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:51] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:09:51,433 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:09:51] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:10:53,661 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:10:53] "POST / HTTP/1.1" 400 -
+2019-03-05 17:11:02,025 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:11:02] "POST / HTTP/1.1" 400 -
+2019-03-05 17:14:39,580 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:14:45,387 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:14:45] "GET / HTTP/1.1" 200 -
+2019-03-05 17:14:45,429 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:14:45] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:14:45,505 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:14:45] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:14:50,186 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:14:50] "POST / HTTP/1.1" 400 -
+2019-03-05 17:15:11,619 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:15:13,970 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:13] "GET / HTTP/1.1" 200 -
+2019-03-05 17:15:14,057 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:14] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:15:14,097 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:14] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:15:20,305 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:20] "POST / HTTP/1.1" 500 -
+2019-03-05 17:15:36,794 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:15:38,743 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:38] "GET / HTTP/1.1" 200 -
+2019-03-05 17:15:38,811 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:38] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:15:38,880 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:38] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:15:50,896 - Thread-5 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/sagiv/PycharmProjects/ProjectTry/FlaskTry/mainServer.py", line 39, in upload_file
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\Solution_Concepts_and_Algorithms_for_Infinite_Mult.pdf'
+2019-03-05 17:15:50,899 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:15:50] "POST / HTTP/1.1" 500 -
+2019-03-05 17:16:21,167 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:16:22,681 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:16:22] "GET / HTTP/1.1" 200 -
+2019-03-05 17:16:22,753 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:16:22] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:16:22,798 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:16:22] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:17:26,116 - Thread-9 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/sagiv/PycharmProjects/ProjectTry/FlaskTry/mainServer.py", line 38, in upload_file
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\Solution_Concepts_and_Algorithms_for_Infinite_Mult.pdf'
+2019-03-05 17:17:30,513 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:17:30] "POST / HTTP/1.1" 500 -
+2019-03-05 17:21:15,376 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:21:19,921 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:21:21,367 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:21:21] "GET / HTTP/1.1" 200 -
+2019-03-05 17:21:21,421 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:21:21] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:21:21,479 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:21:21] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:21:26,177 - Thread-5 - ERROR - Exception on / [POST]
+Traceback (most recent call last):
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/sagiv/PycharmProjects/ProjectTry/FlaskTry/mainServer.py", line 38, in upload_file
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+  File "C:\Users\sagiv\PycharmProjects\ProjectTry\venv\lib\site-packages\werkzeug\datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: 'ProjectTry\\302822119_20216141_2_1.pdf'
+2019-03-05 17:21:26,180 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:21:26] "POST / HTTP/1.1" 500 -
+2019-03-05 17:22:26,471 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:22:28,152 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:28] "GET / HTTP/1.1" 200 -
+2019-03-05 17:22:28,200 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:28] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:22:28,271 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:28] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:22:32,776 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:32] "POST / HTTP/1.1" 200 -
+2019-03-05 17:22:32,800 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:32] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:22:32,821 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:22:32] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:23:01,073 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:23:08,607 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:08] "GET / HTTP/1.1" 200 -
+2019-03-05 17:23:08,642 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:08] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:23:08,736 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:08] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:23:18,001 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:18] "POST / HTTP/1.1" 200 -
+2019-03-05 17:23:18,034 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:18] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:23:18,069 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:18] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:23:24,837 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:23:24] "POST / HTTP/1.1" 400 -
+2019-03-05 17:24:58,939 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:25:03,143 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:03] "GET / HTTP/1.1" 200 -
+2019-03-05 17:25:03,206 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:03] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:25:03,322 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:03] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:25:10,901 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:10] "POST / HTTP/1.1" 400 -
+2019-03-05 17:25:27,775 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:27] "GET / HTTP/1.1" 200 -
+2019-03-05 17:25:27,800 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:27] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:25:27,856 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:27] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:25:45,356 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:45] "POST / HTTP/1.1" 400 -
+2019-03-05 17:25:52,529 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:25:59,145 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:59] "GET / HTTP/1.1" 200 -
+2019-03-05 17:25:59,183 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:59] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:25:59,253 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:25:59] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:26:13,779 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:26:13] "POST / HTTP/1.1" 400 -
+2019-03-05 17:33:51,570 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:33:56,797 - Thread-1 - INFO - 127.0.0.1 - - [05/Mar/2019 17:33:56] "GET / HTTP/1.1" 200 -
+2019-03-05 17:33:56,865 - Thread-3 - INFO - 127.0.0.1 - - [05/Mar/2019 17:33:56] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:33:56,946 - Thread-2 - INFO - 127.0.0.1 - - [05/Mar/2019 17:33:56] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:34:03,261 - Thread-4 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:03] "POST / HTTP/1.1" 302 -
+2019-03-05 17:34:03,269 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:03] "GET / HTTP/1.1" 200 -
+2019-03-05 17:34:03,307 - Thread-5 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:03] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:34:03,339 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:03] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:34:16,320 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:16] "POST / HTTP/1.1" 400 -
+2019-03-05 17:34:18,901 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:18] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:34:29,484 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:34:37,991 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:34:39,066 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:39] "GET / HTTP/1.1" 200 -
+2019-03-05 17:34:39,096 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:39] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:34:39,179 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:39] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:34:52,734 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:34:52] "POST / HTTP/1.1" 400 -
+2019-03-05 17:41:56,592 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:41:58,828 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:41:58] "GET / HTTP/1.1" 200 -
+2019-03-05 17:41:58,885 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:41:58] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:41:58,956 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:41:58] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:42:52,495 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:42:53,683 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:53] "GET / HTTP/1.1" 200 -
+2019-03-05 17:42:53,748 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:53] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:42:53,820 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:53] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:42:58,398 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:58] "POST / HTTP/1.1" 200 -
+2019-03-05 17:42:58,419 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:58] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:42:58,452 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 17:42:58] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:46:37,407 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:46:39,068 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:39] "GET / HTTP/1.1" 200 -
+2019-03-05 17:46:39,134 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:39] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:46:39,194 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:39] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:46:55,377 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:46:57,372 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:57] "GET / HTTP/1.1" 200 -
+2019-03-05 17:46:57,501 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:57] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:46:57,507 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:46:57] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:51:12,016 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:51:14,339 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:14] "GET / HTTP/1.1" 200 -
+2019-03-05 17:51:14,375 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:14] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:51:14,523 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:14] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:51:32,026 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:32] "POST / HTTP/1.1" 200 -
+2019-03-05 17:51:32,055 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:32] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:51:32,100 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 17:51:32] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:52:17,351 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:17] "POST / HTTP/1.1" 200 -
+2019-03-05 17:52:17,407 - Thread-26 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:17] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:52:17,422 - Thread-27 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:17] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:52:47,672 - Thread-28 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:47] "POST / HTTP/1.1" 200 -
+2019-03-05 17:52:47,692 - Thread-29 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:47] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:52:47,734 - Thread-30 - INFO - 127.0.0.1 - - [05/Mar/2019 17:52:47] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:55:30,923 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:55:32,303 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:32] "GET / HTTP/1.1" 200 -
+2019-03-05 17:55:32,357 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:32] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:55:32,441 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:32] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 17:55:57,314 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 17:55:58,920 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:58] "GET / HTTP/1.1" 200 -
+2019-03-05 17:55:58,951 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:58] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 17:55:59,034 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 17:55:59] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 18:00:34,034 - Thread-10 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:34] "POST / HTTP/1.1" 302 -
+2019-03-05 18:00:34,042 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:34] "GET / HTTP/1.1" 200 -
+2019-03-05 18:00:34,100 - Thread-11 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:34] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 18:00:34,158 - Thread-12 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:34] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 18:00:44,526 - Thread-13 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:44] "POST / HTTP/1.1" 302 -
+2019-03-05 18:00:44,535 - Thread-14 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:44] "GET / HTTP/1.1" 200 -
+2019-03-05 18:00:44,568 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:44] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 18:00:44,604 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 18:00:44] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 18:00:54,439 - MainThread - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-03-05 18:01:08,881 - Thread-6 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:08] "GET / HTTP/1.1" 200 -
+2019-03-05 18:01:08,935 - Thread-7 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:08] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 18:01:09,050 - Thread-8 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:09] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 18:01:46,436 - Thread-9 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:46] "POST / HTTP/1.1" 302 -
+2019-03-05 18:01:46,445 - Thread-15 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:46] "GET / HTTP/1.1" 200 -
+2019-03-05 18:01:46,470 - Thread-16 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:46] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 18:01:46,505 - Thread-17 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:46] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -
+2019-03-05 18:01:56,298 - Thread-18 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:56] "POST / HTTP/1.1" 302 -
+2019-03-05 18:01:56,304 - Thread-19 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:56] "GET / HTTP/1.1" 200 -
+2019-03-05 18:01:56,341 - Thread-20 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:56] "GET /vendor/fontawesome-free/css/all.min.css HTTP/1.1" 404 -
+2019-03-05 18:01:56,368 - Thread-21 - INFO - 127.0.0.1 - - [05/Mar/2019 18:01:56] "GET /img/undraw_posting_photo.svg HTTP/1.1" 404 -

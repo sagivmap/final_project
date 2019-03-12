@@ -37,8 +37,7 @@ def handle_posts():
             return upload_file()
 
         elif request.form["button"]=="MoveToManuallyAddPage":
-            print ('aaaaaa')
-            return render_template('index.html')
+            return render_template('addManuallyPage.html')
 
 
 if __name__ == '__main__':

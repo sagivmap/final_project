@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
+<style>
+.link {
+  stroke: #aaa;
+}
 
+.node text {
+stroke:#333;
+cursos:pointer;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+</style>
 <head>
 
   <meta charset="utf-8">
@@ -59,21 +75,12 @@
                 <!-- Card Header -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                      style="background-color: #c6ced6;">
-                  <h6 class="m-0 font-weight-bold text-primary">Crawl With Facebook</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Add Data Manually</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <form action="/" method="post">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" name="emailForFacebook" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password">
-                      </div>
-                      <button type="submit" class="btn btn-primary" name="button" value="Crawl">Start to Crawl</button>
+
                     </form>
                 </div>
               </div>
@@ -81,37 +88,19 @@
 
 
             <div class="col-xl-7 col-lg-5">
-                <!-- Upload CSV File -->
+                <!-- Graph Location-->
               <div class="card shadow mb-4">
                 <!-- Upload CSV File Header-->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                   style="background-color: #c6ced6;">
-                  <h6 class="m-0 font-weight-bold text-primary">Upload CSV FILE</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">OSN Graph</h6>
                 </div>
-                <!-- Upload CSV File Body -->
+                <!-- Graph Location Body -->
                 <div class="card-body">
-                      <form method=post enctype=multipart/form-data>
-                        <input type=file name=file>
-                        <input type=submit class="btn btn-primary" name="button" value=Upload>
-                      </form>
+                      <div id="my_dataviz"></div>
                 </div>
               </div>
 
-                <div class="card shadow mb-4">
-                <!-- Add data manually header-->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                  style="background-color: #c6ced6;">
-                  <h6 class="m-0 font-weight-bold text-primary">Manual Input</h6>
-                </div>
-                <!-- Add data manually body -->
-                <div class="card-body">
-                      <form method=post enctype=multipart/form-data>
-                        <button type=submit class="btn btn-primary" name="button" value=MoveToManuallyAddPage>
-                          Add Data Manually
-                          </button>
-                      </form>
-                </div>
-              </div>
             </div>
 
 
@@ -165,6 +154,59 @@
   <!-- Page level custom scripts -->
   <script src="static/js/demo/chart-area-demo.js"></script>
   <script src="static/js/demo/chart-pie-demo.js"></script>
+
+    <script>
+
+var width = 960,
+    height = 500
+
+var svg = d3.select("#my_dataviz").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var force = d3.layout.force()
+    .gravity(.05)
+    .distance(100)
+    .charge(-100)
+    .size([width, height]);
+
+d3.json("C:\Users\sagiv\PycharmProjects\ProjectTry\FlaskTry\templates\graphFile.json", function(json) {
+  force
+      .nodes(json.nodes)
+      .links(json.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(json.links)
+    .enter().append("line")
+      .attr("class", "link")
+    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+  var node = svg.selectAll(".node")
+      .data(json.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  node.append("circle")
+      .attr("r","5");
+
+  node.append("text")
+      .attr("dx", 12)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+});
+
+</script>
 
 </body>
 

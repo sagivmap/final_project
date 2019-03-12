@@ -12,32 +12,33 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def main():
     return render_template('index.html')
 
-"""
-@app.route('/', methods=['POST'])
-def run_facebook_crawler():
+def crawl_facebook():
     email = request.form['emailForFacebook']
     password = request.form['passwordForFacebook']
-    print (email, password)
+    print(email, password)
     return render_template('index.html')
-"""
 
-@app.route('/', methods=['GET', 'POST'])
 def upload_file():
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        return redirect(request.url)
+    file = request.files['file']
+    if file:
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        return render_template('index.html')
+
+@app.route('/', methods=['POST'])
+def handle_posts():
     if request.method == 'POST':
         if request.form["button"]=="Crawl":
-            email = request.form['emailForFacebook']
-            password = request.form['passwordForFacebook']
-            print(email, password)
-            return render_template('index.html')
-        elif request.form["button"]=="Upload":
-            # check if the post request has the file part
-            if 'file' not in request.files:
-                return redirect(request.url)
-            file = request.files['file']
-            if file:
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-                return render_template('index.html')
+            return crawl_facebook()
 
+        elif request.form["button"]=="Upload":
+            return upload_file()
+
+        elif request.form["button"]=="MoveToManuallyAddPage":
+            print ('aaaaaa')
+            return render_template('index.html')
 
 
 if __name__ == '__main__':

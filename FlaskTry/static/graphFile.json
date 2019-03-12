@@ -4,7 +4,7 @@
 		{"name":"node2","group":2},
 		{"name":"node3","group":2},
 		{"name":"node4","group":3},
-		{"name":"node8","group":3}
+		{"name":"AA","group":3}
 	],
 	"links":[
 		{"source":0,"target":2,"weight":3}

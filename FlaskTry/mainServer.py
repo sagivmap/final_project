@@ -1,4 +1,7 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import make_response
+from functools import wraps, update_wrapper
+from datetime import datetime
 from Crawler import FBCrawler
 import os
 app = Flask(__name__)
@@ -40,6 +43,7 @@ def handle_posts():
             return render_template('addManuallyPage.html')
 
 
+
 if __name__ == '__main__':
-    app.config['DEBUG'] = True
-    app.run()
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug=True)

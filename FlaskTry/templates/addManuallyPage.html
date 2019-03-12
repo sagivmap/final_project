@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
-<style>
-.link {
-  stroke: #aaa;
-}
 
-.node text {
-stroke:#333;
-cursos:pointer;
-}
 
-.node circle{
-stroke:#fff;
-stroke-width:3px;
-fill:#555;
-}
-</style>
 <head>
-
+<meta http-equiv="expires" content="0">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+
+
 
   <title>IFCM</title>
 
@@ -137,25 +124,25 @@ fill:#555;
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <style>
+.link {
+  stroke: #aaa;
+}
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="static/vendor/jquery/jquery.min.js"></script>
-  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+.node text {
+stroke:#333;
+cursos:pointer;
+}
 
-  <!-- Core plugin JavaScript-->
-  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+</style>
+<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="static/js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="static/vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="static/js/demo/chart-area-demo.js"></script>
-  <script src="static/js/demo/chart-pie-demo.js"></script>
-
-    <script>
+<script>
 
 var width = 960,
     height = 500
@@ -170,7 +157,7 @@ var force = d3.layout.force()
     .charge(-100)
     .size([width, height]);
 
-d3.json("C:\Users\sagiv\PycharmProjects\ProjectTry\FlaskTry\templates\graphFile.json", function(json) {
+d3.json("static/graphFile.json", function(json) {
   force
       .nodes(json.nodes)
       .links(json.links)
@@ -207,6 +194,7 @@ d3.json("C:\Users\sagiv\PycharmProjects\ProjectTry\FlaskTry\templates\graphFile.
 });
 
 </script>
+
 
 </body>
 

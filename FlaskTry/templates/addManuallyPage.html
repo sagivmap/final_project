@@ -3,199 +3,175 @@
 
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-    <meta http-equiv=“Pragma” content=”no-cache”>
-<meta http-equiv=“Expires” content=”-1″>
-<meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>IFCM</title>
 
-  <title>IFCM</title>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href="static/css/graph-style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+<!-- Page Wrapper -->
+<div id="wrapper">
 
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+        <!-- Main Content -->
+        <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-            <div class="topbar-divider d-none d-sm-block"></div>
-          </ul>
-        </nav>
-        <!-- End of Topbar -->
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <div class="topbar-divider d-none d-sm-block"></div>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800"> Information Flow Control Model for OSN</h1>
-          </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-
-            <!-- Crawling with Facebook-->
-            <div class="col-xl-5 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                     style="background-color: #c6ced6;">
-                  <h6 class="m-0 font-weight-bold text-primary">Add Data Manually</h6>
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800"> Information Flow Control Model for OSN</h1>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <form action="/" method="post">
 
-                    </form>
+                <!-- Content Row -->
+
+                <div class="row">
+
+                    <!-- Crawling with Facebook-->
+                    <div class="col-xl-3 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                                 style="background-color: #c6ced6;">
+                                <h6 class="m-0 font-weight-bold text-primary">Add Data Manually</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <form action="/" method="post">
+                                    <div class="form-group row">
+                                        <label for="NodeName" class="col-sm-3 col-form-label">Name</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="NodeName" name="NodeName"
+                                                   placeholder="Israel Israeli">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="TF" class="col-sm-3 col-form-label">TF</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="TF" name="TF"
+                                                   title="Total friends of user account">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="AUA" class="col-sm-3 col-form-label">AUA</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" id="AUA" name="AUA"
+                                                   title="User account age in months">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="CF" class="col-sm-3 col-form-label">CF</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="CF" name="CF"
+                                                   title="0 for 1st circle OR id1,id2,id3 for 2nd circle">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="MF" class="col-sm-3 col-form-label">MF</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="MF" name="MF"
+                                                   title="Mutual friend for each id entered in CF">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="FD" class="col-sm-3 col-form-label">FD</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="FD" name="FD"
+                                                   title="Friendship duration for each id entered in CF">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" name="button" value="AddNode">
+                                        Add Node
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-9 col-lg-7">
+                        <!-- Graph Location-->
+                        <div class="card shadow mb-4">
+                            <!-- Upload CSV File Header-->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                                 style="background-color: #c6ced6;">
+                                <h6 class="m-0 font-weight-bold text-primary">OSN Graph</h6>
+                            </div>
+                            <!-- Graph Location Body -->
+                            <div class="card-body">
+                                <div id="my_dataviz"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
-              </div>
+
+                <!-- Content Row -->
+                <div class="row">
+                </div>
+
             </div>
-
-
-            <div class="col-xl-7 col-lg-5">
-                <!-- Graph Location-->
-              <div class="card shadow mb-4">
-                <!-- Upload CSV File Header-->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                  style="background-color: #c6ced6;">
-                  <h6 class="m-0 font-weight-bold text-primary">OSN Graph</h6>
-                </div>
-                <!-- Graph Location Body -->
-                <div class="card-body">
-                      <div id="my_dataviz"></div>
-                </div>
-              </div>
-
-            </div>
-
-
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-          </div>
+            <!-- /.container-fluid -->
 
         </div>
-        <!-- /.container-fluid -->
+        <!-- End of Main Content -->
 
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Final Project 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Final Project 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
     </div>
     <!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
+</a>
 
-  <style>
-.link {
-  stroke: #aaa;
-}
 
-.node text {
-stroke:#333;
-cursos:pointer;
-}
-
-.node circle{
-stroke:#fff;
-stroke-width:3px;
-fill:#555;
-}
-</style>
 <script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
 
-<script>
-
-var width = 960,
-    height = 500
-
-var svg = d3.select("#my_dataviz").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-var force = d3.layout.force()
-    .gravity(.05)
-    .distance(100)
-    .charge(-100)
-    .size([width, height]);
-
-d3.json("static/graphFile.json", function(json) {
-  force
-      .nodes(json.nodes)
-      .links(json.links)
-      .start();
-
-  var link = svg.selectAll(".link")
-      .data(json.links)
-    .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
-
-  var node = svg.selectAll(".node")
-      .data(json.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
-
-  node.append("circle")
-      .attr("r","5");
-
-  node.append("text")
-      .attr("dx", 12)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name });
-
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  });
-
-});
-
-</script>
+<script type="text/javascript" src="static/js/graphPresentation.js"></script>
 
 
 </body>

@@ -1,12 +1,50 @@
 {
-  "nodes":[
-		{"name":"node1","group":1},
-		{"name":"node2","group":2},
-		{"name":"node3","group":2},
-		{"name":"node4","group":3},
-		{"name":"AA","group":3}
-	],
-	"links":[
-		{"source":0,"target":2,"weight":3}
-	]
+    "links": [],
+    "nodes": [
+        {
+            "AUA": -1,
+            "CF": [
+                -1
+            ],
+            "FD": [
+                -1
+            ],
+            "MF": [
+                -1
+            ],
+            "TF": -1,
+            "id": 0,
+            "name": "Ego Node"
+        },
+        {
+            "AUA": 12312,
+            "CF": [
+                0
+            ],
+            "FD": [
+                132
+            ],
+            "MF": [
+                12
+            ],
+            "TF": 1123,
+            "id": 1,
+            "name": "asdasdAAAAAAAAAA"
+        },
+        {
+            "AUA": 123,
+            "CF": [
+                0
+            ],
+            "FD": [
+                12
+            ],
+            "MF": [
+                1
+            ],
+            "TF": 123,
+            "id": 1,
+            "name": "omer"
+        }
+    ]
 }

@@ -1,49 +1,110 @@
-var width = 960,
-    height = 500
+function myGraph(el) {
 
-var svg = d3.select("#my_dataviz").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    // Initialise the graph object
+    var graph = this.graph = {
+        "nodes":[{"name":"Cause"},{"name":"Effect"}],
+        "links":[{"source":0,"target":1}]
+    };
 
-var force = d3.layout.force()
-    .gravity(.05)
-    .distance(100)
-    .charge(-100)
-    .size([width, height]);
+    // Add and remove elements on the graph object
+    this.addNode = function (name) {
+        graph["nodes"].push({"name":name});
+        update();
+    }
 
-d3.json("static/graphFile.json", function(json) {
-  force
-      .nodes(json.nodes)
-      .links(json.links)
-      .start();
+    this.removeNode = function (name) {
+        graph["nodes"] = _.filter(graph["nodes"], function(node) {return (node["name"] != name)});
+        graph["links"] = _.filter(graph["links"], function(link) {return ((link["source"]["name"] != name)&&(link["target"]["name"] != name))});
+        update();
+    }
 
-  var link = svg.selectAll(".link")
-      .data(json.links)
-    .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+    var findNode = function (name) {
+        for (var i in graph["nodes"]) if (graph["nodes"][i]["name"] === name) return graph["nodes"][i];
+    }
 
-  var node = svg.selectAll(".node")
-      .data(json.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
+    this.addLink = function (source, target) {
+        graph["links"].push({"source":findNode(source),"target":findNode(target)});
+        update();
+    }
 
-  node.append("circle")
-      .attr("r","5");
+    // set up the D3 visualisation in the specified element
+    var w = $(el).innerWidth(),
+        h = $(el).innerHeight();
 
-  node.append("text")
-      .attr("dx", 12)
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name });
+    var vis = d3.select(el).append("svg:svg")
+        .attr("width", w)
+        .attr("height", h);
 
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+    var force = d3.layout.force()
+        .nodes(graph.nodes)
+        .links(graph.links)
+        .gravity(.05)
+        .distance(100)
+        .charge(-100)
+        .size([w, h]);
 
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  });
+    var update = function () {
 
-});
+        var link = vis.selectAll("line.link")
+            .data(graph.links);
+
+        link.enter().insert("line")
+            .attr("class", "link")
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        link.exit().remove();
+
+        var node = vis.selectAll("g.node")
+            .data(graph.nodes);
+
+        node.enter().append("g")
+            .attr("class", "node")
+            .call(force.drag);
+
+        node.append("image")
+            .attr("class", "circle")
+            .attr("xlink:href", "https://d3nwyuy0nl342s.cloudfront.net/images/icons/public.png")
+            .attr("x", "-8px")
+            .attr("y", "-8px")
+            .attr("width", "16px")
+            .attr("height", "16px");
+
+        node.append("text")
+            .attr("class", "nodetext")
+            .attr("dx", 12)
+            .attr("dy", ".35em")
+            .text(function(d) { return d.name });
+
+        node.exit().remove();
+
+        force.on("tick", function() {
+          link.attr("x1", function(d) { return d.source.x; })
+              .attr("y1", function(d) { return d.source.y; })
+              .attr("x2", function(d) { return d.target.x; })
+              .attr("y2", function(d) { return d.target.y; });
+
+          node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        });
+
+        // Restart the force layout.
+        force
+          .nodes(graph.nodes)
+          .links(graph.links)
+          .start();
+    }
+
+    // Make it all go
+    update();
+}
+
+
+graph = new myGraph("#my_dataviz");
+
+// These are the sort of commands I want to be able to give the object.
+graph.addNode("A");
+graph.addNode("B");
+graph.addLink("A", "B");
+graph.addNode("Alexxxx");

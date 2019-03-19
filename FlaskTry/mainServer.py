@@ -52,7 +52,7 @@ def add_new_node():
     with open(app.config['PATH_TO_JSON'], "w") as jsonFile:
         json.dump(json_data, jsonFile, sort_keys=True, indent=4)
 
-    return render_template('addManuallyPage.html')
+    return render_template('index2.html')
 
 @app.route('/', methods=['POST'])
 def handle_posts():

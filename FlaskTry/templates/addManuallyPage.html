@@ -17,11 +17,18 @@
           rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="static/vendor/underscore/underscore-min.js"></script>
+    <script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
     <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <link href="static/css/graph-style.css" rel="stylesheet">
+        <style type="text/css">
+        .link { stroke: #ccc; }
+        .nodetext { pointer-events: none; font: 10px sans-serif; }
+        #my_dataviz { width:900px;height:500px; border:3px solid black;border-radius:12px; margin:auto; }
+    </style>
 </head>
 
 <body id="page-top">
@@ -110,7 +117,8 @@
                                                    title="Friendship duration for each id entered in CF">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" name="button" value="AddNode">
+                                    <button type="button" class="btn btn-primary" name="button" value="AddNode"
+                                            onclick="graph.addNode('Sagiv')">
                                         Add Node
                                     </button>
                                 </form>
@@ -168,8 +176,6 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-
-<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
 
 <script type="text/javascript" src="static/js/graphPresentation.js"></script>
 

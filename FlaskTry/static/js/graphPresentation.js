@@ -22,8 +22,10 @@ function myGraph(el) {
         for (var i in graph["nodes"]) if (graph["nodes"][i]["Id"] === Id) return graph["nodes"][i];
     }
 
-    this.addLink = function (source) {
-        graph["links"].push({"source":source,"target":id_count});
+    this.addLink = function (source, i) {
+        var target_node = findNode(id_count);
+        graph["links"].push({"source":findNode(source),"target":target_node,
+                            "MF":target_node['MF'][i], "FD":target_node['FD'][i]});
         update();
     }
 
@@ -61,9 +63,24 @@ function myGraph(el) {
 
         node.append("text")
             .attr("class", "nodetext")
-            .attr("dx", 12)
-            .attr("dy", ".35em")
+            .attr("x", "0em")
+            .attr("y", 15)
             .text(function(d) { return d.name });
+
+        node.on("mouseover", function(d) {
+          var g = d3.select(this); // The node
+          // The class is used to remove the additional text later
+          var info = g.append('text')
+             .classed('info', true)
+             .attr('dx', "0em")
+             .attr('dy', -10)
+             .text(function(d) { if(d.Id ==0){return "id=0"}
+                                 else{return "id="+d.Id.toString()+",TF="+d.TF.toString()+",AUA="+d.AUA.toString()}})
+             .style("font-size", "12px");
+        }).on("mouseout", function() {
+              // Remove the info text on mouse out.
+              d3.select(this).select('text.info').remove()
+            });
 
         node.exit().remove();
 
@@ -78,9 +95,13 @@ function myGraph(el) {
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
+
+        link.on("mouseover", function(d) {d3.select(this).style("stroke","red");}).on("mouseout", function() {
+              // Remove the info text on mouse out.
+              d3.select(this).select('text.info').remove()
+            });
+
         link.exit().remove();
-
-
 
         force.on("tick", function() {
           link.attr("x1", function(d) { return d.source.x; })
@@ -119,7 +140,7 @@ function addNode() {
     var i;
     for (i = 0; i < cf.length; i++) {
         console.log('a');
-        graph.addLink(parseInt(cf[i]));
+        graph.addLink(parseInt(cf[i]), i);
     }
     graph.increase_id_count();
 }

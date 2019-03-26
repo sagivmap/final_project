@@ -80,8 +80,25 @@
                     </form>
                 </div>
               </div>
+               <!-- Crawl With Twitter -->
+              <div class="card shadow mb-4">
+                <!-- Card Header -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                     style="background-color: #c6ced6;">
+                  <h6 class="m-0 font-weight-bold text-primary">Crawl With Twitter</h6><img>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <form action="/" method="post">
+                      <div class="form-group">
+                        <label for="twitterName">Twitter Nickname</label>
+                        <input type="name" class="form-control" name="twitterName" id="twitterName" aria-describedby="emailHelp" placeholder="Donald Trump">
+                      </div>
+                      <button type="submit" class="btn btn-primary" name="button" value="CrawlTwitter">Start to Crawl</button>
+                    </form>
+                </div>
+              </div>
             </div>
-
 
             <div class="col-xl-7 col-lg-5">
                 <!-- Upload CSV File -->
@@ -99,7 +116,20 @@
                       </form>
                 </div>
               </div>
-
+                <div class="card shadow mb-4">
+                <!-- Upload CSV File Header-->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  style="background-color: #c6ced6;">
+                  <h6 class="m-0 font-weight-bold text-primary">Upload Twitter CSV FILE</h6>
+                </div>
+                <!-- Upload CSV File Body -->
+                <div class="card-body">
+                      <form method=post enctype=multipart/form-data>
+                        <input type=file name=file>
+                        <input type=submit class="btn btn-primary" name="button" value=Upload>
+                      </form>
+                </div>
+              </div>
                 <div class="card shadow mb-4">
                 <!-- Add data manually header-->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
@@ -115,13 +145,15 @@
                       </form>
                 </div>
               </div>
+
+
             </div>
-
-
           </div>
 
-          <!-- Content Row -->
+                  <!-- Content Row -->
           <div class="row">
+
+
           </div>
 
         </div>

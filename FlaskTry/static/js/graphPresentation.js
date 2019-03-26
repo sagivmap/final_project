@@ -1,15 +1,15 @@
 function myGraph(el) {
+    var id_count = 1;
 
     // Initialise the graph object
     var graph = this.graph = {
-        "nodes":[{"name":"Cause"},{"name":"Effect"}],
-        "links":[{"source":0,"target":1}]
+        "nodes":[{"Id":0, "name":"Ego Node", "TF":"", "AUA":"", "CF":[], "MF":[], "FD":[]}],
+        "links":[]
     };
 
     // Add and remove elements on the graph object
-    this.addNode = function (name) {
-        graph["nodes"].push({"name":name});
-        update();
+    this.addNode = function (Name, TF, AUA, CF, MF, FD) {
+        graph["nodes"].push({"Id":id_count, "name":Name, "TF":TF, "AUA":AUA, "CF":CF, "MF":MF, "FD":FD});
     }
 
     this.removeNode = function (name) {
@@ -18,13 +18,17 @@ function myGraph(el) {
         update();
     }
 
-    var findNode = function (name) {
-        for (var i in graph["nodes"]) if (graph["nodes"][i]["name"] === name) return graph["nodes"][i];
+    var findNode = function (Id) {
+        for (var i in graph["nodes"]) if (graph["nodes"][i]["Id"] === Id) return graph["nodes"][i];
     }
 
-    this.addLink = function (source, target) {
-        graph["links"].push({"source":findNode(source),"target":findNode(target)});
+    this.addLink = function (source) {
+        graph["links"].push({"source":source,"target":id_count});
         update();
+    }
+
+    this.increase_id_count = function () {
+        id_count++;
     }
 
     // set up the D3 visualisation in the specified element
@@ -45,6 +49,25 @@ function myGraph(el) {
 
     var update = function () {
 
+        var node = vis.selectAll("g.node")
+            .data(graph.nodes);
+
+        node.enter().append("g")
+            .attr("class", "node")
+            .call(force.drag);
+
+        node.append("circle")
+            .attr("r", 5);;
+
+        node.append("text")
+            .attr("class", "nodetext")
+            .attr("dx", 12)
+            .attr("dy", ".35em")
+            .text(function(d) { return d.name });
+
+        node.exit().remove();
+
+
         var link = vis.selectAll("line.link")
             .data(graph.links);
 
@@ -57,28 +80,7 @@ function myGraph(el) {
 
         link.exit().remove();
 
-        var node = vis.selectAll("g.node")
-            .data(graph.nodes);
 
-        node.enter().append("g")
-            .attr("class", "node")
-            .call(force.drag);
-
-        node.append("image")
-            .attr("class", "circle")
-            .attr("xlink:href", "https://d3nwyuy0nl342s.cloudfront.net/images/icons/public.png")
-            .attr("x", "-8px")
-            .attr("y", "-8px")
-            .attr("width", "16px")
-            .attr("height", "16px");
-
-        node.append("text")
-            .attr("class", "nodetext")
-            .attr("dx", 12)
-            .attr("dy", ".35em")
-            .text(function(d) { return d.name });
-
-        node.exit().remove();
 
         force.on("tick", function() {
           link.attr("x1", function(d) { return d.source.x; })
@@ -104,7 +106,20 @@ function myGraph(el) {
 graph = new myGraph("#my_dataviz");
 
 // These are the sort of commands I want to be able to give the object.
-graph.addNode("A");
-graph.addNode("B");
-graph.addLink("A", "B");
-graph.addNode("Alexxxx");
+function addNode() {
+    var name = document.getElementById("NodeName").value
+    var tf = document.getElementById("TF").value
+    var aua = document.getElementById("AUA").value
+    var cf = document.getElementById("CF").value.split(",")
+    var mf = document.getElementById("MF").value.split(",")
+    var fd = document.getElementById("FD").value.split(",")
+
+    console.log(cf.length);
+    graph.addNode(name, tf, aua, cf, mf, fd);
+    var i;
+    for (i = 0; i < cf.length; i++) {
+        console.log('a');
+        graph.addLink(parseInt(cf[i]));
+    }
+    graph.increase_id_count();
+}

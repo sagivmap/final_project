@@ -32,28 +32,6 @@ def upload_file():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         return render_template('index.html')
 
-
-def add_new_node():
-    with open(app.config['PATH_TO_JSON']) as f:
-        json_data = json.load(f)
-
-    Node_to_add = {}
-    Node_to_add['id'] = app.config['ID_FOR_NODE']
-    app.config['ID_FOR_NODE'] += 1
-    Node_to_add['name'] = request.form['NodeName']
-    Node_to_add['TF'] = int(request.form['TF'])
-    Node_to_add['AUA'] = int(request.form['AUA'])
-    Node_to_add['CF'] = [int(x) for x in request.form['CF'].split(',')]
-    Node_to_add['MF'] = [int(x) for x in request.form['MF'].split(',')]
-    Node_to_add['FD'] = [int(x) for x in request.form['FD'].split(',')]
-
-    json_data['nodes'].append(Node_to_add)
-
-    with open(app.config['PATH_TO_JSON'], "w") as jsonFile:
-        json.dump(json_data, jsonFile, sort_keys=True, indent=4)
-
-    return render_template('index2.html')
-
 @app.route('/', methods=['POST'])
 def handle_posts():
     if request.method == 'POST':
@@ -65,8 +43,6 @@ def handle_posts():
 
         elif request.form["button"]=="MoveToManuallyAddPage":
             return render_template('addManuallyPage.html')
-        elif request.form["button"]=="AddNode":
-            return add_new_node()
 
 
 

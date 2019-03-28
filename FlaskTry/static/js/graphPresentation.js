@@ -84,7 +84,6 @@ function myGraph(el) {
 
         node.exit().remove();
 
-
         var link = vis.selectAll("line.link")
             .data(graph.links);
 
@@ -95,13 +94,28 @@ function myGraph(el) {
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
-
-        link.on("mouseover", function(d) {d3.select(this).style("stroke","red");}).on("mouseout", function() {
-              // Remove the info text on mouse out.
-              d3.select(this).select('text.info').remove()
-            });
-
         link.exit().remove();
+
+        var linkText = vis.selectAll("text.link-label").data(graph.links);
+
+        linkText.enter().insert("text")
+            .attr("class", "link-label")
+        .attr("font-family", "Arial, Helvetica, sans-serif")
+        .attr("fill", "Black")
+        .style("font", "normal 12px Arial")
+        .style("display", "blocked")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+            return "MF="+d["MF"]+",FD="+d["FD"];
+        });
+
+
+
+        linkText.exit().remove();
+
+
+
 
         force.on("tick", function() {
           link.attr("x1", function(d) { return d.source.x; })
@@ -109,8 +123,17 @@ function myGraph(el) {
               .attr("x2", function(d) { return d.target.x; })
               .attr("y2", function(d) { return d.target.y; });
 
+          linkText
+            .attr("x", function(d) {
+                return ((d.source.x + d.target.x)/2);
+            })
+            .attr("y", function(d) {
+                return ((d.source.y + d.target.y)/2);
+            });
+
           node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
         });
+
 
         // Restart the force layout.
         force

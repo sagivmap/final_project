@@ -34,6 +34,7 @@ function myGraph(el) {
         var node_weight = calc_node_weight(TF, AUA);
         graph["nodes"].push({"Id":id_count, "name":Name, "TF":TF, "AUA":AUA, "CF":CF, "MF":MF, "FD":FD,
                             "Weight":node_weight, "TSP":-1});
+
     }
 
     this.removeNode = function (name) {
@@ -102,17 +103,51 @@ function myGraph(el) {
         .attr("width", w)
         .attr("height", h);
 
+    var linkG = vis.append("g"),
+        linkTextG = vis.append("g"),
+        nodesG = vis.append("g");
+
     var force = d3.layout.force()
         .nodes(graph.nodes)
         .links(graph.links)
-        .gravity(0)
+        .gravity(0.05)
         .distance(200)
         .charge(-100)
         .size([w, h]);
 
     var update = function () {
 
-        var node = vis.selectAll("g.node")
+        var link = linkG.selectAll("line.link")
+            .data(graph.links);
+
+        link.enter().insert("line")
+            .attr("class", "link")
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        link.exit().remove();
+
+        var linkText = linkTextG.selectAll("text.link-label").data(graph.links);
+
+        linkText.enter().insert("text")
+            .attr("class", "link-label")
+        .attr("font-family", "Arial, Helvetica, sans-serif")
+        .attr("fill", "Black")
+        .style("font", "normal 12px Arial")
+        .style("display", "blocked")
+        .attr("dy", ".35em")
+        .attr("text-anchor", "middle")
+        .text(function(d) {
+            return "MF="+d["MF"]+",FD="+d["FD"];
+        });
+
+
+
+        linkText.exit().remove();
+
+        var node = nodesG.selectAll("g.node")
             .data(graph.nodes);
 
         node.enter().append("g")
@@ -148,37 +183,6 @@ function myGraph(el) {
             });
 
         node.exit().remove();
-
-        var link = vis.selectAll("line.link")
-            .data(graph.links);
-
-        link.enter().insert("line")
-            .attr("class", "link")
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
-
-        link.exit().remove();
-
-        var linkText = vis.selectAll("text.link-label").data(graph.links);
-
-        linkText.enter().insert("text")
-            .attr("class", "link-label")
-        .attr("font-family", "Arial, Helvetica, sans-serif")
-        .attr("fill", "Black")
-        .style("font", "normal 12px Arial")
-        .style("display", "blocked")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "middle")
-        .text(function(d) {
-            return "MF="+d["MF"]+",FD="+d["FD"];
-        });
-
-
-
-        linkText.exit().remove();
-
 
 
 

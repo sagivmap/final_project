@@ -3,22 +3,25 @@ try:
     from AlgorithmSolver.Edge import Edge
     from Graph.GraphBuilder import GraphBuilder
 except Exception as e:
-    from Node import Node
-    from Edge import Edge
+    from .Node import Node
+    from .Edge import Edge
     import Graph.GraphBuilder
 import re
 import string
 import csv
 import configparser
+import os.path
 
+my_path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(my_path, "./config/config.ini")
 
 # initiate config file
 config = configparser.ConfigParser()
-config.read('C:/Users/sagiv/PycharmProjects/ProjectTry/AlgorithmSolver/config/config.ini')
+config.read(path)
 
 VOWELS = "aeiou"
 CONSONANTS = "".join(set(string.ascii_lowercase) - set(VOWELS))
-currUser = Node('Ego_Node', 'SOURCE', '0','0','0','0',[])
+currUser = Node('Ego_Node', 'Ego_Node', '0','0','0','0',[])
 
 class AlgorithmSolver:
 
@@ -57,7 +60,6 @@ class AlgorithmSolver:
         except Exception as e:
             return ''
 
-
     def makearrayfromstring(self, string):
         ans = []
         if len(string) == 2:
@@ -67,6 +69,11 @@ class AlgorithmSolver:
         for x in tmp:
             ans.append(x[1:-1] + "")
         return ans
+
+    def add_ego_node(self):
+        nodes = {'Ego_Node' : currUser}
+        nodes.update(self.get_nodes())
+        self.nodes = nodes
 
     def create_edges(self):
         ans = []

@@ -12,6 +12,9 @@ var force = d3.layout.force()
     .size([width, height]);
 
 d3.json("static/file.json", function(json) {
+
+  json.fixed == true
+
   force
       .nodes(json.nodes)
       .links(json.links)
@@ -20,8 +23,7 @@ d3.json("static/file.json", function(json) {
   var link = svg.selectAll(".link")
       .data(json.links)
     .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+      .attr("class", "link");
 
   var node = svg.selectAll(".node")
       .data(json.nodes)
@@ -35,7 +37,7 @@ d3.json("static/file.json", function(json) {
   node.append("text")
       .attr("dx", 12)
       .attr("dy", ".35em")
-      .text(function(d) { return d.name });
+      .text(function(d) { return d.Name });
 
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
@@ -45,4 +47,5 @@ d3.json("static/file.json", function(json) {
 
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
+
 });

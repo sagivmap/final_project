@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-
+from AlgorithmSolver import createJson as cJson
 import os
 import json
 app = Flask(__name__)
@@ -25,54 +25,53 @@ def crawl_facebook():
 
 def crawl_twitter():
     nick_name = request.form['twitterName']
-    print(nick_name)
+    print(nick_name[1:])
     return render_template('index.html')
 
 def upload_file():
     # check if the post request has the file part
     if 'file' not in request.files:
         return redirect(request.url)
+
     file = request.files['file']
+
     if file:
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
-        import csv
-        import json
-        # csv to Json
-        csvfile = open(path, mode='r')
-        jsonfile = open('file.json', 'w')
-        fieldnames = ("ID","Name","TF","MF","AUA","FD","CF")
-        reader = csv.DictReader(csvfile, fieldnames)
-        next(reader) #the first row is fieldnames
-        nodes = []
-        links = []
 
-        for row in reader:
-            CF = eval(row['CF'])
-            ID = row['ID']
-            nodes.append({"Id":ID, "name":row['Name'], "TF":row['TF'], "AUA":row['AUA'], "CF":CF, "MF":row['MF'], "FD":row['FD']})
-            for idd in CF:
-                links.append({"Source":ID,"Target":idd})
-
-        json.dump({'nodes': nodes,'links': links},jsonfile)
-
-        csvfile.close()
-        jsonfile.close()
+        cJson.create(path, 1)
 
         return render_template('showGraph.html')
+
+def upload_twitter_file():
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        return redirect(request.url)
+
+    file = request.files['file']
+
+    if file:
+        path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        file.save(path)
+
+
+        cJson.create(path,2)
+
+        return render_template('showGraph.html')
+
 @app.route('/', methods=['POST'])
 def handle_posts():
     if request.method == 'POST':
         if request.form["button"]=="Crawl":
             return crawl_facebook()
-
         elif request.form["button"]=="Upload":
             return upload_file()
         elif request.form["button"]=="CrawlTwitter":
             return crawl_twitter()
-        elif request.form["button"]=="MoveToManuallyAddPage":
+        elif request.form["button"] == "MoveToManuallyAddPage":
             return render_template('addManuallyPage.html')
-
+        elif request.form[""] == 'UploadTwitter':
+            return upload_twitter_file()
 
 
 if __name__ == '__main__':

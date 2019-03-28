@@ -17,12 +17,11 @@ class Node:
 
     def __str__(self):
         if self.tsp == 0:
-            return str("id: " + self.idd + "\n" + "Name: " + self.name  + "\nTF: " + self.tf
-                   + "\nMF: " + self.mf + "\nAUA: " + str(int(self.aua)))
+            return str("id : " + self.idd + " , Name : " + self.name  + " , TF : " + self.tf
+                   + " , MF : " + self.mf + " , AUA : " + str(int(self.aua)) + " , TSP : -1")
         else:
-            return str("id: " + self.idd + "\n" + "Name: " + self.name  + "\nTF: " + self.tf
-                   + "\nMF: " + self.mf + "\nAUA: " + str(int(self.aua)) +"\nTSP: " +str(round(self.tsp,2)))
-
+            return str("id : " + self.idd  + " , Name : " + self.name  + " , TF : " + self.tf
+                   + " , MF : " + self.mf + " , AUA : " + str(int(self.aua)) + " , TSP : " +str(round(self.tsp,2)))
 
     def __eq__(self, other):
         return self.idd == other.idd

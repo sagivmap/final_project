@@ -1,15 +1,39 @@
 function myGraph(el) {
     var id_count = 1;
+    var tf_barrier = 100;
+    var aua_barrier = 365;
+    var mf_barrier = 20;
+    var fd_barrier = 12;
+    var msp = 0.5;
 
     // Initialise the graph object
     var graph = this.graph = {
-        "nodes":[{"Id":0, "name":"Ego Node", "TF":"", "AUA":"", "CF":[], "MF":[], "FD":[]}],
+        "nodes":[{"Id":0, "name":"Ego Node", "TF":"", "AUA":"", "CF":[], "MF":[], "FD":[], "Weight":-1, "TSP":-1}],
         "links":[]
     };
 
+    var calc_node_weight = function (TF, AUA){
+        var c_TF;
+        if (TF > tf_barrier){
+            c_TF = 1;
+        }else{
+            c_TF = TF/tf_barrier;
+        }
+        var c_AUA;
+        if (AUA > aua_barrier){
+            c_AUA = 1;
+        }else{
+            c_AUA = AUA/aua_barrier;
+        }
+
+        return (c_TF + c_AUA)/2;
+    }
+
     // Add and remove elements on the graph object
     this.addNode = function (Name, TF, AUA, CF, MF, FD) {
-        graph["nodes"].push({"Id":id_count, "name":Name, "TF":TF, "AUA":AUA, "CF":CF, "MF":MF, "FD":FD});
+        var node_weight = calc_node_weight(TF, AUA);
+        graph["nodes"].push({"Id":id_count, "name":Name, "TF":TF, "AUA":AUA, "CF":CF, "MF":MF, "FD":FD,
+                            "Weight":node_weight, "TSP":-1});
     }
 
     this.removeNode = function (name) {
@@ -22,10 +46,47 @@ function myGraph(el) {
         for (var i in graph["nodes"]) if (graph["nodes"][i]["Id"] === Id) return graph["nodes"][i];
     }
 
+    var findLink = function (source, target){
+        for (var i in graph["links"]){
+            if (graph["links"][i]["source"]["Id"] === source && graph["links"][i]["target"]["Id"] === target)
+                return graph["links"][i];
+        }
+    }
+
+    var calc_link_weight = function (MF, FD){
+        var c_MF;
+        if (MF > mf_barrier){
+            c_MF = 1;
+        }else{
+            c_MF = MF/mf_barrier;
+        }
+        var c_FD;
+        if (FD > fd_barrier){
+            c_FD = 1;
+        }else{
+            c_FD = FD/fd_barrier;
+        }
+
+        return (c_MF + c_FD)/2;
+    }
+
+    var get_first_circle_link_weight = function (source_as_target){
+        return findLink(0, source_as_target)['Weight'];
+    }
+
     this.addLink = function (source, i) {
         var target_node = findNode(id_count);
-        graph["links"].push({"source":findNode(source),"target":target_node,
-                            "MF":target_node['MF'][i], "FD":target_node['FD'][i]});
+        var link_weight = calc_link_weight(target_node['MF'][i], target_node['FD'][i]);
+        var source_node = findNode(source);
+        graph["links"].push({"source":source_node,"target":target_node,
+                            "MF":target_node['MF'][i], "FD":target_node['FD'][i], "Weight":link_weight});
+
+        if (source > 0){
+            first_circle_link_weight = get_first_circle_link_weight(source);
+            tsp_to_add = target_node['Weight']*link_weight*source_node['Weight']*first_circle_link_weight;
+            if (tsp_to_add > target_node['TSP'])
+                target_node['TSP'] = tsp_to_add;
+        }
         update();
     }
 
@@ -44,8 +105,8 @@ function myGraph(el) {
     var force = d3.layout.force()
         .nodes(graph.nodes)
         .links(graph.links)
-        .gravity(.05)
-        .distance(100)
+        .gravity(0)
+        .distance(200)
         .charge(-100)
         .size([w, h]);
 
@@ -59,7 +120,11 @@ function myGraph(el) {
             .call(force.drag);
 
         node.append("circle")
-            .attr("r", 5);;
+            .style("fill", function (d) { if (d.Id ==0){return "#0099ff"}
+                                          if (d.CF.includes('0')){return "#00cc00"}
+                                          if (d.TSP > 0.5){return "#ff9900"} else{return "#ff0000"}
+                                                    })
+            .attr("r", 5);
 
         node.append("text")
             .attr("class", "nodetext")
@@ -140,14 +205,27 @@ function myGraph(el) {
           .nodes(graph.nodes)
           .links(graph.links)
           .start();
+
+//        var q = document.querySelector("[linkTextTitle]");
+//        if (q){
+//            q.addEventListener("mouseover", function( event ) {
+//                // highlight the mouseover target
+//                event.target.style.color = "orange";
+//
+//            })
+//        }
     }
 
     // Make it all go
     update();
+
+
 }
 
 
 graph = new myGraph("#my_dataviz");
+
+
 
 // These are the sort of commands I want to be able to give the object.
 function addNode() {
@@ -158,11 +236,9 @@ function addNode() {
     var mf = document.getElementById("MF").value.split(",")
     var fd = document.getElementById("FD").value.split(",")
 
-    console.log(cf.length);
     graph.addNode(name, tf, aua, cf, mf, fd);
     var i;
     for (i = 0; i < cf.length; i++) {
-        console.log('a');
         graph.addLink(parseInt(cf[i]), i);
     }
     graph.increase_id_count();

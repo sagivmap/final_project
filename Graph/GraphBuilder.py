@@ -4,7 +4,7 @@ from networkx.algorithms import bipartite
 try:
     from AlgorithmSolver.Node import Node
 except Exception as e:
-    from Node import Node
+    from .Node import Node
 
 currUser = Node('Ego_Node', 'SOURCE', '0','0','0','0',[])
 

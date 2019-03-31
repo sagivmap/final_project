@@ -6,13 +6,14 @@ var width = $("#my_dataviz").innerWidth(),
     mf_barrier = 20,
     fd_barrier = 12,
     msp = 0.5,
+    node_radius = 5,
     nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }],
     links = [],
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
 var simulation = d3.forceSimulation(nodes)
     .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
-    .force('collide', d3.forceCollide(10))
+    .force('collide', d3.forceCollide(node_radius*4))
     .force('charge', d3.forceManyBody().strength(0))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('link', d3.forceLink().links(links))
@@ -159,7 +160,7 @@ function update() {
             .attr('dy', -10)
             .text(function (d) {
                 if (d.id == 0) { return "id=0" }
-                else { return "id=" + d.Id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
+                else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
             })
             .style("font-size", "12px");
     }).on("mouseout", function () {

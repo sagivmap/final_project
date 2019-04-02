@@ -6,14 +6,14 @@ var width = $("#my_dataviz").innerWidth(),
     mf_barrier = 20,
     fd_barrier = 12,
     msp = 0.5,
-    node_radius = 5,
+    r = 5,
     nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }],
     links = [],
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
 var simulation = d3.forceSimulation(nodes)
     .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
-    .force('collide', d3.forceCollide(node_radius*4))
+    .force('collide', d3.forceCollide(r*4))
     .force('charge', d3.forceManyBody().strength(0))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('link', d3.forceLink().links(links))
@@ -84,7 +84,7 @@ function findLink(source, target) {
 }
 
 function calculateLevel(CF) {
-    if (CF.includes('0')) { return 1; }
+    if (CF.includes(0)) { return 1; }
     else { return 2; }
 }
 
@@ -140,10 +140,10 @@ function update() {
     node.append("circle")
         .style("fill", function (d) {
             if (d.id == 0) { return "#0099ff" }
-            if (d.CF.includes('0')) { return "#00cc00" }
+            if (d.CF.includes(0)) { return "#00cc00" }
             if (d.TSP > 0.5) { return "#ff9900" } else { return "#ff0000" }
         })
-        .attr("r", 5);
+        .attr("r", r);
 
     node.append("text")
         .attr("class", "nodetext")
@@ -197,22 +197,37 @@ function ticked() {
 
 update();
 
+function checkIfCfCorrect(cf) {
+    if (cf.includes(0) && cf.length > 1) {
+        window.alert("Cannot add 1st and 2nd circle node together");
+        return false;
+    } else {
+        var i;
+        for (i = 0; i < cf.length; i++) {
+            if (cf[i] > nodes.length) {
+                window.alert("No such node: " + cf[i].toString());
+                return false;
+            } 
+        }
+    }
+    return true;
+}
 
 function addNodeToGraph() {
     var name = document.getElementById("NodeName").value,
-        tf = document.getElementById("TF").value,
-        aua = document.getElementById("AUA").value,
-        cf = document.getElementById("CF").value.split(","),
-        mf = document.getElementById("MF").value.split(","),
-        fd = document.getElementById("FD").value.split(",");
-
-    addNode(name, tf, aua, cf, mf, fd);
-    var i;
-    for (i = 0; i < cf.length; i++) {
-        addLink(parseInt(cf[i]), i);
+        tf = parseInt(document.getElementById("TF").value),
+        aua = parseInt(document.getElementById("AUA").value),
+        cf = document.getElementById("CF").value.split(",").map(function (num) { return parseInt(num, 10); }),
+        mf = document.getElementById("MF").value.split(",").map(function (num) { return parseInt(num, 10); }),
+        fd = document.getElementById("FD").value.split(",").map(function (num) { return parseInt(num, 10); });
+    if (checkIfCfCorrect(cf)) {
+        addNode(name, tf, aua, cf, mf, fd);
+        var i;
+        for (i = 0; i < cf.length; i++) {
+            addLink(cf[i], i);
+        }
+        increase_id_count();
+        update();
     }
-    increase_id_count();
-    console.log(nodes);
-    console.log(links);
-    update();
+    
 }

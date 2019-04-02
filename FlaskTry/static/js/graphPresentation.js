@@ -8,6 +8,8 @@ var width = $("#my_dataviz").innerWidth(),
     msp = 0.5,
     r = 5,
     nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }],
+    first_circle_nodes = [],
+    second_circle_nodes = [],
     links = [],
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
@@ -88,15 +90,33 @@ function calculateLevel(CF) {
     else { return 2; }
 }
 
+function getLevelPerId(id) {
+    for (var i in nodes) if (nodes[i]["id"] === id) return nodes[i]["level"];
+}
+
+function validateAddNodeLevels(lvl, CF) {
+    if (lvl === 2) {
+        for (i = 0; i < CF.length; i++) {
+            if (getLevelPerId(CF[i]) === 2) {
+                window.alert("Adding 2nd circle node can be linked only to 1st circle nodes");
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 function addNode(Name, TF, AUA, CF, MF, FD) {
     var node_weight = calc_node_weight(TF, AUA),
         lvl = calculateLevel(CF);
- 
-    nodes.push({
-        "id": id_count, "name": Name, "TF": TF, "AUA": AUA, "CF": CF, "MF": MF, "FD": FD,
-        "Weight": node_weight, "TSP": -1, 'level': lvl
-    });
-
+    if (validateAddNodeLevels(lvl, CF)) {
+        nodes.push({
+            "id": id_count, "name": Name, "TF": TF, "AUA": AUA, "CF": CF, "MF": MF, "FD": FD,
+            "Weight": node_weight, "TSP": -1, 'level': lvl
+        });
+        return true;
+    }
+    return false;
 }
 
 var get_first_circle_link_weight = function (source_as_target) {
@@ -197,18 +217,23 @@ function ticked() {
 
 update();
 
+function cfIdIsLargerThenNodesLen(cf) {
+    var i;
+    for (i = 0; i < cf.length; i++) {
+        if (cf[i] >= nodes.length) {
+            window.alert("No such node: " + cf[i].toString());
+            return true;
+        }
+    }
+    return false;
+}
+
 function checkIfCfCorrect(cf) {
     if (cf.includes(0) && cf.length > 1) {
-        window.alert("Cannot add 1st and 2nd circle node together");
+        window.alert("Adding link to Ego node, cannot add to more nodes");
         return false;
-    } else {
-        var i;
-        for (i = 0; i < cf.length; i++) {
-            if (cf[i] > nodes.length) {
-                window.alert("No such node: " + cf[i].toString());
-                return false;
-            } 
-        }
+    } else if (cfIdIsLargerThenNodesLen(cf)){
+        return false;
     }
     return true;
 }
@@ -221,13 +246,13 @@ function addNodeToGraph() {
         mf = document.getElementById("MF").value.split(",").map(function (num) { return parseInt(num, 10); }),
         fd = document.getElementById("FD").value.split(",").map(function (num) { return parseInt(num, 10); });
     if (checkIfCfCorrect(cf)) {
-        addNode(name, tf, aua, cf, mf, fd);
-        var i;
-        for (i = 0; i < cf.length; i++) {
-            addLink(cf[i], i);
+        if (addNode(name, tf, aua, cf, mf, fd)) {
+            var i;
+            for (i = 0; i < cf.length; i++) {
+                addLink(cf[i], i);
+            }
+            increase_id_count();
+            update();
         }
-        increase_id_count();
-        update();
     }
-    
 }

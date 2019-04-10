@@ -1,5 +1,5 @@
-var width = $("#my_dataviz").innerWidth(),
-    height = $("#my_dataviz").innerHeight(),
+var width = $("#svg-id").innerWidth(),
+    height = $("#svg-id").innerHeight(),
     id_count = 1,
     tf_barrier = 100,
     aua_barrier = 365,

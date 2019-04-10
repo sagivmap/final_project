@@ -8,17 +8,19 @@ var width = $("#my_dataviz").innerWidth(),
     msp = 0.5,
     r = 5,
     nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }],
-    first_circle_nodes = [],
-    second_circle_nodes = [],
+    bad_nodes = new Set([]),
     links = [],
-    getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
+    bad_links = new Set([]),
+    getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]),
+    there_are_bad_connections = false,
+    show_bad_connections = false;
 
 var simulation = d3.forceSimulation(nodes)
     .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
     .force('collide', d3.forceCollide(r*4))
     .force('charge', d3.forceManyBody().strength(0))
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('link', d3.forceLink().links(links))
+    .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
     .on('tick', ticked);
 
 //drag handler
@@ -78,6 +80,29 @@ function findNode(Id) {
     for (var i in nodes) if (nodes[i]["id"] === Id) return nodes[i];
 }
 
+function get_all_low_tsp_second_level_nodes() {
+    var nodes_to_return = [];
+    for (var i in nodes) {
+        if (nodes[i]["level"] === 2 && nodes[i]["TSP"] < msp) {
+            nodes_to_return.push(JSON.parse(JSON.stringify(nodes[i])));
+        }
+    }
+    return nodes_to_return;
+}
+
+function get_first_circle_nodes_and_links_of_second(id_of_second) {
+    var nodes_to_return = [];
+    var links_to_return = [];
+    for (var i in links) {
+        if (links[i]["target"]["id"] === id_of_second) {
+            nodes_to_return.push(JSON.parse(JSON.stringify(links[i]["source"])));
+            links_to_return.push(JSON.parse(JSON.stringify(links[i])));
+        }
+    }
+    return [nodes_to_return, links_to_return]
+}
+
+
 function findLink(source, target) {
     for (var i in links) {
         if (links[i]["source"]["id"] === source && links[i]["target"]["id"] === target)
@@ -127,23 +152,30 @@ function addLink(source, i) {
     var target_node = findNode(id_count);
     var link_weight = calc_link_weight(target_node['MF'][i], target_node['FD'][i]);
     var source_node = findNode(source);
+
     links.push({
-        "source": source_node, "target": target_node,
+        "source": source_node.id, "target": target_node.id,
         "MF": target_node['MF'][i], "FD": target_node['FD'][i], "Weight": link_weight
     });
+
 
     if (source > 0) {
         first_circle_link_weight = get_first_circle_link_weight(source);
         tsp_to_add = target_node['Weight'] * link_weight * source_node['Weight'] * first_circle_link_weight;
-        if (tsp_to_add > target_node['TSP'])
+        if (tsp_to_add > target_node['TSP']) {
             target_node['TSP'] = tsp_to_add;
+            if (tsp_to_add < msp)
+                there_are_bad_connections = true;
+            
+        }
     }
 }
 
 function update() {
+
     var link = d3.select('.links')
         .selectAll('line.link')
-        .data(links).enter().insert("line")
+        .data(show_bad_connections ? bad_links : links).enter().insert("line")
         .attr("class", "link")
         .attr("x1", function (d) { return d.source.x; })
         .attr("y1", function (d) { return d.source.y; })
@@ -154,7 +186,7 @@ function update() {
 
     node = d3.select('.nodes')
         .selectAll('g.node')
-        .data(nodes).enter().append("g")
+        .data(show_bad_connections ? bad_nodes : nodes).enter().append("g")
         .attr("class", "node");
 
     node.append("circle")
@@ -183,17 +215,26 @@ function update() {
                 else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
             })
             .style("font-size", "12px");
-    }).on("mouseout", function () {
-        // Remove the info text on mouse out.
-        d3.select(this).select('text.info').remove()
-    });
 
+        d3.selectAll('line.link')
+            .filter(function (l) {
+                return (d.id != 0 && (d.id == l.source.id || d.id == l.target.id));
+            })
+            .style("opacity", 1)
+
+    }).on("mouseout", function () {
+        d3.selectAll('line.link').style("opacity", 0.1)
+        // Remove the info text on mouse out.
+        d3.select(this).select('text.info').remove();
+        
+    });
 
     node.exit().remove();
 
     drag_handler(node);
-    simulation.nodes(nodes);
-    simulation.force("link").links(links);
+    simulation.nodes(show_bad_connections ? bad_nodes : nodes);
+    simulation.force("link").links(show_bad_connections ? bad_links : links).id(function (d) { return d.id });
+    simulation.on('tick', ticked)
     simulation.alpha(1).restart();
 }
 
@@ -201,7 +242,7 @@ function update() {
 function ticked() {
     var link = d3.select('.links')
         .selectAll('line.link')
-        .data(links);
+        .data(show_bad_connections ? bad_links : links);
     link.attr("x1", function (d) { return d.source.x; })
         .attr("y1", function (d) { return d.source.y; })
         .attr("x2", function (d) { return d.target.x; })
@@ -210,7 +251,7 @@ function ticked() {
 
     node = d3.select('.nodes')
         .selectAll('g.node')
-        .data(nodes);
+        .data(show_bad_connections ? bad_nodes : nodes);
 
     node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
 }
@@ -254,5 +295,31 @@ function addNodeToGraph() {
             increase_id_count();
             update();
         }
+    }
+}
+
+function show_only_bad_connections() {
+    if (!there_are_bad_connections)
+        window.alert("All connections are GOOD connections!")
+    else {
+        bad_links = new Set([]);
+        second_level_nodes_with_low_tsp = new Set(get_all_low_tsp_second_level_nodes());
+        bad_nodes = new Set([...bad_nodes, ...second_level_nodes_with_low_tsp]);
+        for (let item of second_level_nodes_with_low_tsp) {
+            first_circle_nodes_and_links_of_bad_node = get_first_circle_nodes_and_links_of_second(item['id']);
+            first_circle_nodes = new Set(first_circle_nodes_and_links_of_bad_node[0]);
+            second_circle_links = new Set(first_circle_nodes_and_links_of_bad_node[1]);
+            bad_nodes = new Set([...bad_nodes, ...first_circle_nodes]);
+            bad_links = new Set([...bad_links, ...second_circle_links]);
+            for (let node of first_circle_nodes) {
+                bad_links.add(findLink(0, node['id']));
+            }
+        }
+        bad_nodes.add(findNode(0));
+
+        bad_nodes = Array.from(bad_nodes);
+        bad_links = Array.from(bad_links);
+        show_bad_connections = true;
+        update();
     }
 }

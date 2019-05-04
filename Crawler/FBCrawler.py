@@ -38,6 +38,7 @@ class FBCrawler:
         self.exception_thrown = []
         self.json_files_folder = 'first_and_second_data_raw/' + self.run_id + '_' + utils.get_timestamp()
         os.makedirs(self.json_files_folder)
+        self.user_facebook_id = ''
 
     def get_config_and_utils(self):
         return config, utils
@@ -104,6 +105,15 @@ class FBCrawler:
     def run_selenium_browser(self):
         browser = webdriver.Firefox()
         browser.get('https://m.facebook.com/friends/center/friends/')
+
+    def get_facebook_username(self, cookies, session):
+        succeed_to_get, r = utils.customized_get_request(config.get('UserProfile', 'path_to_main_page'),
+                                                         session, cookies, 10)
+        if succeed_to_get:
+            soup = BeautifulSoup(r.text, 'html.parser')
+            link_to_profile = soup.findAll(lambda tag: tag.name == 'a' and re.match(r'Profile', tag.text))[0]['href']
+            only_user_id = re.split('/|\?',link_to_profile)[1]
+            self.user_facebook_id = only_user_id
 
     def get_user_first_circle_friends_initial_scan_data(self, cookies, session):
         """
@@ -229,7 +239,7 @@ class FBCrawler:
         :return: friendship duration
         """
         attempt_num = config.getint('FriendshipDuration', 'try_amount')
-        url = config.get('FriendshipDuration', 'friendship_link') + friend_id
+        url = config.get('FriendshipDuration', 'friendship_link') + self.user_facebook_id + '/' + friend_id
 
         while True:
             succeed_to_get, r = utils.customized_redirected_get_request(url, self.session_and_cookies[thread_id][0],

@@ -47,7 +47,7 @@ def crawl_facebook():
     session_cookies, session = fbc.login_to_facebook(email, password)
     while not session_cookies and not session:
         session_cookies, session = fbc.login_to_facebook(email, password)
-
+    fbc.get_facebook_username(session_cookies, session)
     first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(
         session_cookies,
         session)
@@ -125,6 +125,13 @@ def handle_posts():
         elif request.form["button"] == 'UploadTwitter':
             return upload_twitter_file()
 
+@app.route('/stream')
+def stream():
+    def generate():
+        with open('crawler.log') as f:
+            while True:
+                yield f.read()
+    return app.response_class(generate(), mimetype='text/plain')
 
 if __name__ == '__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True

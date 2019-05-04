@@ -262,7 +262,8 @@ function update() {
             .attr('dy', -10)
             .text(function (d) {
                 if (d.id == 0) { return "id=0" }
-                else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
+                else if (d.level == 1) { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
+                else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() + ",TSP=" + d.TSP.toString().substring(0, 6); }
             })
             .style("font-size", "12px");
 

@@ -94,7 +94,7 @@ class utils:
     def convert_only_month_friendship_duration_text_to_month(self, month):
         start = datetime.strptime(month + ' ' + str(datetime.now().year) , "%B %Y")
         today = datetime.now()
-        return monthdelta.monthmod(start, today)[0].months
+        return monthdelta.monthmod(start, today)[0].months + 1
 
     def get_num_of_days_from_first_post_date(self, date_text):
         if re.search(r'^(\w{3,9} \d{1,2}\, \d{4})', date_text):

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from AlgorithmSolver import createJson as cJson
+from Crawler.FBCrawler import FBCrawler
 import os
 import json
 app = Flask(__name__)
@@ -20,7 +21,11 @@ def main():
 def crawl_facebook():
     email = request.form['emailForFacebook']
     password = request.form['passwordForFacebook']
-    print(email, password)
+    fbc = FBCrawler("FromWebSite")
+    csv_file_name = fbc.initiate_csv_file()
+    session_cookies, session = fbc.login_to_facebook(email, password)
+    while not session_cookies and not session:
+        session_cookies, session = fbc.login_to_facebook()
     return render_template('index.html')
 
 def crawl_twitter():

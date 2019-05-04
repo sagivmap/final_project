@@ -18,7 +18,7 @@
     <!-- Custom styles for this template-->
     <script src="static/vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="static/vendor/underscore/underscore-min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js?2.9.3"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
 
         <style type="text/css">
@@ -127,7 +127,12 @@
                             </div>
                             <!-- Graph Location Body -->
                             <div class="card-body">
-                                <div id="my_dataviz"></div>
+                               <div id="my_dataviz">
+                                    <svg width="1000" height="500" id="svg-id">
+                                      <g class="links"></g>
+                                      <g class="nodes"></g>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
 
@@ -167,6 +172,7 @@
 </a>
 
 <script type="text/javascript" src="static/js/staticGraphPresentation.js"></script>
+<script type="text/javascript" src="static/file.json"></script>
 
 </body>
 

@@ -13,7 +13,6 @@ def create(path,csvType):
     nodes = []
     links = []
 
-    jsonfile = open('static/file.json', 'w')
     indexs = {}
     index = 0
 
@@ -40,6 +39,30 @@ def create(path,csvType):
 
         links.append(tmp)
 
-    json.dump({'nodes': nodes, 'links': links}, jsonfile)
+    # json.dump({'nodes': nodes, 'links': links}, jsonfile)
 
-    jsonfile.close()
+    x = {
+        "nodes": [
+            {"id": 0, "name": "Ego Node", "TF": "", "AUA": "", "MF": "", "FD": "", "TSP": -1, "level": 0},
+            {"id": 1, "name": "bob", "TF": "89", "AUA": "197", "MF": "", "FD": "", "TSP": -1, "level": 1},
+            {"id": 2, "name": "charlie", "TF": "78", "AUA": "197", "MF": "", "FD": "", "TSP": -1, "level": 1},
+            {"id": 3, "name": "david", "TF": "97", "AUA": "356", "MF": "", "FD": "", "TSP": -1, "level": 1},
+            {"id": 4, "name": "eve", "TF": "76", "AUA": "51", "MF": "3", "FD": "", "TSP": 0.17, "level": 2},
+            {"id": 5, "name": "frank", "TF": "95", "AUA": "334", "MF": "2", "FD": "", "TSP": 0.32, "level": 2}
+        ],
+        "links": [
+            {"source": 1, "target": 4},
+            {"source": 3, "target": 5},
+            {"source": 0, "target": 3},
+            {"source": 0, "target": 1},
+            {"source": 3, "target": 4},
+            {"source": 2, "target": 4},
+            {"source": 2, "target": 5},
+            {"source": 0, "target": 2}
+        ]
+    }
+
+    file = open('static/file.json', 'w')
+    f = json.dumps(x)
+    file.write(f)
+    file.close()

@@ -70,7 +70,7 @@ def handle_posts():
             return crawl_twitter()
         elif request.form["button"] == "MoveToManuallyAddPage":
             return render_template('addManuallyPage.html')
-        elif request.form[""] == 'UploadTwitter':
+        elif request.form["button"] == 'UploadTwitter':
             return upload_twitter_file()
 
 

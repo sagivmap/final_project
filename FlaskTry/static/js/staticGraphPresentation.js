@@ -1,223 +1,176 @@
-var graph = {
-  "nodes": [
-    {"id": "Ego_Node", "Name": "Ego_Node", "TF": "0", "MF": "0", "AUA": "0","x": 100, "y": 100, "TSP": -1},
-    {"id": "bob", "Name": "bob", "TF": "89", "MF": "6", "AUA": "197", "x": 300, "y": 300, "TSP": -1},
-    {"id": "charlie", "Name": "charlie", "TF": "78", "MF": "9", "AUA": "124", "x": 340, "y": 340, "TSP": -1},
-    {"id": "david", "Name": "david", "TF": "97", "MF": "21", "AUA": "356", "x": 360, "y": 360, "TSP": -1},
-    {"id": "eve", "Name": "eve", "TF": "76", "MF": "3", "AUA": "51", "TSP": "0.17" , "x": 620, "y": 620},
-    {"id": "frank", "Name": "frank", "TF": "95", "MF": "2", "AUA": "334", "TSP": "0.32" ,"x": 660, "y": 660},
-  ],
-  "links": [
-      {"source": 1, "target": 4},
-      {"source": 3, "target": 5},
-      {"source": 0, "target": 3},
-      {"source": 0, "target": 1},
-      {"source": 3, "target": 4},
-      {"source": 2, "target": 4},
-      {"source": 2, "target": 5},
-      {"source": 0, "target": 2},
-  ]
-}
 
-var width = 900,
-    height = 500;
+$.getJSON("static/file.json", function(json) {
 
-var force = d3.layout.force()
-    .size([width, height])
-    .charge(-100)
-    .linkDistance(200)
-    .on("tick", tick);
+    nodes = json.nodes;
+    links = json.links;
 
-var drag = force.drag()
-    .on("dragstart", dragstart)
-    .on("dragend", dragend);
-
-var svg = d3.select("#my_dataviz").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-var link = svg.selectAll(".link"),
-    node = svg.selectAll(".node");
-
-  force
-      .nodes(graph.nodes)
-      .links(graph.links)
-      .start();
-
-  link = link.data(graph.links)
-    .enter().append("line")
-      .attr("class", "link");
-
-  node = node.data(graph.nodes)
-    .enter().append("g").attr("class","node");
+    var width = $("#my_dataviz").innerWidth(),
+        height = $("#my_dataviz").innerHeight(),
+        id_count = 1,
+        tf_barrier = 100,
+        aua_barrier = 365,
+        mf_barrier = 20,
+        fd_barrier = 12,
+        msp = 0.5,
+        r = 5,
+        links = links,
+        nodes = nodes,
+        getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
 
+    var simulation = d3.forceSimulation(nodes)
+        .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
+        .force('collide', d3.forceCollide(r * 4))
+        .force('charge', d3.forceManyBody().strength(0))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('link', d3.forceLink().links(links).id(function (d) {
+            return d.id
+        }))
+        .on('tick', ticked);
 
-      node.append("text")
+    //drag handler
+    //d is the node
+    function drag_start(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    function drag_drag(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+    }
+
+    function drag_end(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+
+    var drag_handler = d3.drag()
+        .on("start", drag_start)
+        .on("drag", drag_drag)
+        .on("end", drag_end);
+
+
+    function update() {
+
+        var link = d3.select('.links')
+            .selectAll('line.link')
+            .data(links).enter().insert("line")
+            .attr("class", "link")
+            .attr("x1", function (d) {
+                return d.source.x;
+            })
+            .attr("y1", function (d) {
+                return d.source.y;
+            })
+            .attr("x2", function (d) {
+                return d.target.x;
+            })
+            .attr("y2", function (d) {
+                return d.target.y;
+            });
+
+        link.exit().remove();
+
+        var node = d3.select('.nodes')
+            .selectAll('g.node')
+            .data(nodes).enter().append("g")
+            .attr("class", "node");
+
+        node.append("circle")
+            .style("fill", function (d) {
+                if (d.id == 0) {
+                    return "#0099ff"
+                }
+                if (d.level == 1) {
+                    return "#00cc00"
+                }
+                if (d.TSP > 0.5) {
+                    return "#ff9900"
+                } else {
+                    return "#ff0000"
+                }
+            })
+            .attr("r", r);
+
+        node.append("text")
             .attr("class", "nodetext")
             .attr("x", "0em")
             .attr("y", 15)
-            .text(function(d) { return d.Name });
+            .text(function (d) {
+                return d.name
+            });
 
-      node.append("circle")
-      .attr("class", "node")
-      .style("fill", function (d) { if (d.id =='Ego_Node'){return "#0099ff"}
-                                          if (d.TSP == -1){return "#00cc00"}
-                                          if (d.TSP > 0.3){return "#ff9900"} else{return "#ff0000"}
-                                                    })
-      .attr("r", 12)
-      .call(drag);
+        node.on("mouseover", function (d) {
+            var g = d3.select(this); // The node
+            // The class is used to remove the additional text later
+            var info = g.append('text')
+                .classed('info', true)
+                .attr('dx', "0em")
+                .attr('dy', -10)
+                .text(function (d) {
+                    if (d.id == 0) {
+                        return "id=0"
+                    }
+                    else {
+                        return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString()
+                    }
+                })
+                .style("font-size", "12px");
 
-      node.on("mouseover", function(d) {
-          var g = d3.select(this); // The node
-          // The class is used to remove the additional text later
-          var info = g.append('text')
-             .classed('info', true)
-             .attr('dx', "0em")
-             .attr('dy', -10)
-             .text(function(d) { if(d.id =="Ego_Node"){return "id=0"}
-                                 else{return "id="+d.id+",TF="+d.TF+",AUA="+d.AUA}})
-             .style("font-size", "12px");
-        }).on("mouseout", function() {
-              // Remove the info text on mouse out.
-              d3.select(this).select('text.info').remove()
+            d3.selectAll('line.link')
+                .filter(function (l) {
+                    return (d.id != 0 && (d.id == l.source.id || d.id == l.target.id));
+                })
+                .style("opacity", 1)
+
+        }).on("mouseout", function () {
+            d3.selectAll('line.link').style("opacity", 0.1)
+            // Remove the info text on mouse out.
+            d3.select(this).select('text.info').remove();
+
+        });
+
+        node.exit().remove();
+
+        drag_handler(node);
+        simulation.nodes(nodes);
+        simulation.force("link").links(links).id(function (d) {
+            return d.id
+        });
+        simulation.on('tick', ticked)
+        simulation.alpha(1).restart();
+    }
+
+    function ticked() {
+        var link = d3.select('.links')
+            .selectAll('line.link')
+            .data(links);
+        link.attr("x1", function (d) {
+            return d.source.x;
+        })
+            .attr("y1", function (d) {
+                return d.source.y;
+            })
+            .attr("x2", function (d) {
+                return d.target.x;
+            })
+            .attr("y2", function (d) {
+                return d.target.y;
             });
 
 
-function tick() {
-  link.attr("x1", function(d) { return d.source.x; })
-      .attr("y1", function(d) { return d.source.y; })
-      .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
+        var node = d3.select('.nodes')
+            .selectAll('g.node')
+            .data(nodes);
 
-  // node.attr("cx", function(d) { return d.x; })
-  //     .attr("cy", function(d) { return d.y; });
+        node.attr("transform", function (d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+    }
 
-  node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-}
+    update();
 
-function dragstart(d) {
-    // d.fixed = true;
-    // d3.select(this).classed("fixed", true);
-d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
-
-function dragend(d) {
-    // var self = this;
-    // setTimeout(function() {
-    //     d.fixed = false;
-    //     d3.select(self).classed("fixed", false);
-    // }, 2000);
-    d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var width = 960,
-//     height = 500
-//
-// var svg = d3.select("#my_dataviz").append("svg")
-//     .attr("width", width)
-//     .attr("height", height);
-//
-// // var force = d3.layout.force()
-// //     .gravity(.05)
-// //     .distance(100)
-// //     .charge(-100)
-// //     .size([width, height]);
-//
-// var force = d3.layout.force()
-//     .size([width, height])
-//     .charge(-400)
-//     .linkDistance(40)
-//     .on("tick", tick);
-//
-// function dragstart(d) {
-//     d.fixed = true;
-//     d3.select(this).classed("fixed", true);
-// }
-//
-// function dragend(d) {
-//     var self = this;
-//     setTimeout(function() {
-//         d.fixed = false;
-//         d3.select(self).classed("fixed", false);
-//     }, 2000);
-// }
-//
-//
-// var drag = force.drag()
-//     .on("dragstart", dragstart)
-//     .on("dragend", dragend);
-//
-// d3.json("static/file.json", function(json) {
-//   force
-//       .nodes(json.nodes)
-//       .links(json.links)
-//       .start();
-//
-//   var link = svg.selectAll(".link")
-//       .data(json.links)
-//     .enter().append("line")
-//       .attr("class", "link");
-//
-//   var node = svg.selectAll(".node")
-//       .data(json.nodes)
-//     .enter().append("g")
-//       .attr("class", "node")
-//       .call(drag);
-//
-//   node.append("circle")
-//       .attr("r","5");
-//
-//   node.append("text")
-//       .attr("dx", 12)
-//       .attr("dy", ".35em")
-//       .text(function(d) { return d.Name });
-//
-//   force.on("tick", function() {
-//      link.attr("x1", function(d) { return d.source.x; })
-//       .attr("y1", function(d) { return d.source.y; })
-//       .attr("x2", function(d) { return d.target.x; })
-//       .attr("y2", function(d) { return d.target.y; });
-//
-//     node.attr("cx", function(d) { return d.x; })
-//         .attr("cy", function(d) { return d.y; });
-//   });
-//
-// });
+});

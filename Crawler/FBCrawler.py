@@ -14,10 +14,10 @@ import time
 
 # initiate config file
 config = configparser.ConfigParser()
-config.read('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/config.ini')
+config.read(os.path.join(os.getcwd(),'..','Crawler','config','config.ini'))
 
 # initiate logger
-fileConfig('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/logger_config.ini')
+fileConfig(os.path.join(os.getcwd(),'..','Crawler','config','logger_config.ini'))
 fh = logging.FileHandler('crawler.log')
 formatter = logging.Formatter('%(asctime)s - %(threadName)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)

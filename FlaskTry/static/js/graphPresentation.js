@@ -7,9 +7,15 @@ var width = $("#svg-id").innerWidth(),
     fd_barrier = 12,
     msp = 0.5,
     r = 5,
-    nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }],
+    nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }
+    //{ "id": 1000, "name": "a", "TF": 100, "AUA": 365, "CF": [0], "MF": [35], "FD": [16], "Weight": 1, "TSP": -1, "level": 1 },
+    //{ "id": 1001, "name": "b", "TF": 100, "AUA": 365, "CF": [1], "MF": [35], "FD": [16], "Weight": 1, "TSP": 1, "level": 2 },
+    //{ "id": 1002, "name": "c", "TF": 1, "AUA": 1, "CF": [1], "MF": [0], "FD": [0], "Weight": 1, "TSP": 0.001, "level": 2 }
+    ],
     bad_nodes = new Set([]),
-    links = [],
+    links = [
+        //{ "source": 0, "target": 1000 }, { "source": 1000, "target": 1001 }, { "source": 1000, "target": 1002 }
+    ],
     bad_links = new Set([]),
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]),
     there_are_bad_connections = false,
@@ -84,7 +90,20 @@ function get_all_low_tsp_second_level_nodes() {
     var nodes_to_return = [];
     for (var i in nodes) {
         if (nodes[i]["level"] === 2 && nodes[i]["TSP"] < msp) {
-            nodes_to_return.push(JSON.parse(JSON.stringify(nodes[i])));
+            var node_to_add = {
+                "id": nodes[i]["id"],
+                "name": nodes[i]["name"],
+                "TF": nodes[i]["TF"],
+                "AUA": nodes[i]["AUA"],
+                "CF": nodes[i]["CF"],
+                "MF": nodes[i]["MF"],
+                "FD": nodes[i]["FD"],
+                "Weight": nodes[i]["Weight"],
+                "TSP": nodes[i]["TSP"],
+                "level": nodes[i]["level"]
+            }
+            nodes_to_return.push(node_to_add);
+            console.log(node_to_add);
         }
     }
     return nodes_to_return;
@@ -95,8 +114,27 @@ function get_first_circle_nodes_and_links_of_second(id_of_second) {
     var links_to_return = [];
     for (var i in links) {
         if (links[i]["target"]["id"] === id_of_second) {
-            nodes_to_return.push(JSON.parse(JSON.stringify(links[i]["source"])));
-            links_to_return.push(JSON.parse(JSON.stringify(links[i])));
+            var node_to_add = {
+                "id": links[i]["source"]["id"],
+                "name": links[i]["source"]["name"],
+                "TF": links[i]["source"]["TF"],
+                "AUA": links[i]["source"]["AUA"],
+                "CF": links[i]["source"]["CF"],
+                "MF": links[i]["source"]["MF"],
+                "FD": links[i]["source"]["FD"],
+                "Weight": links[i]["source"]["Weight"],
+                "TSP": links[i]["source"]["TSP"],
+                "level": links[i]["source"]["level"]
+            }
+            nodes_to_return.push(node_to_add);
+            var link_to_add = {
+                "FD": links[i]["FD"],
+                "MF": links[i]["MF"],
+                "Weight": links[i]["Weight"],
+                "source": links[i]["source"]["id"],
+                "target": links[i]["target"]["id"],
+            }
+            links_to_return.push(link_to_add);
         }
     }
     return [nodes_to_return, links_to_return]
@@ -173,37 +211,49 @@ function addLink(source, i) {
 
 function update() {
 
-    var link = d3.select('.links')
-        .selectAll('line.link')
-        .data(show_bad_connections ? bad_links : links).enter().insert("line")
+    var link = d3.select('.links').selectAll('line.link');
+
+    link = link.data(show_bad_connections ? bad_links : links);
+    link.exit().remove();
+
+    link.enter().insert("line")
         .attr("class", "link")
         .attr("x1", function (d) { return d.source.x; })
         .attr("y1", function (d) { return d.source.y; })
         .attr("x2", function (d) { return d.target.x; })
         .attr("y2", function (d) { return d.target.y; });
 
-    link.exit().remove();
+    
 
-    node = d3.select('.nodes')
-        .selectAll('g.node')
-        .data(show_bad_connections ? bad_nodes : nodes).enter().append("g")
-        .attr("class", "node");
+    var node = d3.select('.nodes')
+        .selectAll('g.node');
 
-    node.append("circle")
+    node = node.data(show_bad_connections ? bad_nodes : nodes)
+
+    
+
+    node_enter = node.enter().append("g")
+        .attr("class", "node").merge(node);
+    
+
+    node_enter.append("text")
+        .attr("class", "nodetext")
+        .attr("x", "0em")
+        .attr("y", 15)
+        .text(function (d) { return d.name });
+
+    node_enter.append("circle")
         .style("fill", function (d) {
             if (d.id == 0) { return "#0099ff" }
             if (d.CF.includes(0)) { return "#00cc00" }
             if (d.TSP > 0.5) { return "#ff9900" } else { return "#ff0000" }
         })
         .attr("r", r);
+    node_enter.exit().remove();
 
-    node.append("text")
-        .attr("class", "nodetext")
-        .attr("x", "0em")
-        .attr("y", 15)
-        .text(function (d) { return d.name });
+    
 
-    node.on("mouseover", function (d) {
+    node_enter.on("mouseover", function (d) {
         var g = d3.select(this); // The node
         // The class is used to remove the additional text later
         var info = g.append('text')
@@ -226,12 +276,10 @@ function update() {
         d3.selectAll('line.link').style("opacity", 0.1)
         // Remove the info text on mouse out.
         d3.select(this).select('text.info').remove();
-        
+
     });
 
-    node.exit().remove();
-
-    drag_handler(node);
+    drag_handler(node_enter);
     simulation.nodes(show_bad_connections ? bad_nodes : nodes);
     simulation.force("link").links(show_bad_connections ? bad_links : links).id(function (d) { return d.id });
     simulation.on('tick', ticked)
@@ -240,19 +288,19 @@ function update() {
 
 
 function ticked() {
-    var link = d3.select('.links')
-        .selectAll('line.link')
-        .data(show_bad_connections ? bad_links : links);
+    var link = d3.select('.links').selectAll('line.link');
+    link = link.data(show_bad_connections ? bad_links : links);
+    link.exit().remove();
+
     link.attr("x1", function (d) { return d.source.x; })
         .attr("y1", function (d) { return d.source.y; })
         .attr("x2", function (d) { return d.target.x; })
         .attr("y2", function (d) { return d.target.y; });
 
 
-    node = d3.select('.nodes')
-        .selectAll('g.node')
-        .data(show_bad_connections ? bad_nodes : nodes);
-
+    var node = d3.select('.nodes').selectAll('g.node');
+    node = node.data(show_bad_connections ? bad_nodes : nodes);
+    node.exit().remove();
     node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
 }
 
@@ -298,12 +346,27 @@ function addNodeToGraph() {
     }
 }
 
+function showAllConnections() {
+
+    show_bad_connections = false;
+
+    d3.select('.links').selectAll('line.link').remove();
+    d3.select('.nodes').selectAll('g.node').remove();
+
+    update();
+}
+
+
 function show_only_bad_connections() {
     if (!there_are_bad_connections)
         window.alert("All connections are GOOD connections!")
+    else if (show_bad_connections)
+        window.alert("Already show bad connections..")
     else {
+        show_bad_connections = true;
         bad_links = new Set([]);
         second_level_nodes_with_low_tsp = new Set(get_all_low_tsp_second_level_nodes());
+        bad_nodes = new Set([]);
         bad_nodes = new Set([...bad_nodes, ...second_level_nodes_with_low_tsp]);
         for (let item of second_level_nodes_with_low_tsp) {
             first_circle_nodes_and_links_of_bad_node = get_first_circle_nodes_and_links_of_second(item['id']);
@@ -312,14 +375,38 @@ function show_only_bad_connections() {
             bad_nodes = new Set([...bad_nodes, ...first_circle_nodes]);
             bad_links = new Set([...bad_links, ...second_circle_links]);
             for (let node of first_circle_nodes) {
-                bad_links.add(findLink(0, node['id']));
+                var first_circle_link = findLink(0, node['id']);
+                var first_circle_link_to_add = {
+                    "FD": first_circle_link["FD"],
+                    "MF": first_circle_link["MF"],
+                    "Weight": first_circle_link["Weight"],
+                    "source": first_circle_link["source"]["id"],
+                    "target": first_circle_link["target"]["id"],
+                }
+                bad_links.add(first_circle_link_to_add);
             }
         }
-        bad_nodes.add(findNode(0));
+        var ego_node = findNode(0);
+        var ego_node_to_add = {
+            "id": ego_node["id"],
+            "name": ego_node["name"],
+            "TF": ego_node["TF"],
+            "AUA": ego_node["AUA"],
+            "CF": ego_node["CF"],
+            "MF": ego_node["MF"],
+            "FD": ego_node["FD"],
+            "Weight": ego_node["Weight"],
+            "TSP": ego_node["TSP"],
+            "level": ego_node["level"]
+        }
+        bad_nodes.add(ego_node_to_add);
 
         bad_nodes = Array.from(bad_nodes);
         bad_links = Array.from(bad_links);
-        show_bad_connections = true;
+
+        d3.select('.links').selectAll('line.link').remove();
+        d3.select('.nodes').selectAll('g.node').remove();
+
         update();
     }
 }

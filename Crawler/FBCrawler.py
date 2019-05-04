@@ -14,11 +14,11 @@ import time
 
 # initiate config file
 config = configparser.ConfigParser()
-config.read('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/config.ini')
+config.read(os.path.join(os.getcwd(),'..','Crawler','config','config.ini'))
 
 # initiate logger
-fileConfig('C:/Users/sagiv/PycharmProjects/ProjectTry/Crawler/config/logger_config.ini')
-fh = logging.FileHandler('main.log')
+fileConfig(os.path.join(os.getcwd(),'..','Crawler','config','logger_config.ini'))
+fh = logging.FileHandler('crawler.log')
 formatter = logging.Formatter('%(asctime)s - %(threadName)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 logger = logging.getLogger()
@@ -38,6 +38,9 @@ class FBCrawler:
         self.exception_thrown = []
         self.json_files_folder = 'first_and_second_data_raw/' + self.run_id + '_' + utils.get_timestamp()
         os.makedirs(self.json_files_folder)
+
+    def get_config_and_utils(self):
+        return config, utils
 
 
     def initiate_csv_file(self):
@@ -318,6 +321,8 @@ class FBCrawler:
         uris_include_friend_text = soup.findAll(lambda tag: tag.name == 'a' and re.match(r'Friends', tag.text))
         if len(uris_include_friend_text)>1:
             return uris_include_friend_text[1]['href']
+        elif len(uris_include_friend_text)==1:
+            return uris_include_friend_text[0]['href']
         return None
 
     def __get_facebook_user_account_age(self, facebook_user_id, thread_id, is_fs_friend=True):
@@ -573,7 +578,7 @@ class FBCrawler:
             except Exception as e:
                 logger.error(e)
 
-    def initiate_osn_dicts_and_sessions(self, num_of_threads):
+    def initiate_osn_dicts_and_sessions(self, num_of_threads, email, password):
         """
         initiate data structure for each thread so there won't be a race contidion
         :param num_of_threads: num of threads to initiate DS to.
@@ -581,9 +586,9 @@ class FBCrawler:
         """
         for i in range(0, num_of_threads):
             self.osn_data_as_list.append({})
-            cookies, session = self.login_to_facebook()
+            cookies, session = self.login_to_facebook(email, password)
             while (cookies is None) and (session is None):
-                cookies, session = self.login_to_facebook()
+                cookies, session = self.login_to_facebook(email, password)
             self.session_and_cookies.append((session, cookies))
             self.exception_thrown.append(False)
 

@@ -3,6 +3,8 @@ from AlgorithmSolver import createJson as cJson
 from Crawler.FBCrawler import FBCrawler
 import os
 import json
+import math
+import threading
 app = Flask(__name__)
 
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
@@ -18,14 +20,59 @@ app.config['ID_FOR_NODE'] = 1
 def main():
     return render_template('index.html')
 
+class myThread (threading.Thread):
+    """
+    Thread class which each one execute part of first circle friends and all their second circle friends.
+    """
+    def __init__(self, facebook_crawler, threadID, name, paths):
+        threading.Thread.__init__(self, name=name)
+        self.facebook_crawler = facebook_crawler
+        self.threadID = threadID
+        self.name = name
+        self.paths = paths
+
+
+    def run(self):
+        #logger.info("Starting work on thread: " + self.name)
+        for path in self.paths:
+            self.facebook_crawler.crawl_data_of_user_friends(path, self.threadID)
+        #logger.info("Finished work on thread: " + self.name)
+
 def crawl_facebook():
     email = request.form['emailForFacebook']
     password = request.form['passwordForFacebook']
     fbc = FBCrawler("FromWebSite")
+    #fbc.run_selenium_browser()
     csv_file_name = fbc.initiate_csv_file()
     session_cookies, session = fbc.login_to_facebook(email, password)
     while not session_cookies and not session:
-        session_cookies, session = fbc.login_to_facebook()
+        session_cookies, session = fbc.login_to_facebook(email, password)
+
+    first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(
+        session_cookies,
+        session)
+    config, utils = fbc.get_config_and_utils()
+    num_of_threads = math.ceil(num_of_pages / config.getint('General', 'num_of_json_per_thread'))
+    paths_for_each_thread = utils.get_paths_for_each_thread(first_circle_initial_data_folder,
+                                                            config.getint('General', 'num_of_json_per_thread'))
+
+    fbc.initiate_osn_dicts_and_sessions(num_of_threads, email, password)
+
+    threadList = []
+    for i in range(0, num_of_threads):
+        threadList.append('Thread-' + str(i))
+
+    i = 0
+    threads = []
+    for tName in threadList:
+        thread = myThread(fbc, i, tName, paths_for_each_thread[i])
+        thread.start()
+        threads.append(thread)
+        i += 1
+
+    for t in threads:
+        t.join()
+    path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
     return render_template('index.html')
 
 def crawl_twitter():

@@ -302,6 +302,7 @@ function ticked() {
     node = node.data(show_bad_connections ? bad_nodes : nodes);
     node.exit().remove();
     node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+
 }
 
 update();
@@ -409,4 +410,37 @@ function show_only_bad_connections() {
 
         update();
     }
+}
+
+
+function downloadDataAsCSV() {
+    var result, columnDelimiter, lineDelimiter, filename, link;
+
+    columnDelimiter = ',';
+    lineDelimiter = '\n';
+    result = '';
+    result += 'id,name,TF,AUA,CF,MF,FD,TSP\n';
+
+    nodes.forEach(function (node) {
+        result += node['id'] + columnDelimiter;
+        result += node['name'] + columnDelimiter;
+        result += node['TF'] + columnDelimiter;
+        result += node['AUA'] + columnDelimiter;
+        result += JSON.stringify(node['CF']) + columnDelimiter;
+        result += JSON.stringify(node['MF']) + columnDelimiter;
+        result += JSON.stringify(node['FD']) + columnDelimiter;
+        result += node['TSP'] + lineDelimiter;
+    });
+
+    result = 'data:text/csv;charset=utf-8,' + result;
+
+    filename = 'export.csv';
+
+    data = encodeURI(result);
+
+    link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
+
 }

@@ -125,13 +125,6 @@ def handle_posts():
         elif request.form["button"] == 'UploadTwitter':
             return upload_twitter_file()
 
-@app.route('/stream')
-def stream():
-    def generate():
-        with open('crawler.log') as f:
-            while True:
-                yield f.read()
-    return app.response_class(generate(), mimetype='text/plain')
 
 if __name__ == '__main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True

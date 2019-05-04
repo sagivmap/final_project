@@ -100,7 +100,7 @@ $.getJSON("static/file.json", function(json) {
             .attr("x", "0em")
             .attr("y", 15)
             .text(function (d) {
-                return d.name
+                return d.Name
             });
 
         node.on("mouseover", function (d) {

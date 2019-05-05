@@ -424,27 +424,42 @@ function show_only_bad_connections() {
 
 
 function downloadDataAsCSV() {
-    var result, columnDelimiter, lineDelimiter, filename, link;
-
-    columnDelimiter = ',';
-    lineDelimiter = '\n';
-    result = '';
-    result += 'id,name,TF,AUA,CF,MF,FD,TSP\n';
-
+    var nodes_to_download = [];
     nodes.forEach(function (node) {
-        result += node['id'] + columnDelimiter;
-        result += node['name'] + columnDelimiter;
-        result += node['TF'] + columnDelimiter;
-        result += node['AUA'] + columnDelimiter;
-        result += JSON.stringify(node['CF']) + columnDelimiter;
-        result += JSON.stringify(node['MF']) + columnDelimiter;
-        result += JSON.stringify(node['FD']) + columnDelimiter;
-        result += node['TSP'] + lineDelimiter;
+        node_to_add = {
+            "id": node["id"],
+            "name": node["name"],
+            "TF": node["TF"],
+            "AUA": node["AUA"],
+            "CF": node["CF"],
+            "MF": node["MF"],
+            "FD": node["FD"],
+            "Weight": node["Weight"],
+            "TSP": node["TSP"],
+            "level": node["level"]
+        };
+        nodes_to_download.push(node_to_add);
     });
 
-    result = 'data:text/csv;charset=utf-8,' + result;
+    var links_to_download = [];
+    links.forEach(function (link) {
+        link_to_add = {
+            "FD": link["FD"],
+            "MF": link["MF"],
+            "Weight": link["Weight"],
+            "source": link["source"]["id"],
+            "target": link["target"]["id"],
+        };
+        links_to_download.push(link_to_add);
+    });
 
-    filename = 'export.csv';
+    dict_to_download = {
+        "nodes": nodes_to_download,
+        "links": links_to_download
+    }
+    result = 'data:text/json;charset=utf-8,' + JSON.stringify(dict_to_download);
+
+    filename = 'export.json';
 
     data = encodeURI(result);
 
@@ -453,4 +468,35 @@ function downloadDataAsCSV() {
     link.setAttribute('download', filename);
     link.click();
 
+}
+
+function get_max_id_from(nodes) {
+    var id_to_return = 0;
+    nodes.forEach(function (node) {
+        if (node['id'] > id_to_return) {
+            id_to_return = node['id'];
+        }
+    });
+
+    return id_to_return;
+
+}
+
+function uploadJsonFile() {
+    var files = document.getElementById('selectFiles').files;
+    if (files.length <= 0) {
+        return false;
+    }
+    var fr = new FileReader();
+
+    fr.onload = function (e) {
+        var result = JSON.parse(e.target.result);
+        nodes = result["nodes"];
+        links = result["links"];
+        show_bad_connections = false;
+        id_count = get_max_id_from(nodes)+1;
+        update();
+    }
+
+    fr.readAsText(files.item(0));
 }

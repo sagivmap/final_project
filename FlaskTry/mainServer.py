@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from AlgorithmSolver import createJson as cJson
+from Crawler import TwitterCrawler
 from Crawler.FBCrawler import FBCrawler
 import os
 import json
@@ -77,7 +78,8 @@ def crawl_facebook():
 
 def crawl_twitter():
     nick_name = request.form['twitterName']
-    print(nick_name[1:])
+    nick_name = nick_name[1:]
+    TwitterCrawler.run(nick_name)
     return render_template('index.html')
 
 def upload_file():

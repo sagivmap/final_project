@@ -75,8 +75,11 @@ def crawl_facebook():
         t.join()
     path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
     full_path_to_csv = os.path.join(os.getcwd(), path_to_csv)
-    return send_file(full_path_to_csv,
-                     as_attachment=True, attachment_filename='crawled.csv')
+
+    cJson.create(full_path_to_csv, 1)
+
+    return render_template('showGraph.html')
+
 
 def crawl_twitter():
     nick_name = request.form['twitterName']
@@ -95,7 +98,12 @@ def upload_file():
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
 
-        cJson.create(path, 1)
+        if(os.stat(path).st_size > 1000000):
+            toBig = True
+        else:
+            toBig = False
+
+        cJson.create(path, 1, toBig)
 
         return render_template('showGraph.html')
 
@@ -131,7 +139,5 @@ def handle_posts():
 
 if __name__ == '__main__':
     app.jinja_env.auto_reload = True
-    env = app.jinja_env
-    env.cache = None
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)

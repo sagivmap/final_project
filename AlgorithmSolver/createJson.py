@@ -1,15 +1,17 @@
+import time
+
 from .AlgorithmSolver import AlgorithmSolver as AlgSol
 import json
 from ast import literal_eval
 
-def create(path,csvType):
+def create(path,csvType, toBig=False):
     #csvType 1 == FB , 2 == twitter
 
     file = open('static/file.json', 'w')
 
     # csv to Json
     algSolv = AlgSol(path)
-    algSolv.generate()
+    algSolv.generate(toBig)
     algSolv.add_ego_node()
 
     nodes = []

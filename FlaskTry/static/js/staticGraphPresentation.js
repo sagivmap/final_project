@@ -17,6 +17,14 @@ $.getJSON("static/file.json", function(json) {
         nodes = nodes,
         getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
+    var zoom = d3.select(".everything");
+
+    var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+    zoom_handler(zoom);
+    function zoom_actions(){
+        zoom.attr("transform", d3.event.transform)
+    }
 
     var simulation = d3.forceSimulation(nodes)
         .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
@@ -27,6 +35,8 @@ $.getJSON("static/file.json", function(json) {
             return d.id
         }))
         .on('tick', ticked);
+
+
 
     //drag handler
     //d is the node
@@ -81,7 +91,7 @@ $.getJSON("static/file.json", function(json) {
 
         node.append("circle")
             .style("fill", function (d) {
-                if (d.id == 0) {
+                if (d.id == 0 || d.id == "Ego_Node") {
                     return "#0099ff"
                 }
                 if (d.level == 1) {
@@ -166,10 +176,13 @@ $.getJSON("static/file.json", function(json) {
             .selectAll('g.node')
             .data(nodes);
 
+
+
         node.attr("transform", function (d) {
             return "translate(" + d.x + "," + d.y + ")";
         });
     }
+
 
     update();
 

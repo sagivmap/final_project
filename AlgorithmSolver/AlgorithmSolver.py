@@ -216,10 +216,43 @@ class AlgorithmSolver:
                 if curr_tsp > second_circle_edge.dest.tsp:
                     second_circle_edge.dest.tsp = curr_tsp
 
-    def generate(self):
+    def get_first_circle_nodes_and_edges_for_seconde_circle_node(self, node):
+        edges = []
+        first_circle_nodes = set()
+
+        for edge in self.second_circle_edges:
+            if edge.dest.idd == node.idd:
+                edges.append(edge)
+                first_circle_nodes.add(edge.src)
+                for firstedge in self.first_circle_edges:
+                    if firstedge.dest.idd == edge.src.idd:
+                        edges.append(firstedge)
+
+        return first_circle_nodes, edges
+
+    def getOnlyBadConnections(self):
+        bad_second_level_node = (list(filter(lambda x: x.tsp < 0.03, self.second_circle_nodes)))
+
+        bad_first_circle_nodes = set()
+        bad_edges = []
+        for bad_node in bad_second_level_node:
+            first_circle_nodes, edges = self.get_first_circle_nodes_and_edges_for_seconde_circle_node(bad_node)
+            bad_first_circle_nodes.update(first_circle_nodes)
+            bad_edges.extend(edges)
+
+        bad_first_circle_nodes = list(bad_first_circle_nodes)
+        self.first_circle_nodes = bad_first_circle_nodes
+        self.edges = bad_edges
+        self.second_circle_nodes = bad_second_level_node
+
+
+
+    def generate(self, toBig):
         self.create_nodes_and_edges()
         self.calculate_weights()
         self.calculate_TSP()
+        if toBig:
+            self.getOnlyBadConnections()
 
 if __name__ == "__main__":
     algSolv = AlgorithmSolver("test1.csv")

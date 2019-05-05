@@ -29,6 +29,15 @@ var simulation = d3.forceSimulation(nodes)
     .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
     .on('tick', ticked);
 
+var zoom = d3.select(".everything");
+
+var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+zoom_handler(zoom);
+function zoom_actions() {
+    zoom.attr("transform", d3.event.transform)
+}
+
 //drag handler
 //d is the node
 function drag_start(d) {

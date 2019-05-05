@@ -170,9 +170,18 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+<script type="text/javascript">
+    window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+</script>
 
-<script type="text/javascript" src="static/js/staticGraphPresentation.js"></script>
 <script type="text/javascript" src="static/file.json"></script>
+<script type="text/javascript" src="static/js/staticGraphPresentation.js"></script>
+
 
 </body>
 

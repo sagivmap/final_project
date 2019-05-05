@@ -619,6 +619,7 @@ class FBCrawler:
             rows.append(row)
 
         utils.write_rows_in_csv_file(path_to_csv_file, rows)
+        return path_to_csv_file
 
 class myThread (threading.Thread):
     """

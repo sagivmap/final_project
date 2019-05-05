@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory, send_file
 from AlgorithmSolver import createJson as cJson
 from Crawler.FBCrawler import FBCrawler
 import os
@@ -73,7 +73,9 @@ def crawl_facebook():
     for t in threads:
         t.join()
     path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
-    return render_template('index.html')
+    full_path_to_csv = os.path.join(os.getcwd(), path_to_csv)
+    return send_file(full_path_to_csv,
+                     as_attachment=True, attachment_filename='crawled.csv')
 
 def crawl_twitter():
     nick_name = request.form['twitterName']
@@ -106,7 +108,6 @@ def upload_twitter_file():
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
 
-
         cJson.create(path,2)
 
         return render_template('showGraph.html')
@@ -127,5 +128,8 @@ def handle_posts():
 
 
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    env = app.jinja_env
+    env.cache = None
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)

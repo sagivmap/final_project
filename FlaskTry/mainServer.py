@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, send_from_directory, send_file
+from flask import Flask, render_template, request, redirect, flash, send_file
 from AlgorithmSolver import createJson as cJson
-from Crawler import TwitterCrawler
+from Crawler.TwitterCrawler import TwitterCrawler
 from Crawler.FBCrawler import FBCrawler
 import os
 import json
@@ -80,11 +80,13 @@ def crawl_facebook():
 
     return render_template('showGraph.html')
 
-
 def crawl_twitter():
     nick_name = request.form['twitterName']
     nick_name = nick_name[1:]
-    TwitterCrawler.run(nick_name)
+    # flash('You were successfully logged in')
+    tc = TwitterCrawler()
+    tc.run(nick_name,"omersella13@gmail.com")
+
     return render_template('index.html')
 
 def upload_file():
@@ -103,7 +105,7 @@ def upload_file():
         else:
             toBig = False
 
-        cJson.create(path, 1, toBig)
+        cJson.create(path, 1, toBig, tsp=request.form['tspFCBNum'])
 
         return render_template('showGraph.html')
 
@@ -118,7 +120,7 @@ def upload_twitter_file():
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
 
-        cJson.create(path,2)
+        cJson.create(path,2,tsp=request.form['tspFCBNum'])
 
         return render_template('showGraph.html')
 

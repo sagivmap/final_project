@@ -4,13 +4,13 @@ from .AlgorithmSolver import AlgorithmSolver as AlgSol
 import json
 from ast import literal_eval
 
-def create(path,csvType, toBig=False):
+def create(path,csvType, toBig=False,tsp=0.03):
     #csvType 1 == FB , 2 == twitter
 
     file = open('static/file.json', 'w')
 
     # csv to Json
-    algSolv = AlgSol(path)
+    algSolv = AlgSol(path,tsp)
     algSolv.generate(toBig)
     algSolv.add_ego_node()
 

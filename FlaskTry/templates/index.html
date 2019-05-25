@@ -1,5 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
+
 
 <head>
 
@@ -20,6 +22,49 @@
 
   <!-- Custom styles for this template-->
   <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+
+
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80%;
+            overflow: auto
+        }
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
 
 </head>
 
@@ -80,9 +125,10 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                       </div>
-                      <button type="submit" class="btn btn-primary" name="button" value="Crawl">Start to Crawl</button>
+                      <button type="submit" class="btn btn-primary" name="button" onclick="showFloatingWindow()" value="Crawl">Start to Crawl</button>
+                        <button class="btn btn-primary" name="button" onclick="showLogger()" >Return to Logger</button>
                     </form>
                 </div>
               </div>
@@ -185,10 +231,36 @@
   </div>
   <!-- End of Page Wrapper -->
 
+
+
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+    
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <pre id="output"></pre>
+        </div>
+    </div>
+   
+        <script>
+            var output = document.getElementById('output');
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '{{ url_for('stream') }}');
+            xhr.send();
+
+            setInterval(function () {
+                output.textContent = xhr.responseText;
+            }, 1000);
+        </script>
+    
+
 
 
   <!-- Bootstrap core JavaScript-->
@@ -207,7 +279,7 @@
   <!-- Page level custom scripts -->
   <script src="static/js/demo/chart-area-demo.js"></script>
   <script src="static/js/demo/chart-pie-demo.js"></script>
-
+    <script type="text/javascript" src="static/js/functionsForIndex.js"></script>
 </body>
 
 </html>

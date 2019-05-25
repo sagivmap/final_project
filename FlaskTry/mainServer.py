@@ -1,3 +1,5 @@
+from time import sleep
+
 from flask import Flask, render_template, request, redirect, send_from_directory, send_file
 from AlgorithmSolver import createJson as cJson
 from Crawler import TwitterCrawler
@@ -21,6 +23,11 @@ app.config['ID_FOR_NODE'] = 1
 def main():
     return render_template('index.html')
 
+def writeToFBLog(text):
+    f = open("loggerForWeb.log", "a")
+    f.write(text + "\n")
+    f.close()
+
 class myThread (threading.Thread):
     """
     Thread class which each one execute part of first circle friends and all their second circle friends.
@@ -39,15 +46,20 @@ class myThread (threading.Thread):
             self.facebook_crawler.crawl_data_of_user_friends(path, self.threadID)
         #logger.info("Finished work on thread: " + self.name)
 
+
 def crawl_facebook():
+    writeToFBLog("*" * 100)
     email = request.form['emailForFacebook']
     password = request.form['passwordForFacebook']
     fbc = FBCrawler("FromWebSite")
+    writeToFBLog('Facebook crawler module initialized!')
+    writeToFBLog("*" * 100)
     #fbc.run_selenium_browser()
     csv_file_name = fbc.initiate_csv_file()
+    writeToFBLog('Try to log in to Facebook...')
     session_cookies, session = fbc.login_to_facebook(email, password)
-    while not session_cookies and not session:
-        session_cookies, session = fbc.login_to_facebook(email, password)
+    if not session_cookies and not session:
+        writeToFBLog('Could not login to facebook! :(\nPlease Check your email and password..')
     fbc.get_facebook_username(session_cookies, session)
     first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(
         session_cookies,
@@ -135,6 +147,16 @@ def handle_posts():
             return render_template('addManuallyPage.html')
         elif request.form["button"] == 'UploadTwitter':
             return upload_twitter_file()
+
+@app.route('/stream')
+def stream():
+    def generate():
+        with open('loggerForWeb.log', 'r') as f:
+            while True:
+                yield f.read()
+                sleep(1)
+
+    return app.response_class(generate(), mimetype='text/plain')
 
 
 if __name__ == '__main__':

@@ -25,7 +25,7 @@ currUser = Node('Ego_Node', 'Ego_Node', '0','0','0','0',[])
 
 class AlgorithmSolver:
 
-    def __init__(self, path_of_csv_file):
+    def __init__(self, path_of_csv_file,tsp):
         self.path_of_csv_file = path_of_csv_file
         self.nodes = {}
         self.edges = []
@@ -33,6 +33,7 @@ class AlgorithmSolver:
         self.second_circle_nodes = []
         self.first_circle_edges = []
         self.second_circle_edges = []
+        self.tsp = tsp
 
     def get_nodes(self):
         return self.nodes
@@ -231,7 +232,7 @@ class AlgorithmSolver:
         return first_circle_nodes, edges
 
     def getOnlyBadConnections(self):
-        bad_second_level_node = (list(filter(lambda x: x.tsp < 0.03, self.second_circle_nodes)))
+        bad_second_level_node = (list(filter(lambda x: x.tsp < self.tsp, self.second_circle_nodes)))
 
         bad_first_circle_nodes = set()
         bad_edges = []
@@ -244,8 +245,6 @@ class AlgorithmSolver:
         self.first_circle_nodes = bad_first_circle_nodes
         self.edges = bad_edges
         self.second_circle_nodes = bad_second_level_node
-
-
 
     def generate(self, toBig):
         self.create_nodes_and_edges()

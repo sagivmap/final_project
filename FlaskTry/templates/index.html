@@ -51,19 +51,23 @@
             overflow: auto
         }
         /* The Close Button */
-        .close {
+        .closeLogger {
             color: #aaaaaa;
-            float: right;
             font-size: 28px;
             font-weight: bold;
+            top: 50%;
+            right: 0%;
         }
 
-            .close:hover,
-            .close:focus {
+            .closeLogger:hover,
+            .closeLogger:focus {
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
             }
+        #showlogger {
+            display: none;
+        }
     </style>
 
 </head>
@@ -127,9 +131,10 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                       </div>
-                      <button type="submit" class="btn btn-primary" name="button" onclick="showFloatingWindow()" value="Crawl">Start to Crawl</button>
-                        <button class="btn btn-primary" name="button" onclick="showLogger()" >Return to Logger</button>
+                      <button type="submit" class="btn btn-primary" name="button" onclick="showFloatingWindow()" value="Crawl" id="crawlFBBtn">Start to Crawl</button>
+                        
                     </form>
+                    <button class="btn btn-primary" onclick="showLogger()" id="showlogger">Return to Logger</button>
                 </div>
               </div>
                <!-- Crawl With Twitter -->
@@ -243,7 +248,7 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="closeLogger" id="closeFBLogger">&times;</span>
             <pre id="output"></pre>
         </div>
     </div>

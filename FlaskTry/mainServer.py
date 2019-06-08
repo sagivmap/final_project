@@ -132,23 +132,27 @@ def upload_twitter_file():
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
 
-        cJson.create(path,2,tsp=request.form['tspFCBNum'])
-
         return render_template('showGraph.html')
 
 @app.route('/', methods=['POST'])
 def handle_posts():
-    if request.method == 'POST':
-        if request.form["button"]=="Crawl":
-            return crawl_facebook()
-        elif request.form["button"]=="Upload":
-            return upload_file()
-        elif request.form["button"]=="CrawlTwitter":
-            return crawl_twitter()
-        elif request.form["button"] == "MoveToManuallyAddPage":
-            return render_template('addManuallyPage.html')
-        elif request.form["button"] == 'UploadTwitter':
-            return upload_twitter_file()
+    try:
+        if request.method == 'POST':
+            if request.form["button"] == "Crawl":
+                return crawl_facebook()
+            elif request.form["button"] == "Upload":
+                return upload_file()
+            elif request.form["button"] == "CrawlTwitter":
+                return crawl_twitter()
+            elif request.form["button"] == "MoveToManuallyAddPage":
+                return render_template('addManuallyPage.html')
+            elif request.form["button"] == 'UploadTwitter':
+                return upload_twitter_file()
+    except:
+        cJson.create(path,2,tsp=request.form['tspFCBNum'])
+
+    return render_template('index.html')
+
 
 @app.route('/stream')
 def stream():

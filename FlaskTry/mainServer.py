@@ -19,9 +19,11 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['PATH_TO_JSON'] = PATH_TO_JSON
 app.config['ID_FOR_NODE'] = 1
+
 @app.route('/')
 def main():
     return render_template('index.html')
+
 
 def writeToFBLog(text):
     f = open("loggerForWeb.log", "a")
@@ -54,42 +56,66 @@ def crawl_facebook():
     fbc = FBCrawler("FromWebSite")
     writeToFBLog('Facebook crawler module initialized!')
     writeToFBLog("*" * 100)
-    #fbc.run_selenium_browser()
+    fbc.run_selenium_browser()
     csv_file_name = fbc.initiate_csv_file()
     writeToFBLog('Try to log in to Facebook...')
     session_cookies, session = fbc.login_to_facebook(email, password)
     if not session_cookies and not session:
         writeToFBLog('Could not login to facebook! :(\nPlease Check your email and password..')
-    fbc.get_facebook_username(session_cookies, session)
-    first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(
-        session_cookies,
-        session)
-    config, utils = fbc.get_config_and_utils()
-    num_of_threads = math.ceil(num_of_pages / config.getint('General', 'num_of_json_per_thread'))
-    paths_for_each_thread = utils.get_paths_for_each_thread(first_circle_initial_data_folder,
-                                                            config.getint('General', 'num_of_json_per_thread'))
+        return render_template('index.html', error="Incorrect Email or password")
+    writeToFBLog('Successfully Logged in!')
+    try:
+        fbc.get_facebook_username(session_cookies, session)
+    except Exception:
+        return render_template('index.html', error="Crawling encountered issue, check connectivity to Facebook user")
 
-    fbc.initiate_osn_dicts_and_sessions(num_of_threads, email, password)
+    writeToFBLog('Start to get first circle data..')
+    try:
+        first_circle_initial_data_folder, num_of_pages = fbc.get_user_first_circle_friends_initial_scan_data(
+            session_cookies,
+            session)
+    except Exception:
+        return render_template('index.html', error="Crawling encountered issue in first circle, check connectivity to Facebook user")
+    writeToFBLog('Finished to get first circle data!')
 
-    threadList = []
-    for i in range(0, num_of_threads):
-        threadList.append('Thread-' + str(i))
+    try:
+        config, utils = fbc.get_config_and_utils()
+        num_of_threads = math.ceil(num_of_pages / config.getint('General', 'num_of_json_per_thread'))
+        paths_for_each_thread = utils.get_paths_for_each_thread(first_circle_initial_data_folder,
+                                                                config.getint('General', 'num_of_json_per_thread'))
 
-    i = 0
-    threads = []
-    for tName in threadList:
-        thread = myThread(fbc, i, tName, paths_for_each_thread[i])
-        thread.start()
-        threads.append(thread)
-        i += 1
+        fbc.initiate_osn_dicts_and_sessions(num_of_threads, email, password)
 
-    for t in threads:
-        t.join()
-    path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
+        threadList = []
+        for i in range(0, num_of_threads):
+            threadList.append('Thread-' + str(i))
+
+        i = 0
+        threads = []
+        writeToFBLog('Start to work on second level data.. This will take a while..')
+        for tName in threadList:
+            thread = myThread(fbc, i, tName, paths_for_each_thread[i])
+            thread.start()
+            threads.append(thread)
+            i += 1
+
+        for t in threads:
+            t.join()
+        path_to_csv = fbc.arrange_csv_file_from_mid_data(fbc.json_files_folder, 'data/' + csv_file_name)
+
+    except Exception:
+        return render_template('index.html', error="Crawling encountered issue in Second circle, check connectivity to Facebook user")
+
+    writeToFBLog('Finished to work on second level data!')
     full_path_to_csv = os.path.join(os.getcwd(), path_to_csv)
 
-    cJson.create(full_path_to_csv, 1)
+    writeToFBLog('Got all possible data.. Generating final graph.')
+    try:
+        cJson.create(full_path_to_csv, 1)
+    except Exception:
+        return render_template('index.html', error="Encountered issue in Graph generation..")
 
+    writeToFBLog('Finished to generate final graph.. Moving to graph presentation')
     return render_template('showGraph.html')
 
 def crawl_twitter():

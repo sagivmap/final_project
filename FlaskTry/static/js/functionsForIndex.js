@@ -1,7 +1,16 @@
 var modal = document.getElementById("myModal");
+var showLoggerBtn = document.getElementById("showlogger");
+var crawlFacebookBtn = document.getElementById("crawlFBBtn");
+var span = document.getElementById("closeFBLogger");
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
 
 function showFloatingWindow() {
     modal.style.display = "block";
+    showLoggerBtn.style.display = "block";
+    crawlFacebookBtn.style.display = "none";
 }
 
 // Get the modal

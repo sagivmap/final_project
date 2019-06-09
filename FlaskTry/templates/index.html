@@ -29,6 +29,10 @@
 	<link type="text/css" rel="stylesheet" href="static/css/style.css" />
 
 	<style>
+
+        .errors {
+            color: red;
+        }
 		/* The Modal (background) */
 		.modal {
 			display: none; /* Hidden by default */
@@ -60,6 +64,8 @@
 			float: right;
 			font-size: 28px;
 			font-weight: bold;
+            top: 50%;
+            right: 0%;
 		}
 
 		.close:hover,
@@ -69,6 +75,8 @@
 			cursor: pointer;
 		}
 
+            display: none;
+        }
 	</style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -397,7 +405,9 @@
                                             <button type="submit" class="main-btn" name="button" onclick="showFloatingWindow()" value="Crawl" align="center">Start to Crawl</button>
                                             <button class="main-btn" name="button" onclick="showLogger()" align="center" >Return to Logger</button>
                                             </div>
+                        
                                         </form>
+                    <button class="btn btn-primary" onclick="showLogger()" id="showlogger">Return to Logger</button>
                                     </div>
                                     <!-- /home content -->
                                 </div>
@@ -602,7 +612,7 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="closeLogger" id="closeFBLogger">&times;</span>
             <pre id="output"></pre>
         </div>
     </div>

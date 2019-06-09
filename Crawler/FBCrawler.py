@@ -109,6 +109,7 @@ class FBCrawler:
     def get_facebook_username(self, cookies, session):
         succeed_to_get, r = utils.customized_get_request(config.get('UserProfile', 'path_to_main_page'),
                                                          session, cookies, 10)
+
         if succeed_to_get:
             soup = BeautifulSoup(r.text, 'html.parser')
             link_to_profile = soup.findAll(lambda tag: tag.name == 'a' and re.match(r'Profile', tag.text))[0]['href']

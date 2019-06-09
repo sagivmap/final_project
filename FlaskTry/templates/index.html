@@ -306,9 +306,12 @@
                             <br>
                                 <form method=post enctype=multipart/form-data align="center">
                                     <input type=file name=file>
-                                    <input type="number" name="tspFCBNum" min="0.01" max="0.09" step="0.01" placeholder="Choose tsp">
-                                    <input type=submit class="main-btn" name="button" value=Upload>
+                                    <input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">
+                                    <input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
                                 </form>
+                            <p class="errors">
+                                {{errorFBU}}
+                            </p>
                         </div>
                         <!-- /home content -->
                     </div>
@@ -341,8 +344,8 @@
                                         <br>
                                         <form method=post enctype=multipart/form-data align="center">
                                             <input type=file name=file>
-                                            <input type="number" name="tspFCBNum" min="0.01" max="0.09" step="0.01" placeholder="Choose tsp">
-                                            <input type=submit class="main-btn" name="button" value=Upload>
+                                            <input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">
+                                            <input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
                                         </form>
                                     </div>
                                     <!-- /home content -->
@@ -396,7 +399,7 @@
                                         <form action="/" method="post">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" name="emailForFacebook" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <input type="email" class="form-control" name="emailForFacebook" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                             </div>
                                             <div class="form-group">
@@ -404,7 +407,7 @@
                                                 <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                                             </div>
                                             <p class="errors">
-                                                {{error}}
+                                                {{errorFBC}}
                                             </p>
                                             <div align="center">
                                             <button type="submit" class="main-btn" name="button" onclick="showFloatingWindow()" value="Crawl" align="center" id="crawlFBBtn">Start to Crawl</button>
@@ -446,10 +449,20 @@
                                         <form action="/" method="post">
                                             <div class="form-group">
                                                 <label for="twitterName">Twitter Nickname</label>
-                                                <input type="name" class="form-control" name="twitterName" id="twitterName" aria-describedby="emailHelp" placeholder="@DonaldTrump">
+                                                <input type="name" class="form-control" name="twitterName" id="twitterName" aria-describedby="emailHelp" pattern="^@(\w){1,15}$" placeholder="@DonaldTrump" required>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="emailForResults">Email for results</label>
+                                                <input type="email" class="form-control" name="emailForResults" id="emailForResults" aria-describedby="emailHelp"  placeholder="Email for results" required>
+                                            </div>
+                                            <p class="errors">
+                                                {{errorTWIC}}
+                                            </p>
+                                            <p>
+                                                {{messageForTweetCrawler}}
+                                            </p>
                                                 <div align="center">
-                                                <button type="submit" class="main-btn" name="button" value="CrawlTwitter">Start to Crawl</button>
+                                                <button type="submit" class="main-btn" name="button" onclick="showFloatingWindow()" value="CrawlTwitter">Start to Crawl</button>
                                                 </div>
                                         </form>
                                     </div>
@@ -642,6 +655,14 @@
 	<script type="text/javascript" src="static/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
     <script type="text/javascript" src="static/js/functionsForIndex.js"></script>
+
+    {% if scroll %}
+    <script>
+        document.getElementById('{{ scroll }}').scrollIntoView();
+        // or
+        document.location.hash = '#' + '{{ scroll }}';
+    </script>
+    {% endif %}
 
 </body>
 

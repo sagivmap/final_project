@@ -1,9 +1,9 @@
 var modal = document.getElementById("myModal");
 var showLoggerBtn = document.getElementById("showlogger");
 var crawlFacebookBtn = document.getElementById("crawlFBBtn");
-var span = document.getElementById("closeFBLogger");
+var closeFBLogger = document.getElementById("closeFBLogger");
 
-span.onclick = function () {
+closeFBLogger.onclick = function () {
     modal.style.display = "none";
 }
 
@@ -20,7 +20,6 @@ var scrolled = false;
 function updateScroll() {
     if (!scrolled) {
         var element = document.getElementById("loggerModal");
-        console.log("A");
         element.scrollTop = element.scrollHeight;
     }
 }

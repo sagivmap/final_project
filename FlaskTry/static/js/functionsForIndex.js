@@ -12,7 +12,26 @@ function showFloatingWindow() {
     showLoggerBtn.style.display = "block";
     crawlFacebookBtn.style.display = "none";
 }
+function showLogger() {
+    modal.style.display = "block";
+}
 
+var scrolled = false;
+function updateScroll() {
+    if (!scrolled) {
+        var element = document.getElementById("loggerModal");
+        console.log("A");
+        element.scrollTop = element.scrollHeight;
+    }
+}
+
+setInterval(updateScroll, 500);
+
+$("#loggerModal").on('scroll', function () {
+    scrolled = true;
+});
+
+/*
 // Get the modal
 var modal1 = document.getElementById("myModal1");
 
@@ -38,3 +57,4 @@ window.onclick = function(event) {
     modal1.style.display = "none";
   }
 }
+*/

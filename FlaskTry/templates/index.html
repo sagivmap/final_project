@@ -75,8 +75,10 @@
 			cursor: pointer;
 		}
 
+        #showlogger {
             display: none;
         }
+
 	</style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -401,13 +403,17 @@
                                                 <label for="exampleInputPassword1">Password</label>
                                                 <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                                             </div>
+                                            <p class="errors">
+                                                {{error}}
+                                            </p>
                                             <div align="center">
-                                            <button type="submit" class="main-btn" name="button" onclick="showFloatingWindow()" value="Crawl" align="center">Start to Crawl</button>
-                                            <button class="main-btn" name="button" onclick="showLogger()" align="center" >Return to Logger</button>
+                                            <button type="submit" class="main-btn" name="button" onclick="showFloatingWindow()" value="Crawl" align="center" id="crawlFBBtn">Start to Crawl</button>
+                                            
                                             </div>
-                        
+            
                                         </form>
-                    <button class="btn btn-primary" onclick="showLogger()" id="showlogger">Return to Logger</button>
+                                        <button class="btn btn-primary" onclick="showLogger()" id="showlogger">Return to Logger</button>
+                   
                                     </div>
                                     <!-- /home content -->
                                 </div>
@@ -611,7 +617,7 @@
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content" id="loggerModal">
             <span class="closeLogger" id="closeFBLogger">&times;</span>
             <pre id="output"></pre>
         </div>
@@ -635,6 +641,7 @@
 	<script type="text/javascript" src="static/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery.magnific-popup.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
+    <script type="text/javascript" src="static/js/functionsForIndex.js"></script>
 
 </body>
 

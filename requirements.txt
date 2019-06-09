@@ -1,1 +1,9 @@
 Flask==0.12.1
+matplotlib==3.1.0
+networkx==2.3
+twython==3.7.0
+pandas==0.24.2
+bs4==0.0.1
+selenium==3.141.0
+monthdelta==0.9.1
+flask-mail==0.9.1

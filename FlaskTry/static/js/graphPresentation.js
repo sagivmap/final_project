@@ -8,26 +8,60 @@ var width = $("#svg-id").innerWidth(),
     msp = 0.5,
     r = 5,
     nodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }
-    //{ "id": 1000, "name": "a", "TF": 100, "AUA": 365, "CF": [0], "MF": [35], "FD": [16], "Weight": 1, "TSP": -1, "level": 1 },
-    //{ "id": 1001, "name": "b", "TF": 100, "AUA": 365, "CF": [1], "MF": [35], "FD": [16], "Weight": 1, "TSP": 1, "level": 2 },
-    //{ "id": 1002, "name": "c", "TF": 1, "AUA": 1, "CF": [1], "MF": [0], "FD": [0], "Weight": 1, "TSP": 0.001, "level": 2 }
     ],
     bad_nodes = new Set([]),
     links = [
-        //{ "source": 0, "target": 1000 }, { "source": 1000, "target": 1001 }, { "source": 1000, "target": 1002 }
+
     ],
     bad_links = new Set([]),
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]),
     there_are_bad_connections = false,
-    show_bad_connections = false;
+    show_bad_connections = false,
+    simulation;
 
-var simulation = d3.forceSimulation(nodes)
+var graphOptionsElements = document.getElementById('graphOptions');
+graphOptionsElements.addEventListener('change', function () {
+    if (this.value === "IFM") {
+        changeToIFM();
+    } else if (this.value === "CB") {
+        changeToCB();
+    }
+}, false);
+
+function changeToIFM() {
+    document.getElementById("svg-id").removeAttribute("viewBox");
+    simulation = d3.forceSimulation(nodes)
+        .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
+        .force('collide', d3.forceCollide(r * 4))
+        .force('charge', d3.forceManyBody().strength(0))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
+        .on('tick', ticked);
+
+    update();
+}
+
+function changeToCB() {
+
+    document.getElementById("svg-id").setAttribute("viewBox", -1 * width / 2 + " " + -1 * height / 2 + " " + width + " " + height);
+    simulation = d3.forceSimulation(nodes)
+        .force("r", d3.forceRadial(function (d) { return d.level * 100; }).strength(1))
+        .force('collide', d3.forceCollide(r * 4))
+        .force('link', d3.forceLink().links(links).id(function (d) { return d.id }).strength(0.1))
+        .on("tick", ticked);
+
+
+
+}
+
+simulation = d3.forceSimulation(nodes)
     .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
-    .force('collide', d3.forceCollide(r*4))
+    .force('collide', d3.forceCollide(r * 4))
     .force('charge', d3.forceManyBody().strength(0))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
     .on('tick', ticked);
+
 
 var zoom = d3.select(".everything");
 
@@ -63,7 +97,7 @@ var drag_handler = d3.drag()
     .on("end", drag_end);
 
 // add 1 to id_count
-function increase_id_count(){
+function increase_id_count() {
     id_count++;
 }
 // node and link weight calculator
@@ -78,9 +112,9 @@ var calc_node_weight = function (TF, AUA) {
 var calc_link_weight = function (MF, FD) {
     var c_MF, c_FD;
     if (MF > mf_barrier) { c_MF = 1; }
-    else {c_MF = MF / mf_barrier;}
+    else { c_MF = MF / mf_barrier; }
     if (FD > fd_barrier) { c_FD = 1; }
-    else {c_FD = FD / fd_barrier; }
+    else { c_FD = FD / fd_barrier; }
     return (c_MF + c_FD) / 2;
 }
 
@@ -112,7 +146,6 @@ function get_all_low_tsp_second_level_nodes() {
                 "level": nodes[i]["level"]
             }
             nodes_to_return.push(node_to_add);
-            console.log(node_to_add);
         }
     }
     return nodes_to_return;
@@ -123,18 +156,19 @@ function get_first_circle_nodes_and_links_of_second(id_of_second) {
     var links_to_return = [];
     for (var i in links) {
         if (links[i]["target"]["id"] === id_of_second) {
-            var node_to_add = {
-                "id": links[i]["source"]["id"],
-                "name": links[i]["source"]["name"],
-                "TF": links[i]["source"]["TF"],
-                "AUA": links[i]["source"]["AUA"],
-                "CF": links[i]["source"]["CF"],
-                "MF": links[i]["source"]["MF"],
-                "FD": links[i]["source"]["FD"],
-                "Weight": links[i]["source"]["Weight"],
-                "TSP": links[i]["source"]["TSP"],
-                "level": links[i]["source"]["level"]
-            }
+            var node_to_add = {}
+            node_to_add["id"] = links[i]["source"]["id"];
+            node_to_add["name"] = links[i]["source"]["name"];
+            node_to_add["TF"] = links[i]["source"]["TF"];
+            node_to_add["AUA"] = links[i]["source"]["AUA"];
+            node_to_add["CF"] = links[i]["source"]["CF"];
+            node_to_add["MF"] = links[i]["source"]["MF"];
+            node_to_add["FD"] = links[i]["source"]["FD"];
+            node_to_add["Weight"] = links[i]["source"]["Weight"];
+            node_to_add["TSP"] = links[i]["source"]["TSP"];
+            node_to_add["level"] = links[i]["source"]["level"];
+
+            console.log(node_to_add);
             nodes_to_return.push(node_to_add);
             var link_to_add = {
                 "FD": links[i]["FD"],
@@ -146,6 +180,7 @@ function get_first_circle_nodes_and_links_of_second(id_of_second) {
             links_to_return.push(link_to_add);
         }
     }
+    console.log(nodes_to_return);
     return [nodes_to_return, links_to_return]
 }
 
@@ -213,7 +248,7 @@ function addLink(source, i) {
             target_node['TSP'] = tsp_to_add;
             if (tsp_to_add < msp)
                 there_are_bad_connections = true;
-            
+
         }
     }
 }
@@ -232,18 +267,18 @@ function update() {
         .attr("x2", function (d) { return d.target.x; })
         .attr("y2", function (d) { return d.target.y; });
 
-    
+
 
     var node = d3.select('.nodes')
         .selectAll('g.node');
 
     node = node.data(show_bad_connections ? bad_nodes : nodes)
 
-    
+
 
     node_enter = node.enter().append("g")
         .attr("class", "node").merge(node);
-    
+
 
     node_enter.append("text")
         .attr("class", "nodetext")
@@ -260,7 +295,7 @@ function update() {
         .attr("r", r);
     node_enter.exit().remove();
 
-    
+
 
     node_enter.on("mouseover", function (d) {
         var g = d3.select(this); // The node
@@ -332,7 +367,7 @@ function checkIfCfCorrect(cf) {
     if (cf.includes(0) && cf.length > 1) {
         window.alert("Adding link to Ego node, cannot add to more nodes");
         return false;
-    } else if (cfIdIsLargerThenNodesLen(cf)){
+    } else if (cfIdIsLargerThenNodesLen(cf)) {
         return false;
     }
     return true;
@@ -375,16 +410,29 @@ function show_only_bad_connections() {
         window.alert("Already show bad connections..")
     else {
         show_bad_connections = true;
+        nodes_already_added = [];
         bad_links = new Set([]);
         second_level_nodes_with_low_tsp = new Set(get_all_low_tsp_second_level_nodes());
         bad_nodes = new Set([]);
         bad_nodes = new Set([...bad_nodes, ...second_level_nodes_with_low_tsp]);
+        //console.log(bad_nodes);
         for (let item of second_level_nodes_with_low_tsp) {
             first_circle_nodes_and_links_of_bad_node = get_first_circle_nodes_and_links_of_second(item['id']);
-            first_circle_nodes = new Set(first_circle_nodes_and_links_of_bad_node[0]);
+            first_circle_nodes = first_circle_nodes_and_links_of_bad_node[0];
+            var filtered_nodes = [];
+            for (let node of first_circle_nodes) {
+                if (nodes_already_added.includes(node["id"]))
+                    continue;
+                else{
+                    nodes_already_added.push(node["id"])
+                    filtered_nodes.push(node);
+                }
+            }
+            first_circle_nodes = new Set(filtered_nodes);
             second_circle_links = new Set(first_circle_nodes_and_links_of_bad_node[1]);
             bad_nodes = new Set([...bad_nodes, ...first_circle_nodes]);
             bad_links = new Set([...bad_links, ...second_circle_links]);
+            //console.log(bad_nodes);
             for (let node of first_circle_nodes) {
                 var first_circle_link = findLink(0, node['id']);
                 var first_circle_link_to_add = {
@@ -415,10 +463,11 @@ function show_only_bad_connections() {
         bad_nodes = Array.from(bad_nodes);
         bad_links = Array.from(bad_links);
 
+        //console.log(bad_nodes);
         d3.select('.links').selectAll('line.link').remove();
         d3.select('.nodes').selectAll('g.node').remove();
-
         update();
+
     }
 }
 
@@ -494,7 +543,7 @@ function uploadJsonFile() {
         nodes = result["nodes"];
         links = result["links"];
         show_bad_connections = false;
-        id_count = get_max_id_from(nodes)+1;
+        id_count = get_max_id_from(nodes) + 1;
         update();
     }
 

@@ -25,6 +25,10 @@
 
 
     <style>
+
+        .errors {
+            color: red;
+        }
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
@@ -131,6 +135,9 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                       </div>
+                        <p class="errors">
+                            {{error}}
+                        </p>
                       <button type="submit" class="btn btn-primary" name="button" onclick="showFloatingWindow()" value="Crawl" id="crawlFBBtn">Start to Crawl</button>
                         
                     </form>

@@ -56,7 +56,7 @@ def crawl_facebook():
     fbc = FBCrawler("FromWebSite")
     writeToFBLog('Facebook crawler module initialized!')
     writeToFBLog("*" * 100)
-    fbc.run_selenium_browser()
+    #fbc.run_selenium_browser()
     csv_file_name = fbc.initiate_csv_file()
     writeToFBLog('Try to log in to Facebook...')
     session_cookies, session = fbc.login_to_facebook(email, password)

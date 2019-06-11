@@ -178,7 +178,6 @@ def upload_file():
 
             else:
                 writeToLog("Choosen TSP: " + tsp)
-
                 cJson.create(path, 1, toBig, float(tsp))
         except Exception:
             deleteLogFile()

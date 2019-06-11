@@ -17,7 +17,11 @@ var width = $("#svg-id").innerWidth(),
     getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]),
     there_are_bad_connections = false,
     show_bad_connections = false,
-    simulation;
+    simulation,
+    calc_TF = true,
+    calc_AUA = true,
+    calc_MF = true,
+    calc_FD = true;
 
 var graphOptionsElements = document.getElementById('graphOptions');
 graphOptionsElements.addEventListener('change', function () {
@@ -103,18 +107,52 @@ function increase_id_count() {
 // node and link weight calculator
 var calc_node_weight = function (TF, AUA) {
     var c_TF, c_AUA;
-    if (TF > tf_barrier) { c_TF = 1; }
-    else { c_TF = TF / tf_barrier; }
-    if (AUA > aua_barrier) { c_AUA = 1; }
-    else { c_AUA = AUA / aua_barrier; }
+    if ((!calc_TF) && (!calc_AUA))
+        return 1;
+    
+    if (calc_TF){
+        if (TF > tf_barrier) { c_TF = 1; }
+        else {
+            console.log(TF / tf_barrier)
+            c_TF = TF / tf_barrier;
+            console.log(c_TF)
+        }
+    }
+    if (calc_AUA) {
+        if (AUA > aua_barrier) { c_AUA = 1; }
+        else { c_AUA = AUA / aua_barrier; }
+    } 
+
+    if (calc_TF && (!calc_AUA)) {
+        console.log(calc_TF);
+        console.log(calc_AUA);
+        console.log(c_TF);
+        return c_TF;
+    }
+        
+
+    if (calc_AUA && (!calc_TF))
+        return c_AUA;
+
     return (c_TF + c_AUA) / 2;
 }
 var calc_link_weight = function (MF, FD) {
     var c_MF, c_FD;
-    if (MF > mf_barrier) { c_MF = 1; }
-    else { c_MF = MF / mf_barrier; }
-    if (FD > fd_barrier) { c_FD = 1; }
-    else { c_FD = FD / fd_barrier; }
+    if ((!calc_MF) && (!calc_FD))
+        return 1;
+    if (calc_MF) {
+        if (MF > mf_barrier) { c_MF = 1; }
+        else { c_MF = MF / mf_barrier; }
+    }
+    if (calc_FD){
+        if (FD > fd_barrier) { c_FD = 1; }
+        else { c_FD = FD / fd_barrier; }
+    }
+    if (calc_MF && (!calc_FD))
+        return c_MF;
+    if (calc_FD && (!calc_MF))
+        return c_FD;
+    
     return (c_MF + c_FD) / 2;
 }
 
@@ -168,7 +206,7 @@ function get_first_circle_nodes_and_links_of_second(id_of_second) {
             node_to_add["TSP"] = links[i]["source"]["TSP"];
             node_to_add["level"] = links[i]["source"]["level"];
 
-            console.log(node_to_add);
+
             nodes_to_return.push(node_to_add);
             var link_to_add = {
                 "FD": links[i]["FD"],
@@ -180,7 +218,6 @@ function get_first_circle_nodes_and_links_of_second(id_of_second) {
             links_to_return.push(link_to_add);
         }
     }
-    console.log(nodes_to_return);
     return [nodes_to_return, links_to_return]
 }
 
@@ -562,4 +599,53 @@ function uploadJsonFile() {
     }
 
     fr.readAsText(files.item(0));
+}
+
+
+function ReCalculate() {
+    there_are_bad_connections = false;
+    if (document.getElementById('TFcheckBox').checked == true) {
+        calc_TF = true;
+    } else {
+        calc_TF = false;
+    }
+    if (document.getElementById('AUAcheckBox').checked == true) {
+        calc_AUA = true;
+    } else {
+        calc_AUA = false;
+    }
+    if (document.getElementById('MFcheckBox').checked == true) {
+        calc_MF = true;
+    } else {
+        calc_MF = false;
+    }
+    if (document.getElementById('FDcheckBox').checked == true) {
+        calc_FD = true;
+    } else {
+        calc_FD = false;
+    }
+    ReCalculate_helper();
+}
+
+function ReCalculate_helper() {
+    for (i = 1; i < nodes.length; i++) {
+        nodes[i]['Weight'] = calc_node_weight(nodes[i]['TF'], nodes[i]['AUA'])
+        nodes[i]['TSP'] = -1;
+    }
+    for (i = 0; i < links.length; i++) {
+        links[i]['Weight'] = calc_link_weight(links[i]['MF'], links[i]['FD'])
+    }
+
+    for (i = 0; i < links.length; i++) {
+        if (links[i]["source"]["id"] > 0) {
+            let first_circle_link_weight = get_first_circle_link_weight(links[i]["source"]["id"]);
+            let tsp_to_add = first_circle_link_weight * links[i]["source"]['Weight'] * links[i]['Weight'] * links[i]["target"]['Weight'];
+            if (tsp_to_add > links[i]["target"]['TSP']) {
+                links[i]["target"]['TSP'] = tsp_to_add;
+                if (tsp_to_add < msp)
+                    there_are_bad_connections = true;
+            }
+        }
+    }
+    update();
 }

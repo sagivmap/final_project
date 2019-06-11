@@ -179,7 +179,7 @@ def upload_file():
             else:
                 writeToLog("Choosen TSP: " + tsp)
 
-                cJson.create(path, 1, toBig, int(tsp))
+                cJson.create(path, 1, toBig, float(tsp))
         except Exception:
             deleteLogFile()
             return render_template('index.html', errorFBU="Error while parsing CSV file", scroll="uploadFacebook")

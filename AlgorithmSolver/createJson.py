@@ -59,3 +59,4 @@ def create(path,csvType, toBig=False,tsp=0.03):
         links.append(tmp)
 
     json.dump({'nodes': nodes, 'links': links}, file)
+    file.close()

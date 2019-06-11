@@ -24,6 +24,27 @@
 
     <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
     <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .form-popup {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #000;
+            z-index: 9;
+            color: black;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: #99ccff;
+        }
         circle {
             fill: cadetblue;
         }
@@ -217,6 +238,54 @@
 
             </div>
             <!-- End of Main Content -->
+
+            <div class="form-popup" id="myForm">
+                <form class="form-container">
+                    <h5>Node Info:</h5>
+
+                    <table>
+                        <tr>
+                            <td>Id:</td>
+                            <td id="idForId"></td>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td id="idForName"></td>
+                        </tr>
+                        <tr>
+                            <td>TF:</td>
+                            <td id="idForTF"></td>
+                        </tr>
+                        <tr>
+                            <td>AUA:</td>
+                            <td id="idForAUA"></td>
+                        </tr>
+                        <tr>
+                            <td>CF:</td>
+                            <td id="idForCF"></td>
+                        </tr>
+                        <tr>
+                            <td>MF:</td>
+                            <td id="idForMF"></td>
+                        </tr>
+                        <tr>
+                            <td>FD:</td>
+                            <td id="idForFD"></td>
+                        </tr>
+                        <tr>
+                            <td>TSP:</td>
+                            <td id="idForTSP"></td>
+                        </tr>
+                        <tr>
+                            <td>level:</td>
+                            <td id="idForlevel"></td>
+                        </tr>
+
+                    </table>
+
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">

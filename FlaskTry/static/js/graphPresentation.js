@@ -50,7 +50,7 @@ function changeToCB() {
         .force('link', d3.forceLink().links(links).id(function (d) { return d.id }).strength(0.1))
         .on("tick", ticked);
 
-
+    update();
 
 }
 
@@ -298,6 +298,7 @@ function update() {
 
 
     node_enter.on("mouseover", function (d) {
+        /*
         var g = d3.select(this); // The node
         // The class is used to remove the additional text later
         var info = g.append('text')
@@ -310,6 +311,17 @@ function update() {
                 else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() + ",TSP=" + d.TSP.toString().substring(0, 6); }
             })
             .style("font-size", "12px");
+        */
+
+        document.getElementById("idForId").innerHTML = d.id;
+        document.getElementById("idForName").innerHTML = d.name;
+        document.getElementById("idForTF").innerHTML = d.TF;
+        document.getElementById("idForAUA").innerHTML = d.AUA;
+        document.getElementById("idForCF").innerHTML = d.CF;
+        document.getElementById("idForMF").innerHTML = d.MF;
+        document.getElementById("idForFD").innerHTML = d.FD;
+        document.getElementById("idForTSP").innerHTML = d.TSP;
+        document.getElementById("idForlevel").innerHTML = d.level;
 
         d3.selectAll('line.link')
             .filter(function (l) {
@@ -544,6 +556,8 @@ function uploadJsonFile() {
         links = result["links"];
         show_bad_connections = false;
         id_count = get_max_id_from(nodes) + 1;
+        d3.select('.links').selectAll('line.link').remove();
+        d3.select('.nodes').selectAll('g.node').remove();
         update();
     }
 

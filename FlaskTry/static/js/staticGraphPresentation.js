@@ -36,6 +36,41 @@ $.getJSON("static/file.json", function(json) {
         }))
         .on('tick', ticked);
 
+    var graphOptionsElements = document.getElementById('graphOptions');
+    graphOptionsElements.addEventListener('change', function () {
+        if (this.value === "IFM") {
+            changeToIFM();
+        } else if (this.value === "CB") {
+            changeToCB();
+        }
+    }, false);
+
+    function changeToIFM() {
+    document.getElementById("svg-id").removeAttribute("viewBox");
+    simulation = d3.forceSimulation(nodes)
+        .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
+        .force('collide', d3.forceCollide(r * 4))
+        .force('charge', d3.forceManyBody().strength(0))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
+        .on('tick', ticked);
+
+    update();
+}
+
+function changeToCB() {
+
+    document.getElementById("svg-id").setAttribute("viewBox", -1 * width / 2 + " " + -1 * height / 2 + " " + width + " " + height);
+    simulation = d3.forceSimulation(nodes)
+        .force("r", d3.forceRadial(function (d) { return d.level * 200; }).strength(1))
+        .force('collide', d3.forceCollide(r * 4))
+        .force('link', d3.forceLink().links(links).id(function (d) { return d.id }).strength(0.1))
+        .on("tick", ticked);
+
+    update();
+
+}
+
 
 
     //drag handler
@@ -114,6 +149,7 @@ $.getJSON("static/file.json", function(json) {
             });
 
         node.on("mouseover", function (d) {
+            /*
             var g = d3.select(this); // The node
             // The class is used to remove the additional text later
             var info = g.append('text')
@@ -121,7 +157,7 @@ $.getJSON("static/file.json", function(json) {
                 .attr('dx', "0em")
                 .attr('dy', -10)
                 .text(function (d) {
-                    if (d.id == 0) {
+                    if (d.id == 0 || d.id == "Ego_Node") {
                         return "id=0"
                     }
                     else {
@@ -129,6 +165,15 @@ $.getJSON("static/file.json", function(json) {
                     }
                 })
                 .style("font-size", "12px");
+            */
+            document.getElementById("idForId").innerHTML = d.id;
+            document.getElementById("idForName").innerHTML = d.Name;
+            document.getElementById("idForTF").innerHTML = d.TF;
+            document.getElementById("idForAUA").innerHTML = d.AUA;
+            document.getElementById("idForMF").innerHTML = d.MF;
+            document.getElementById("idForTSP").innerHTML = d.TSP;
+            document.getElementById("idForlevel").innerHTML = d.level;
+
 
             d3.selectAll('line.link')
                 .filter(function (l) {

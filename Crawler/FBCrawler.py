@@ -103,8 +103,10 @@ class FBCrawler:
             return None, None
 
     def run_selenium_browser(self):
-        browser = webdriver.Firefox()
-        browser.get('https://m.facebook.com/friends/center/friends/')
+        browser = webdriver.Chrome("C:\\Users\\sagiv\\PycharmProjects\\ProjectTry\\Crawler\\chromedriver.exe")
+        browser.get('http://127.0.0.1:5000/')
+        browser.find_element_by_id("MoveToManuallyAddPage").click()
+        browser.execute_script("return nodes;")
 
     def get_facebook_username(self, cookies, session):
         succeed_to_get, r = utils.customized_get_request(config.get('UserProfile', 'path_to_main_page'),

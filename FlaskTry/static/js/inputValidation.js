@@ -70,7 +70,15 @@ function checkCorelateInput(tf,mf,aua,fd) {
     return true;
 }
 
-
+function checkDuplicateCF(cf) {
+    var arrLen = cf.length;
+    var setCf = new Set(cf);
+    if (arrLen > setCf.size) {
+        window.alert("There duplicate CF.");
+        return false;
+    }
+    return true;
+}
 
 function checkInputValidation() {
 
@@ -82,12 +90,13 @@ function checkInputValidation() {
             mf = document.getElementById("MF").value.split(",").map(function (num) { return parseInt(num, 10); }),
             fd = document.getElementById("FD").value.split(",").map(function (num) { return parseInt(num, 10); });
 
-        if (checkCfMfFdLengths(cf, mf, fd)) {
-            if (checkCorelateInput(tf, mf, aua, fd, cf)) {
-                return true;
+        if (checkDuplicateCF(cf)) {
+            if (checkCfMfFdLengths(cf, mf, fd)) {
+                if (checkCorelateInput(tf, mf, aua, fd, cf)) {
+                    return true;
+                }
             }
         }
-
     }
 
     return false;

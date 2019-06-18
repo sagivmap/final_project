@@ -134,7 +134,7 @@ class TestAddNewNodes(unittest.TestCase):
     def __add_second_circle_node(self, name, tf, aua, cf, mf, fd, clear_input):
         self.browser.find_element_by_id('CF').send_keys(cf)
         self.__common_at_adding_nodes(name, tf, aua, mf, fd, clear_input)
-    #
+
     def __clear_input(self):
         self.browser.find_element_by_id('NodeName').clear()
         self.browser.find_element_by_id('TF').clear()
@@ -142,31 +142,31 @@ class TestAddNewNodes(unittest.TestCase):
         self.browser.find_element_by_id('MF').clear()
         self.browser.find_element_by_id('FD').clear()
         self.browser.find_element_by_id('CF').clear()
-    #
-    # def __get_nodes(self):
-    #     return self.browser.execute_script("return nodes;")
-    #
-    # def __get_links(self):
-    #     return self.browser.execute_script("return links;")
-    #
-    # def __validate_node(self, nodes, id, name, tf, aua, cf, mf, fd, weight, level, tsp):
-    #
-    #     for node in nodes:
-    #         if node['id'] == id:
-    #             return (node['name'] == name) and (node['TF'] == tf) and node['AUA'] == aua and node['CF'] == cf \
-    #                    and node['MF'] == mf and node['FD'] == fd and node['Weight'] == weight \
-    #                    and node['level'] == level and node['TSP'] == tsp
-    #
-    #     return False
-    #
-    #
-    # def __validate_link(self, links, src_id, trg_id, fd, mf, weight):
-    #     for link in links:
-    #         if(link['source']['id']==src_id and link['target']['id']==trg_id):
-    #             return link['FD']==fd and link['MF']==mf and link['Weight']==weight
-    #
-    #     return False
-    #
+
+    def __get_nodes(self):
+        return self.browser.execute_script("return nodes;")
+
+    def __get_links(self):
+        return self.browser.execute_script("return links;")
+
+    def __validate_node(self, nodes, id, name, tf, aua, cf, mf, fd, weight, level, tsp):
+
+        for node in nodes:
+            if node['id'] == id:
+                return (node['name'] == name) and (node['TF'] == tf) and node['AUA'] == aua and node['CF'] == cf \
+                       and node['MF'] == mf and node['FD'] == fd and node['Weight'] == weight \
+                       and node['level'] == level and node['TSP'] == tsp
+
+        return False
+
+
+    def __validate_link(self, links, src_id, trg_id, fd, mf, weight):
+        for link in links:
+            if(link['source']['id']==src_id and link['target']['id']==trg_id):
+                return link['FD']==fd and link['MF']==mf and link['Weight']==weight
+
+        return False
+
     def __validate_alert_window(self, msg):
         try:
             WebDriverWait(self.browser, 3).until(EC.alert_is_present(),

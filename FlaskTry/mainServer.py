@@ -206,13 +206,10 @@ def handle_posts():
             if request.form["button"] == "Crawl":
                 return crawl_facebook()
             elif request.form["button"] == "Upload":
-                fbc = FBCrawler("FromWebSite")
-                fbc.run_selenium_browser()
                 return upload_file()
             elif request.form["button"] == "CrawlTwitter":
                 return crawl_twitter()
             elif request.form["button"] == "MoveToManuallyAddPage":
-
                 return render_template('addManuallyPage.html')
             elif request.form["button"] == 'UploadTwitter':
                 return upload_twitter_file()
@@ -238,5 +235,3 @@ if __name__ == '__main__':
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
-    fbc = FBCrawler("FromWebSite")
-    fbc.run_selenium_browser()

@@ -52,6 +52,9 @@ class myThread (threading.Thread):
             self.facebook_crawler.crawl_data_of_user_friends(path, self.threadID)
         #logger.info("Finished work on thread: " + self.name)
 
+@app.route('/database_download/<filename>')
+def database_download(filename):
+    return send_from_directory('data', filename)
 
 def crawl_facebook():
     writeToLog(FBCrawler_LOGO)
@@ -59,7 +62,6 @@ def crawl_facebook():
     email = request.form['emailForFacebook']
     password = request.form['passwordForFacebook']
     fbc = FBCrawler("FromWebSite")
-    fbc.run_selenium_browser()
     writeToLog('Facebook crawler module initialized!')
     writeToLog("*" * 100)
     #fbc.run_selenium_browser()
@@ -130,7 +132,7 @@ def crawl_facebook():
 
     writeToLog('Finished to generate final graph.. Moving to graph presentation')
     deleteLogFile()
-    return render_template('showGraph.html')
+    return render_template('showGraph.html', filename='csv_file_name')
 
 def crawl_twitter():
     writeToLog(TwitterCrawler_LOGO)
@@ -190,13 +192,10 @@ def upload_twitter_file():
     # check if the post request has the file part
     if 'file' not in request.files:
         return redirect(request.url)
-
     file = request.files['file']
-
     if file:
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
-
         return render_template('showGraph.html')
 
 @app.route('/', methods=['POST'])
@@ -206,13 +205,10 @@ def handle_posts():
             if request.form["button"] == "Crawl":
                 return crawl_facebook()
             elif request.form["button"] == "Upload":
-                fbc = FBCrawler("FromWebSite")
-                fbc.run_selenium_browser()
                 return upload_file()
             elif request.form["button"] == "CrawlTwitter":
                 return crawl_twitter()
             elif request.form["button"] == "MoveToManuallyAddPage":
-
                 return render_template('addManuallyPage.html')
             elif request.form["button"] == 'UploadTwitter':
                 return upload_twitter_file()
@@ -238,5 +234,3 @@ if __name__ == '__main__':
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
-    fbc = FBCrawler("FromWebSite")
-    fbc.run_selenium_browser()

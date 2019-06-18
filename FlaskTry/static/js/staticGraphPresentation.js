@@ -1,5 +1,9 @@
+if (document.getElementById("linkToCSVfile").getAttribute("href") === "/database_download/")
+    document.getElementById("linkToCSVfileButton").style.display = "none";
+else
+    document.getElementById("linkToCSVfileButton").style.display = "block";
 
-$.getJSON("static/file.json", function(json) {
+$.getJSON("static/file.json", function (json) {
 
     nodes = json.nodes;
     links = json.links;

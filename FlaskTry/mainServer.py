@@ -98,6 +98,7 @@ def crawl_facebook():
             session)
     except Exception:
         deleteLogFile()
+        print(Exception)
         return render_template('index.html', errorFBC="Crawling encountered issue in first circle, check connectivity to Facebook user",
                                scroll="crawlFacebook")
     writeToLog('Finished to get first circle data!')
@@ -153,7 +154,9 @@ def crawl_twitter():
     nick_name = nick_name[1:]
     writeToLog("Start to work on Twitter user: " + nick_name)
     writeToLog("Result CSV file will be sent to :" + mail_for_results)
-    tc = TwitterCrawler()
+
+    tc = TwitterCrawler(request.form.get('anonymCB'))
+
     try:
         tc.run(nick_name,mail_for_results)
     except Exception as e:

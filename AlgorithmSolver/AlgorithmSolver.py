@@ -106,7 +106,11 @@ class AlgorithmSolver:
             csv_reader = csv.DictReader(csv_file)
 
             for row in csv_reader:
-                name = row["Name"][2:-1]
+                if row["Name"][:2] == 'b\'' :
+                    name = row["Name"][2:-1]
+                else:
+                    name = row["Name"];
+
                 if not name[0].isalpha():
                     name = self._decode_name(name)
 

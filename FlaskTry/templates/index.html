@@ -126,8 +126,8 @@
 					<li><a href="#manually" title="add manually data">Manually</a></li>
                     <li class="has-dropdown"><a href="#upload" title="upload CSV file">Upload</a>
                     <ul class="dropdown">
-                        <li><a href="#uploadFacebook">Facebook CSV</a></li>
-                        <li><a href="#uploadTwitter">Twitter CSV</a></li>
+                        <li><a href="#uploadFacebook">Existed File</a></li>
+                        <!--<li><a href="#uploadTwitter">Twitter CSV</a></li>-->
                     </ul>
                     </li>
 					<li class="has-dropdown"><a href="#crawl" title="crawl OSN">Crawl</a>
@@ -191,19 +191,22 @@
                     <p>We present several options for interacting with this site, exploring and examining the social network:</p>
 
 					<p>
-						About the system:<br>
+						<b>About the system:</b><br>
 Our system consists of two sides: a client and a server.<br>
 The main components of the server are:<br>
 &emsp; ) Crawler: We crawl the social network and get all the details relevant to our algorithm.<br>
 &emsp;2) Algorithm solver: calculates the score (TSP) of all people in the second circle.<br>
-&emsp;3) Graph Builder: takes the results of the algorithm solver and builds a graph   corresponding to the result.<br>
+&emsp;3) Graph Builder: takes the results of the algorithm solver and builds a graph   corresponding to the result.<br><br>
 The main components of the client are:<br>
 &emsp;1) Sign in to the social network: Enter a user name (E-mail) and password.<br>
 &emsp;2) upload CSV : The Windows dialog opens and should choose a CSV file (which include details) that returned from the crawler.<br>
 &emsp;3) Output graph: There are 2 options to reach the output graph:<br>
 &emsp;&emsp;a)Build a manual graph.<br>
-&emsp;&emsp;b)Graph builder.<br>
+&emsp;&emsp;b)Graph builder.<br><br>
 Once the information comes from one of the previous components, the system displays a graph. <br>
+						<br>
+						Each user has specific fields, the fields are:
+						ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).
 					</p>
 
 				<!-- about -->
@@ -212,8 +215,7 @@ Once the information comes from one of the previous components, the system displ
 						<i class="fa fa-cogs"></i>
 						<h3>Upload CSV</h3>
 						<p>This option allows you to upload a CSV file containing details on the social network (source user, first and second circle of friends),
-						each entry describes a user, the fields are:
-						ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).
+						each entry describes a user
 						</p>
 						<a href="#upload">Read more</a>
 					</div>
@@ -237,7 +239,8 @@ Once the information comes from one of the previous components, the system displ
                     <div class="about">
                         <i class="fa fa-users"></i>
                         <h3>Crawl OSN</h3>
-                        <p>Another feature is crawling online social network. With our website it is possible to crawl desired users and produce data set.</p>
+                        <p>Another feature is crawling online social network. With our website it is possible to crawl desired users and produce data set.<br>
+						We build are own cralwer for the most popular social networks</p>
                         <a href="#crawl">Read more</a>
                     </div>
                 </div>
@@ -316,7 +319,7 @@ Once the information comes from one of the previous components, the system displ
             <div class="row">
                 <!-- Section header -->
                 <div class="section-header text-center">
-                    <h2 class="title">Upload Facebook CSV file</h2>
+                    <h2 class="title">Upload existed CSV file</h2>
                 </div>
                 <!-- /Section header -->
                 <div>
@@ -349,39 +352,39 @@ Once the information comes from one of the previous components, the system displ
     <!-- /Upload Facebook-->
 
     <!-- Upload Twitter-->
-    <div id="uploadTwitter" class="section md-padding bg-grey">
-        <!-- Container -->
-        <div class="container">
-            <!-- Row -->
-            <div class="row">
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Upload Twitter CSV file</h2>
-                </div>
-                <!-- /Section header -->
-                <div>
-                                <div class="container">
-                                    <!-- home content -->
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <p>After you crawled your social network account, you received a CSV file.The CSV contains the following fields:<br>
-										ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).<br>
-										Once you've uploaded this file, you'll see a graph that helps you explore and examine your social network. In addition, you can select the TSP limit.
-										</p>
-								<br>
-								The Twitter CSV contains unique field such as following/followers ration and etc.
-							</p>
-                                        <form method=post enctype=multipart/form-data align="center">
-                                            <input type=file name=file>
-                                            <input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">
-                                            <input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
-                                        </form>
-                                    </div>
-                                    <!-- /home content -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!--<div id="uploadTwitter" class="section md-padding bg-grey">-->
+        <!--&lt;!&ndash; Container &ndash;&gt;-->
+        <!--<div class="container">-->
+            <!--&lt;!&ndash; Row &ndash;&gt;-->
+            <!--<div class="row">-->
+                <!--&lt;!&ndash; Section header &ndash;&gt;-->
+                <!--<div class="section-header text-center">-->
+                    <!--<h2 class="title">Upload Twitter CSV file</h2>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /Section header &ndash;&gt;-->
+                <!--<div>-->
+                                <!--<div class="container">-->
+                                    <!--&lt;!&ndash; home content &ndash;&gt;-->
+                                    <!--<div class="col-md-10 col-md-offset-1">-->
+                                        <!--<p>After you crawled your social network account, you received a CSV file.The CSV contains the following fields:<br>-->
+										<!--ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).<br>-->
+										<!--Once you've uploaded this file, you'll see a graph that helps you explore and examine your social network. In addition, you can select the TSP limit.-->
+										<!--</p>-->
+								<!--<br>-->
+								<!--The Twitter CSV contains unique field such as following/followers ration and etc.-->
+							<!--</p>-->
+                                        <!--<form method=post enctype=multipart/form-data align="center">-->
+                                            <!--<input type=file name=file>-->
+                                            <!--<input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">-->
+                                            <!--<input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>-->
+                                        <!--</form>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; /home content &ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
             <!-- /Row -->
 
@@ -449,7 +452,7 @@ Once the information comes from one of the previous components, the system displ
                                             </div>
             
                                         </form>
-                                        <button class="btn btn-primary" onclick="showLogger()" id="showlogger">Return to Logger</button>
+                                        <button class="main-btn" onclick="showLogger()" id="showlogger">Return to Logger</button>
                    
                                     </div>
                                     <!-- /home content -->

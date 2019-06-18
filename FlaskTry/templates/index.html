@@ -189,8 +189,24 @@
 					<h2 class="title">Overview</h2>
 				</div>
 				<!-- /Section header -->
-                    <p>Our project are based on researches that were conducted about this field
-                       We present several options to interact with this website.</p>
+                    <p>Our project engage in data security of online social networks. We wish to protect our privacy and try to prevent information leakage from users to unwanted entities, such as adversaries or spammers.
+						The project based on researches that were conducted about online social networks security.</p>
+
+					<p>
+						About the system:<br>
+Our system consists of two sides: a client and a server.<br>
+The main components of the server are:<br>
+&emsp; ) Crawler: We crawl the social network and get all the details relevant to our algorithm.<br>
+&emsp;2) Algorithm solver: calculates the score (TSP) of all people in the second circle.<br>
+&emsp;3) Graph Builder: takes the results of the algorithm solver and builds a graph   corresponding to the result.<br>
+The main components of the client are:<br>
+&emsp;1) Sign in to the social network: Enter a user name (E-mail) and password.<br>
+&emsp;2) upload CSV : The Windows dialog opens and should choose a CSV file (which include details) that returned from the crawler.<br>
+&emsp;3) Output graph: There are 2 options to reach the output graph:<br>
+&emsp;&emsp;a)Build a manual graph.<br>
+&emsp;&emsp;b)Graph builder.<br>
+Once the information comes from one of the previous components, the system displays a graph. <br>
+					</p>
 
 				<!-- about -->
 				<div class="col-md-4">
@@ -249,8 +265,15 @@
 					<h2 class="title">Manual Input</h2>
 				</div>
 				<!-- /Section header -->
+				<p align="center">
+					Main feature of our website is a manual creation of dataset and representation graphs.<br>
+					The client can make his own simulation and see immediately the final result.<br>
+					At the end, he can save the data set he created to his computer for future changes.<br>
+					We have 3 types of graphs that emphasize different aspects of the data, each graph gives another view to the same data set.<br>
+				</p>
+				<br>
                 <form method=post enctype=multipart/form-data align="center">
-                    <button type=submit class="btn btn-primary" name="button" value=MoveToManuallyAddPage>
+                    <button type=submit class="main-btn" name="button" value=MoveToManuallyAddPage>
                         Add Data Manually
                     </button>
                 </form>
@@ -300,9 +323,11 @@
                     <div class="container">
                         <!-- home content -->
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Molestie at elementum eu facilisis sed odio olestie at elementum eu facilisis sed odioolestie at elementum eu
-                                facilisis sed odioolestie at elementum eu facilisis sed odioolestie at elementum eu facilisis sed odioolestie at
-                                elementum eu facilisis sed odioolestie at elementum eu facilisis sed odio</p>
+                            <p>After performing crawling to the Facebook online social network, we can save the CSV file that contains all of the collected data, with this module we can upload this such of file
+								and continue using the dataset we created.
+								<br>
+								This CSV contains restrict field that are must present in order to process the file correctly by our system.
+							</p>
                             <br>
                                 <form method=post enctype=multipart/form-data align="center">
                                     <input type=file name=file>
@@ -338,10 +363,11 @@
                                 <div class="container">
                                     <!-- home content -->
                                     <div class="col-md-10 col-md-offset-1">
-                                        <p>Molestie at elementum eu facilisis sed odio olestie at elementum eu facilisis sed odioolestie at elementum eu
-                                            facilisis sed odioolestie at elementum eu facilisis sed odioolestie at elementum eu facilisis sed odioolestie at
-                                            elementum eu facilisis sed odioolestie at elementum eu facilisis sed odio</p>
-                                        <br>
+                                        <p>After performing crawling to the Twitter online social network, we can save the CSV file that contains all of the collected data, with this module we can upload this such of file
+								and continue using the dataset we created.
+								<br>
+								The Twitter CSV contains unique field such as following/followers ration and etc.
+							</p>
                                         <form method=post enctype=multipart/form-data align="center">
                                             <input type=file name=file>
                                             <input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">
@@ -406,6 +432,10 @@
                                                 <label for="exampleInputPassword1">Password</label>
                                                 <input type="password" class="form-control" name="passwordForFacebook" id="exampleInputPassword1" placeholder="Password" required="required" pattern=".{8,}">
                                             </div>
+											<div class="form-group">
+                                                <label>Anonymization</label>
+                                                <input type="checkbox" name="anonymCB"/>
+                                            </div>
                                             <p class="errors">
                                                 {{errorFBC}}
                                             </p>
@@ -454,6 +484,10 @@
                                             <div class="form-group">
                                                 <label for="emailForResults">Email for results</label>
                                                 <input type="email" class="form-control" name="emailForResults" id="emailForResults" aria-describedby="emailHelp"  placeholder="Email for results" required>
+                                            </div>
+											<div class="form-group">
+                                                <label>Anonymization</label>
+                                                <input type="checkbox" name="anonymCB"/>
                                             </div>
                                             <p class="errors">
                                                 {{errorTWIC}}

@@ -19,10 +19,9 @@ app2.config.update(mail_settings)
 mail = Mail(app2)
 
 class TwitterCrawler:
-    curr_name = 'AlexChinyan'
-    my_id = 3283644367  # AlexChinyan
+    # curr_name = 'AlexChinyan',  my_id = 3283644367  # AlexChinyan
 
-    def __init__(self):
+    def __init__(self,anonymCB):
         self.my_file = None
         self.fieldnames = ['ID', 'Name', 'TF', 'MF', 'AUA', 'FD', 'CF']
         self.first_circle = []
@@ -33,6 +32,8 @@ class TwitterCrawler:
         self.logger = ''
         self.twitter = ''
         self.path_name = ''
+        self.curr_name = ''
+        self.anonymCB = anonymCB
 
     def init_crawler(self):
         access_token = "1095610485603479552-uk9jpfQB8WMUQ9KpuGaKogN3T0rXdT"
@@ -95,12 +96,12 @@ class TwitterCrawler:
     def add_to_csv(self,user, MF, FD, CF):
         if user['screen_name'] == self.curr_name : return
         if MF == -1: MF = user['followers_count']
-        values = [user['id_str'], user['Name'] if self.english(user['name']) else user['screen_name'], user['friends_count'], MF,
-                  self.fix_date(user['created_at']), FD, CF]  # needs to change created_at to months
-        # if my_file.loc[my_file['ID'] == user['id_str']]:
-        #     my_file.loc[my_file['ID'] == user['id_str']] = values
-        # else:
-        self.my_file.loc[len(self.my_file)] = values
+        name = user['name']
+
+        values = {'ID': user['id_str'],'Name':name if self.english(user['name']) else user['screen_name'],'TF': user['friends_count'],'MF': MF, 'AUA' : self.fix_date(user['created_at']),
+                  'FD': FD, 'CF':CF}
+
+        self.my_file = self.my_file.append(values, ignore_index=True)
 
         self.logger.info('added ' + str(values) + ' to csv file.')
         return
@@ -116,12 +117,6 @@ class TwitterCrawler:
         self.logger.error('got an error ' + str(e))
         if '429' in str(e):
             self.logger.info('save and stop')
-            with open('second_circle.txt', 'w') as filehandle:
-                filehandle.writelines("%s\n" % place for place in self.second_circle)
-            with open('second_to_scan.txt', 'w') as filehandle:
-                filehandle.writelines("%s\n" % place for place in self.second_to_scan)
-            with open('to_scan.txt', 'w') as filehandle:
-                filehandle.writelines("%s\n" % place for place in self.to_scan)
 
             time.sleep(911)
         elif '403' in str(e):
@@ -167,7 +162,7 @@ class TwitterCrawler:
         return
 
     def run(self,uname,mailAddress):
-        curr_name = uname
+        self.curr_name = uname
 
         #open thread with promise
         import threading
@@ -209,6 +204,35 @@ class TwitterCrawler:
 
             self.logger.info('finish crawling')
         print('done')
+
+        self.my_file = self.my_file.drop_duplicates(subset='ID')
+
+        self.export_to_csv(self.path_name)
+
+        from AlgorithmSolver.AlgorithmSolver import AlgorithmSolver
+
+        algSolv = AlgorithmSolver(self.path_name, 0.03)
+        algSolv.generate(False)
+        algSolv.add_ego_node()
+        fields = self.fieldnames
+        fields.append('TSP')
+
+        import ast
+
+        df = pd.DataFrame(columns=fields)
+        for key, node in algSolv.nodes.items():
+            values = {'ID': node.idd, 'Name': node.name,
+                      'TF': node.tf, 'MF': node.mf, 'AUA': node.aua,
+                      'FD': node.fd, 'CF': node.cf, 'TSP': node.tsp}
+            df = df.append(values,ignore_index=True)
+
+        if self.anonymCB:
+            try:
+                df['Name'] = list(map(EncryptionCSV.encName, df['Name'].values.tolist()))
+            except Exception as e:
+                print(e)
+
+        self.my_file = df
         self.export_to_csv(self.path_name)
 
         with app2.app_context():
@@ -225,10 +249,29 @@ class TwitterCrawler:
             mail.send(msg)
 
 # -- ! TODO ! --
-# change file name
-# add try & catch
+# @minchal70
 # open email address for this app
-# trying to scan someone that already been scanned
-# show twitter graph ?
 
 
+class EncryptionCSV:
+    def encName(str):
+        arraysplitted = str.split('.')
+        strEnc=""
+        for s in arraysplitted:
+            strEnc=strEnc+s[0]+'.'
+        return strEnc[0:len(strEnc)-1];
+
+    def addNumOfSameNames(listOfEncName):
+        tempList=listOfEncName
+        counterOut=0
+        for i in tempList:
+            sumof=1
+            counter=counterOut
+            if(i[i._len_()-2]!='#'):
+                for r in listOfEncName[counterOut:listOfEncName._len_()]:
+                    if(r==i):
+                        listOfEncName[counter]=listOfEncName[counter]+'#'+str(sumof)
+                        sumof=sumof+1
+                    counter=counter+1
+            counterOut=counterOut+1
+        return listOfEncName

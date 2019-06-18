@@ -21,7 +21,8 @@ var width = $("#svg-id").innerWidth(),
     calc_TF = true,
     calc_AUA = true,
     calc_MF = true,
-    calc_FD = true;
+    calc_FD = true,
+    SummaryGraph = false;
 
 var graphOptionsElements = document.getElementById('graphOptions');
 graphOptionsElements.addEventListener('change', function () {
@@ -29,10 +30,164 @@ graphOptionsElements.addEventListener('change', function () {
         changeToIFM();
     } else if (this.value === "CB") {
         changeToCB();
+    } else if (this.value === "Summ") {
+        changeToSumm();
     }
 }, false);
 
+function get_all_high_tsp_second_level_nodes() {
+    var nodes_to_return = [];
+    for (var i in nodes) {
+        if (nodes[i]["level"] === 2 && nodes[i]["TSP"] >= msp) {
+            var node_to_add = {
+                "id": nodes[i]["id"],
+                "name": nodes[i]["name"],
+                "TF": nodes[i]["TF"],
+                "AUA": nodes[i]["AUA"],
+                "CF": nodes[i]["CF"],
+                "MF": nodes[i]["MF"],
+                "FD": nodes[i]["FD"],
+                "Weight": nodes[i]["Weight"],
+                "TSP": nodes[i]["TSP"],
+                "level": nodes[i]["level"]
+            }
+            nodes_to_return.push(node_to_add);
+        }
+    }
+    return nodes_to_return;
+}
+
+function get_all_first_level_nodes() {
+    var nodes_to_return = [];
+    for (var i in nodes) {
+        if (nodes[i]["level"] === 1) {
+            var node_to_add = {
+                "id": nodes[i]["id"],
+                "name": nodes[i]["name"],
+                "TF": nodes[i]["TF"],
+                "AUA": nodes[i]["AUA"],
+                "CF": nodes[i]["CF"],
+                "MF": nodes[i]["MF"],
+                "FD": nodes[i]["FD"],
+                "Weight": nodes[i]["Weight"],
+                "TSP": nodes[i]["TSP"],
+                "level": nodes[i]["level"]
+            }
+            nodes_to_return.push(node_to_add);
+        }
+    }
+    return nodes_to_return;
+}
+
+function get_mf_fd_avarage(mffd) {
+    var summ = 0;
+    for (var i in mffd) {
+        summ += mffd[i];
+    }
+    console
+    return summ / mffd.length;
+}
+
+function getAvgOfCircles(circle, bad) {
+    var circlesToCalc;
+    if (circle === 1) {
+        circlesToCalc = get_all_first_level_nodes();
+    } else if (circle === 2) {
+        if (bad) {
+            circlesToCalc = get_all_low_tsp_second_level_nodes();
+        } else {
+            circlesToCalc = get_all_high_tsp_second_level_nodes();
+        }
+    }
+    
+    tf_count = circlesToCalc.length
+    aua_count = circlesToCalc.length
+    mf_count = circlesToCalc.length
+    fd_count = circlesToCalc.length
+    tsp_count = circlesToCalc.length
+
+    var tf_sum = 0,
+        aua_sum = 0,
+        mf_sum = 0,
+        fd_sum = 0,
+        tsp_sum = 0;
+
+    for (var i in circlesToCalc) {
+        if (circlesToCalc[i]["TF"] === -1) {
+            tf_count--;
+        } else {
+            tf_sum += circlesToCalc[i]["TF"]
+        } if (circlesToCalc[i]["AUA"] === -1) {
+            aua_count--;
+        } else {
+            aua_sum += circlesToCalc[i]["AUA"]
+        } if (get_mf_fd_avarage(circlesToCalc[i]["MF"]) === -1) {
+            mf_count--;
+        } else {
+            mf_sum += get_mf_fd_avarage(circlesToCalc[i]["MF"])
+        } if (get_mf_fd_avarage(circlesToCalc[i]["FD"]) === -1) {
+            fd_count--;
+        } else {
+            fd_sum += get_mf_fd_avarage(circlesToCalc[i]["FD"])
+        } if (circlesToCalc[i]["TSP"] === -1) {
+            tsp_count--;
+        } else {
+            tsp_sum += circlesToCalc[i]["TSP"]
+        }
+    }
+
+    if (circle === 2)
+        return [tf_sum / tf_count, aua_sum / aua_count, mf_sum / mf_count, fd_sum / fd_count, circlesToCalc.length, tsp_sum / tsp_count]
+    else if (circle === 1)
+        return [tf_sum / tf_count, aua_sum / aua_count, mf_sum / mf_count, fd_sum / fd_count, circlesToCalc.length]
+}
+
+var summaryNodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }];
+var summaryLinks = []
+
+function changeToSumm() {
+    summaryNodes = [{ "id": 0, "name": "Ego Node", "TF": "", "AUA": "", "CF": [], "MF": [], "FD": [], "Weight": -1, "TSP": -1, "level": 0 }];
+    summaryLinks = []
+    SummaryGraph = true;
+    document.getElementById("myForm").style.display = "none";  
+    document.getElementById("svg-id").removeAttribute("viewBox");
+
+
+
+    first_circle_avg = getAvgOfCircles(1, true);
+    second_bad_circle_avg = getAvgOfCircles(2, true);
+    second_good_circle_avg = getAvgOfCircles(2, false);
+
+    if (first_circle_avg[4] > 0) {
+        summaryNodes.push({ "id": 1, "name": "#1 Circles Avarage", "TF": first_circle_avg[0], "AUA": first_circle_avg[1], "MF": first_circle_avg[2], "FD": first_circle_avg[3], "TSP": -1, "size": first_circle_avg[4], "level": 1 })
+        summaryLinks.push({ "source": 0, "target": 1 });
+        if (second_bad_circle_avg[4] > 0) {
+            summaryNodes.push({ "id": 2, "name": "#2 Bad Circles Avarage", "TF": second_bad_circle_avg[0], "AUA": second_bad_circle_avg[1], "MF": second_bad_circle_avg[2], "FD": second_bad_circle_avg[3], "TSP": second_bad_circle_avg[5], "size": second_bad_circle_avg[4], "level": 2 })
+            summaryLinks.push({ "source": 1, "target": 2 });
+        }
+        if (second_good_circle_avg[4] > 0) {
+            summaryNodes.push({ "id": 3, "name": "#2 Good Circles Avarage", "TF": second_good_circle_avg[0], "AUA": second_good_circle_avg[1], "MF": second_good_circle_avg[2], "FD": second_good_circle_avg[3], "TSP": second_good_circle_avg[5], "size": second_good_circle_avg[4], "level": 2 })
+            summaryLinks.push({ "source": 1, "target": 3 });
+        }
+    }
+    
+    simulation = d3.forceSimulation(summaryNodes)
+        .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
+        .force('collide', d3.forceCollide(r* 21))
+        .force('charge', d3.forceManyBody().strength(0))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('link', d3.forceLink().links(summaryLinks).id(function (d) { return d.id }))
+        .on('tick', ticked);
+
+    d3.select('.links').selectAll('line.link').remove();
+    d3.select('.nodes').selectAll('g.node').remove();
+
+    update();
+}
+
 function changeToIFM() {
+    SummaryGraph = false;
+    document.getElementById("myForm").style.display = "block";
     document.getElementById("svg-id").removeAttribute("viewBox");
     simulation = d3.forceSimulation(nodes)
         .force('x', d3.forceX((d) => getXloc(d.level)).strength(4))
@@ -42,17 +197,24 @@ function changeToIFM() {
         .force('link', d3.forceLink().links(links).id(function (d) { return d.id }))
         .on('tick', ticked);
 
+    d3.select('.links').selectAll('line.link').remove();
+    d3.select('.nodes').selectAll('g.node').remove();
+
     update();
 }
 
 function changeToCB() {
-
+    SummaryGraph = false;
+    document.getElementById("myForm").style.display = "block";
     document.getElementById("svg-id").setAttribute("viewBox", -1 * width / 2 + " " + -1 * height / 2 + " " + width + " " + height);
     simulation = d3.forceSimulation(nodes)
         .force("r", d3.forceRadial(function (d) { return d.level * 100; }).strength(1))
         .force('collide', d3.forceCollide(r * 4))
         .force('link', d3.forceLink().links(links).id(function (d) { return d.id }).strength(0.1))
         .on("tick", ticked);
+
+    d3.select('.links').selectAll('line.link').remove();
+    d3.select('.nodes').selectAll('g.node').remove();
 
     update();
 
@@ -294,7 +456,7 @@ function update() {
 
     var link = d3.select('.links').selectAll('line.link');
 
-    link = link.data(show_bad_connections ? bad_links : links);
+    link = link.data(SummaryGraph ? summaryLinks : (show_bad_connections ? bad_links : links));
     link.exit().remove();
 
     link.enter().insert("line")
@@ -309,7 +471,7 @@ function update() {
     var node = d3.select('.nodes')
         .selectAll('g.node');
 
-    node = node.data(show_bad_connections ? bad_nodes : nodes)
+    node = node.data(SummaryGraph ? summaryNodes : (show_bad_connections ? bad_nodes : nodes))
 
 
 
@@ -317,65 +479,104 @@ function update() {
         .attr("class", "node").merge(node);
 
 
-    node_enter.append("text")
-        .attr("class", "nodetext")
-        .attr("x", "0em")
-        .attr("y", 15)
-        .text(function (d) { return d.name });
+    if (SummaryGraph) {
 
-    node_enter.append("circle")
-        .style("fill", function (d) {
+        node_enter.append("rect").style("fill", function (d) {
             if (d.id == 0) { return "#0099ff" }
-            if (d.CF.includes(0)) { return "#00cc00" }
-            if (d.TSP > 0.5) { return "#ff9900" } else { return "#ff0000" }
+            if (d.id == 1) { return "#00cc00" }
+            if (d.id == 3) { return "#ff9900" } else { return "#ff0000" }
         })
-        .attr("r", r);
+            .attr("width", function (d) {
+                if (d.id == 0) { return 50 }
+                if (d.id == 1) { return 200 }
+                if (d.id == 3) { return 200 } else { return 200 }
+            })
+            .attr("height", function (d) {
+                if (d.id == 0) { return 50 }
+                if (d.id == 1) { return 210 }
+                if (d.id == 3) { return 210 } else { return 210 }
+            })
+            .attr("x", function (d) {
+                if (d.id == 0) { return -25 }
+                if (d.id == 1) { return -105 }
+                if (d.id == 3) { return -105 } else { return -105 }
+            })
+            .attr("y", function (d) {
+                if (d.id == 0) { return -25 }
+                if (d.id == 1) { return -105 }
+                if (d.id == 3) { return -105 } else { return -105 }
+            }).attr('ry', 20)
+            .attr('rx', 20)
+            .style('stroke', 'black')
+            .style('stroke-width', 5);
+
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "Ego Node" }
+            if (d.id == 1) { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD }
+            else { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD + "," + "\navarage TSP: " + d.TSP }
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1)
+
+    } else {
+        node_enter.append("text")
+            .attr("class", "nodetext")
+            .attr("x", "0em")
+            .attr("y", 15)
+            .text(function (d) { return d.name });
+
+        node_enter.append("circle")
+            .style("fill", function (d) {
+                if (d.id == 0) { return "#0099ff" }
+                if (d.CF.includes(0)) { return "#00cc00" }
+                if (d.TSP > 0.5) { return "#ff9900" } else { return "#ff0000" }
+            })
+            .attr("r", r);
+    }
+
+
     node_enter.exit().remove();
 
 
+    if (!SummaryGraph) {
+        node_enter.on("mouseover", function (d) {
 
-    node_enter.on("mouseover", function (d) {
-        /*
-        var g = d3.select(this); // The node
-        // The class is used to remove the additional text later
-        var info = g.append('text')
-            .classed('info', true)
-            .attr('dx', "0em")
-            .attr('dy', -10)
-            .text(function (d) {
-                if (d.id == 0) { return "id=0" }
-                else if (d.level == 1) { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() }
-                else { return "id=" + d.id.toString() + ",TF=" + d.TF.toString() + ",AUA=" + d.AUA.toString() + ",TSP=" + d.TSP.toString().substring(0, 6); }
-            })
-            .style("font-size", "12px");
-        */
+            document.getElementById("idForId").innerHTML = d.id;
+            document.getElementById("idForName").innerHTML = d.name;
+            document.getElementById("idForTF").innerHTML = d.TF;
+            document.getElementById("idForAUA").innerHTML = d.AUA;
+            document.getElementById("idForCF").innerHTML = d.CF;
+            document.getElementById("idForMF").innerHTML = d.MF;
+            document.getElementById("idForFD").innerHTML = d.FD;
+            document.getElementById("idForTSP").innerHTML = d.TSP;
+            document.getElementById("idForlevel").innerHTML = d.level;
 
-        document.getElementById("idForId").innerHTML = d.id;
-        document.getElementById("idForName").innerHTML = d.name;
-        document.getElementById("idForTF").innerHTML = d.TF;
-        document.getElementById("idForAUA").innerHTML = d.AUA;
-        document.getElementById("idForCF").innerHTML = d.CF;
-        document.getElementById("idForMF").innerHTML = d.MF;
-        document.getElementById("idForFD").innerHTML = d.FD;
-        document.getElementById("idForTSP").innerHTML = d.TSP;
-        document.getElementById("idForlevel").innerHTML = d.level;
+            d3.selectAll('line.link')
+                .filter(function (l) {
+                    return (d.id != 0 && (d.id == l.source.id || d.id == l.target.id));
+                })
+                .style("opacity", 1)
 
-        d3.selectAll('line.link')
-            .filter(function (l) {
-                return (d.id != 0 && (d.id == l.source.id || d.id == l.target.id));
-            })
-            .style("opacity", 1)
+        }).on("mouseout", function () {
+            d3.selectAll('line.link').style("opacity", 0.1)
+            // Remove the info text on mouse out.
+            d3.select(this).select('text.info').remove();
 
-    }).on("mouseout", function () {
-        d3.selectAll('line.link').style("opacity", 0.1)
-        // Remove the info text on mouse out.
-        d3.select(this).select('text.info').remove();
+            });
+    } else {
+        node_enter.on("mouseover", function (d) {
+            d3.selectAll('line.link')
+                .filter(function (l) {
+                    return (d.id != 0 && (d.id == l.source.id || d.id == l.target.id));
+                })
+                .style("opacity", 1)
+        }).on("mouseout", function () {
+            d3.selectAll('line.link').style("opacity", 0.1)
+        });
 
-    });
+    }
 
     drag_handler(node_enter);
-    simulation.nodes(show_bad_connections ? bad_nodes : nodes);
-    simulation.force("link").links(show_bad_connections ? bad_links : links).id(function (d) { return d.id });
+    simulation.nodes(SummaryGraph ? summaryNodes : (show_bad_connections ? bad_nodes : nodes));
+    simulation.force("link").links(SummaryGraph ? summaryLinks : (show_bad_connections ? bad_links : links)).id(function (d) { return d.id });
     simulation.on('tick', ticked)
     simulation.alpha(1).restart();
 }
@@ -383,7 +584,7 @@ function update() {
 
 function ticked() {
     var link = d3.select('.links').selectAll('line.link');
-    link = link.data(show_bad_connections ? bad_links : links);
+    link = link.data(SummaryGraph ? summaryLinks : (show_bad_connections ? bad_links : links));
     link.exit().remove();
 
     link.attr("x1", function (d) { return d.source.x; })
@@ -393,7 +594,7 @@ function ticked() {
 
 
     var node = d3.select('.nodes').selectAll('g.node');
-    node = node.data(show_bad_connections ? bad_nodes : nodes);
+    node = node.data(SummaryGraph ? summaryNodes : (show_bad_connections ? bad_nodes : nodes));
     node.exit().remove();
     node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
 

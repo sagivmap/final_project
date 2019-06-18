@@ -132,7 +132,7 @@ def crawl_facebook():
 
     writeToLog('Finished to generate final graph.. Moving to graph presentation')
     deleteLogFile()
-    return render_template('showGraph.html', filename='csv_file_name')
+    return render_template('showGraph.html', filename=csv_file_name)
 
 def crawl_twitter():
     writeToLog(TwitterCrawler_LOGO)

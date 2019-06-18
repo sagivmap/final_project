@@ -514,7 +514,7 @@ function update() {
             if (d.id == 0) { return "Ego Node" }
             if (d.id == 1) { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD }
             else { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD + "," + "\navarage TSP: " + d.TSP }
-        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1)
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill','black')
 
     } else {
         node_enter.append("text")

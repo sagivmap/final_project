@@ -1,6 +1,6 @@
 import unittest
 from time import sleep
-
+import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -225,14 +225,171 @@ class TestAddNewNodes(unittest.TestCase):
     #     self.assertTrue(self.__validate_alert_window('No such node: 2'))
     #     pass
 
-    def test_add_second_node_with_bad_input_add_to_twice_first_node(self):
-        self.__add_first_circle_node('first', '70', '200', '18', '10', True)
-        self.__add_second_circle_node('second', '100', '365', '1,1', '18,19', '200,201', False)
-        self.assertTrue(self.__validate_alert_window('There duplicate CF.'))
-        pass
+    # def test_add_second_node_with_bad_input_add_to_twice_first_node(self):
+    #     self.__add_first_circle_node('first', '70', '200', '18', '10', True)
+    #     self.__add_second_circle_node('second', '100', '365', '1,1', '18,19', '200,201', False)
+    #     self.assertTrue(self.__validate_alert_window('There duplicate CF.'))
+    #     pass
 
+    # def test_ego_node(self):
+    #     nodes = self.browser.execute_script("return nodes;")
+    #     self.assertEqual(len(nodes), 1)
+    #     self.assertEqual(nodes[0]['name'], 'Ego Node')
+    #     self.assertEqual(nodes[0]['id'], 0)
+    #     self.assertEqual(nodes[0]['AUA'], "")
+    #     self.assertEqual(len(nodes[0]['CF']), 0)
+    #     self.assertEqual(len(nodes[0]['FD']), 0)
+    #     self.assertEqual(len(nodes[0]['MF']), 0)
+    #     self.assertEqual(nodes[0]['TF'], "")
+    #     self.assertEqual(nodes[0]["level"], 0)
+    #     self.assertEqual(nodes[0]["TSP"], -1)
+    #     self.assertEqual(nodes[0]["Weight"], -1)
 
+    # This test needs a export.json file in the seleniumTests directory
+    # def test_upload_csv(self):
+    #     uploadFile = (os.path.dirname(os.path.abspath(__file__)) + "\\files\\export.json")
+    #     selectFiles = self.browser.find_element_by_id('selectFiles').send_keys(uploadFile)
+    #     uploadCSVfile = self.browser.find_element_by_id('import')
+    #     self.browser.execute_script("arguments[0].click();", uploadCSVfile)
+    #     sleep(5)
+    #     nodes = self.browser.execute_script("return nodes;")
+    #     self.assertNotEqual(len(nodes), 1)
 
+    # def test_download_data(self):
+    #     uploadFile = self.browser.find_element_by_id('DownloadData')
+    #     self.browser.execute_script("arguments[0].click();", uploadFile)
+    #     sleep(5)
+    #     uploadFilePath = (os.environ["HOMEPATH"] + "\\export.json")
+    #     self.assertEqual('true', os.path.isfile(uploadFilePath));
+
+    # def test_TF_checkbox(self):
+    #      checked = self.browser.find_element_by_id(("TFcheckBox")).is_selected()
+    #      TFcheckbox=self.browser.find_element_by_id('TFcheckBox')
+    #      self.browser.execute_script("arguments[0].click();", TFcheckbox)
+    #      isChecked = self.browser.find_element_by_id(("TFcheckBox")).is_selected()
+    #      self.assertEqual(not checked, isChecked)
+    #      sleep(0.5)
+    #      self.browser.execute_script("arguments[0].click();", TFcheckbox)
+    #      isChecked = self.browser.find_element_by_id(("TFcheckBox")).is_selected()
+    #      self.assertEqual(checked, isChecked)
+    #
+    # def test_AUA_checkbox(self):
+    #     checked = self.browser.find_element_by_id(("AUAcheckBox")).is_selected()
+    #     AUAcheckbox = self.browser.find_element_by_id('AUAcheckBox')
+    #     self.browser.execute_script("arguments[0].click();", AUAcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("AUAcheckBox")).is_selected()
+    #     self.assertEqual(not checked, isChecked)
+    #     sleep(0.5)
+    #     self.browser.execute_script("arguments[0].click();", AUAcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("AUAcheckBox")).is_selected()
+    #     self.assertEqual(checked, isChecked)
+    #
+    # def test_MF_checkbox(self):
+    #     checked = self.browser.find_element_by_id(("MFcheckBox")).is_selected()
+    #     MFcheckbox = self.browser.find_element_by_id('MFcheckBox')
+    #     self.browser.execute_script("arguments[0].click();", MFcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("MFcheckBox")).is_selected()
+    #     self.assertEqual(not checked, isChecked)
+    #     sleep(0.5)
+    #     self.browser.execute_script("arguments[0].click();", MFcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("MFcheckBox")).is_selected()
+    #     self.assertEqual(checked, isChecked)
+    #
+    # def test_FD_checkbox(self):
+    #     checked = self.browser.find_element_by_id(("FDcheckBox")).is_selected()
+    #     FDcheckbox = self.browser.find_element_by_id('FDcheckBox')
+    #     self.browser.execute_script("arguments[0].click();", FDcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("FDcheckBox")).is_selected()
+    #     self.assertEqual(not checked, isChecked)
+    #     sleep(0.5)
+    #     self.browser.execute_script("arguments[0].click();", FDcheckbox)
+    #     isChecked = self.browser.find_element_by_id(("FDcheckBox")).is_selected()
+    #     self.assertEqual(checked, isChecked)
+
+    def test_recalculate_TF(self):
+        self.__add_first_circle_node('first', '1000', '1', '1', '1', True)
+        self.__add_second_circle_node('second', '1000','1', '1', '1', '1', True)
+        sleep(1)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertNotEqual(1, nodes[2]["TSP"])
+        FDcheckbox = self.browser.find_element_by_id('FDcheckBox')
+        self.browser.execute_script("arguments[0].click();", FDcheckbox)
+        MFcheckbox = self.browser.find_element_by_id('MFcheckBox')
+        self.browser.execute_script("arguments[0].click();", MFcheckbox)
+        AUAcheckbox = self.browser.find_element_by_id('AUAcheckBox')
+        self.browser.execute_script("arguments[0].click();", AUAcheckbox)
+        Recalculatebtn = self.browser.find_element_by_id('Recalculatebtn')
+        self.browser.execute_script("arguments[0].click();", Recalculatebtn)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertEqual(1,nodes[2]["TSP"])
+
+    def test_recalculate_AUA(self):
+        self.__add_first_circle_node('first', '1', '1000', '1', '1', True)
+        self.__add_second_circle_node('second', '1', '1000', '1', '1', '1', True)
+        sleep(1)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertNotEqual(1, nodes[2]["TSP"])
+        FDcheckbox = self.browser.find_element_by_id('FDcheckBox')
+        self.browser.execute_script("arguments[0].click();", FDcheckbox)
+        MFcheckbox = self.browser.find_element_by_id('MFcheckBox')
+        self.browser.execute_script("arguments[0].click();", MFcheckbox)
+        TFcheckbox = self.browser.find_element_by_id('TFcheckBox')
+        self.browser.execute_script("arguments[0].click();", TFcheckbox)
+        Recalculatebtn = self.browser.find_element_by_id('Recalculatebtn')
+        self.browser.execute_script("arguments[0].click();", Recalculatebtn)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertEqual(1, nodes[2]["TSP"])
+
+    def test_recalculate_MF(self):
+        self.__add_first_circle_node('first', '1000', '1', '1000', '1', True)
+        self.__add_second_circle_node('second', '1000', '1', '1', '1000', '1', True)
+        sleep(1)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertNotEqual(1, nodes[2]["TSP"])
+        FDcheckbox = self.browser.find_element_by_id('FDcheckBox')
+        self.browser.execute_script("arguments[0].click();", FDcheckbox)
+        AUAcheckbox = self.browser.find_element_by_id('AUAcheckBox')
+        self.browser.execute_script("arguments[0].click();", AUAcheckbox)
+        TFcheckbox = self.browser.find_element_by_id('TFcheckBox')
+        self.browser.execute_script("arguments[0].click();", TFcheckbox)
+        Recalculatebtn = self.browser.find_element_by_id('Recalculatebtn')
+        self.browser.execute_script("arguments[0].click();", Recalculatebtn)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertEqual(1, nodes[2]["TSP"])
+
+    def test_recalculate_FD(self):
+        self.__add_first_circle_node('first', '1', '1000', '1', '1000', True)
+        self.__add_second_circle_node('second', '1', '1000', '1', '1', '1000', True)
+        sleep(1)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertNotEqual(1, nodes[2]["TSP"])
+        MFcheckbox = self.browser.find_element_by_id('MFcheckBox')
+        self.browser.execute_script("arguments[0].click();", MFcheckbox)
+        AUAcheckbox = self.browser.find_element_by_id('AUAcheckBox')
+        self.browser.execute_script("arguments[0].click();", AUAcheckbox)
+        TFcheckbox = self.browser.find_element_by_id('TFcheckBox')
+        self.browser.execute_script("arguments[0].click();", TFcheckbox)
+        Recalculatebtn = self.browser.find_element_by_id('Recalculatebtn')
+        self.browser.execute_script("arguments[0].click();", Recalculatebtn)
+        nodes = self.browser.execute_script("return nodes;")
+        self.assertEqual(1, nodes[2]["TSP"])
+
+    def test_show_only_bad_connections(self):
+        show_only_bad_connections = self.browser.find_element_by_id('show_only_bad_connections')
+        self.browser.execute_script("arguments[0].click();", show_only_bad_connections)
+        self.assertEqual(self.__validate_alert_window("All connections are GOOD connections!"),True)
+        self.__add_first_circle_node('first', '1', '1000', '1', '1000', True)
+        self.__add_second_circle_node('second', '1', '1', '1', '1', '1', True)
+        show_only_bad_connections = self.browser.find_element_by_id('show_only_bad_connections')
+        self.browser.execute_script("arguments[0].click();", show_only_bad_connections)
+        self.browser.execute_script("arguments[0].click();", show_only_bad_connections)
+        self.assertEqual(self.__validate_alert_window("Already show bad connections.."),True)
+
+    def test_show_all_connections(self):
+        Show_All_Connections = self.browser.find_element_by_id('Show All Connections')
+        self.browser.execute_script("arguments[0].click();", Show_All_Connections)
+        a=self.browser.execute_script("return show_bad_connections;")
+        self.assertEqual(a,False)
 
 
 

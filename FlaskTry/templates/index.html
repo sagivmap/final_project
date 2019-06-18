@@ -154,8 +154,7 @@
 						<div class="home-content">
 							<h1 class="white-text">Information Flow Control Model for OSN</h1>
 							<p class="white-text"><br>
-								This project deals with information control for online social networks.
-
+								Our project is based on research of Ehud Gudes and Nadav Voloch and deals with information control for online social networks.
 								Unlike the spread common ways to control information, we deal with information security and try to foresee problematic situations in advance.
 								We scan popular social networks starting with requested user being the source node, then we scan two circles of friends for the source node and
 								classify the scanned members, according to credibility method, into two groups: which users are safe to share information with and which users are
@@ -189,15 +188,17 @@
 					<h2 class="title">Overview</h2>
 				</div>
 				<!-- /Section header -->
-                    <p>Our project are based on researches that were conducted about this field
-                       We present several options to interact with this website.</p>
+                    <p>We present several options for interacting with this site, exploring and examining the social network:</p>
 
 				<!-- about -->
 				<div class="col-md-4">
 					<div class="about">
 						<i class="fa fa-cogs"></i>
 						<h3>Upload CSV</h3>
-						<p>Users can upload CSV files to the system, the system will process the file and present to the system the final output</p>
+						<p>This option allows you to upload a CSV file containing details on the social network (source user, first and second circle of friends),
+						each entry describes a user, the fields are:
+						ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).
+						</p>
 						<a href="#upload">Read more</a>
 					</div>
 				</div>
@@ -208,7 +209,7 @@
 					<div class="about">
                         <i class="fa fa-pencil"></i>
 						<h3>Manual Input </h3>
-						<p>Users can choose to use our manual mode, this mode allow to create graphs and data sets from scratch</p>
+						<p>Users can choose to use our manual mode, this mode allows to create graphs and data sets from scratch. This means that you can create a "social network" manually.</p>
 						<a href="#manually">Read more</a>
 					</div>
 				</div>
@@ -279,10 +280,9 @@
 				</div>
 				<!-- /Section header -->
                 <p>
-                A Comma Separated Values (CSV) file is a plain text file that contains a list of data. These files are often used for exchanging data between different applications. For example,
-                 databases and contact managers often support CSV files.
-                These files may sometimes be called Character Separated Values or Comma Delimited files. They mostly use the comma character to separate (or delimit) data, but sometimes use other
-                characters, like semicolons. The idea is that you can export complex data from one application to a CSV file, and then import the data in that CSV file into another application.
+                This option allows you to upload a CSV file containing details on the social network (source user, first and second circle of friends),
+				each entry describes a user, the fields are:
+				ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).
                 </p>
 
     <!-- Upload Facebook-->
@@ -300,9 +300,11 @@
                     <div class="container">
                         <!-- home content -->
                         <div class="col-md-10 col-md-offset-1">
-                            <p>Molestie at elementum eu facilisis sed odio olestie at elementum eu facilisis sed odioolestie at elementum eu
-                                facilisis sed odioolestie at elementum eu facilisis sed odioolestie at elementum eu facilisis sed odioolestie at
-                                elementum eu facilisis sed odioolestie at elementum eu facilisis sed odio</p>
+                            <p>
+							After you crawled your social network account, you received a CSV file.The CSV contains the following fields:<br>
+							ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).<br>
+							Once you've uploaded this file, you'll see a graph that helps you explore and examine your social network. In addition, you can select the TSP limit.
+							</p>
                             <br>
                                 <form method=post enctype=multipart/form-data align="center">
                                     <input type=file name=file>
@@ -338,9 +340,10 @@
                                 <div class="container">
                                     <!-- home content -->
                                     <div class="col-md-10 col-md-offset-1">
-                                        <p>Molestie at elementum eu facilisis sed odio olestie at elementum eu facilisis sed odioolestie at elementum eu
-                                            facilisis sed odioolestie at elementum eu facilisis sed odioolestie at elementum eu facilisis sed odioolestie at
-                                            elementum eu facilisis sed odioolestie at elementum eu facilisis sed odio</p>
+                                        <p>After you crawled your social network account, you received a CSV file.The CSV contains the following fields:<br>
+										ID,Name,TF(Total friends),MF(Mutual friends),AUA(Age of user account),FD(friendship duration),CF(Connecting friend).<br>
+										Once you've uploaded this file, you'll see a graph that helps you explore and examine your social network. In addition, you can select the TSP limit.
+										</p>
                                         <br>
                                         <form method=post enctype=multipart/form-data align="center">
                                             <input type=file name=file>
@@ -396,6 +399,8 @@
                                 <div class="container">
                                     <!-- home content -->
                                     <div class="col-md-10 col-md-offset-1">
+										<p>We built our own crawler for Facebook to collect the data from scaned users.<br>
+											When the process is complete,there is an option to download the file, if choose to download the CSV file, it will be saved in downloads.</p>										</p>
                                         <form action="/" method="post">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
@@ -444,7 +449,7 @@
                                     <!-- home content -->
                                     <div class="col-md-10 col-md-offset-1">
 										<p>We built our own crawler for twitter, we are using Twitter API to collect the data from scaned users.<br>
-										At the end of the process the a CSV file will be sent to the given mail address.
+										When the process is complete, a CSV file will be sent to the given mail address.
 										</p>
                                         <form action="/" method="post">
                                             <div class="form-group">

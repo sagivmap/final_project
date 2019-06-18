@@ -105,8 +105,8 @@
 
                         <!-- Crawling with Facebook-->
                         <div class="col-xl-3 col-lg-7">
-                            <button onclick="show_only_bad_connections()">Show Only Bad Connections</button>
-                            <button onclick="showAllConnections()">Show All Connections</button>
+                            <button id="show_only_bad_connections" onclick="show_only_bad_connections()">Show Only Bad Connections</button>
+                            <button id="Show All Connections" onclick="showAllConnections()">Show All Connections</button>
                             <div class="card shadow mb-4">
                                 <!-- Card Header -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
@@ -189,7 +189,7 @@
                                     <input type="checkbox" id="AUAcheckBox" value="AUA" checked> AUA<br>
                                     <input type="checkbox" id="MFcheckBox" value="MF" checked> MF<br>
                                     <input type="checkbox" id="FDcheckBox" value="FD" checked> FD<br><br>
-                                    <button class="btn btn-primary" onclick="ReCalculate()">ReCalculate</button>
+                                    <button id="Recalculatebtn" class="btn btn-primary" onclick="ReCalculate()">ReCalculate</button>
 
                                 </div>
                             </div>
@@ -226,7 +226,7 @@
                                             <option value="Summ">Summary</option>
                                         </select>
                                     </p>
-                                    <button onclick="downloadDataAsCSV()">Download Data</button>
+                                    <button id="DownloadData" onclick="downloadDataAsCSV()">Download Data</button>
                                 </div>
                                 <!-- Graph Location Body -->
                                 <div class="card-body">

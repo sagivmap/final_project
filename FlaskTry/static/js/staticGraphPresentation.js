@@ -3,6 +3,9 @@ if (document.getElementById("linkToCSVfile").getAttribute("href") === "/database
 else
     document.getElementById("linkToCSVfileButton").style.display = "block";
 
+var nodes,
+    links;
+
 $.getJSON("static/file.json", function (json) {
 
     nodes = json.nodes;
@@ -17,8 +20,6 @@ $.getJSON("static/file.json", function (json) {
         fd_barrier = 12,
         msp = 0.5,
         r = 5,
-        links = links,
-        nodes = nodes,
         getXloc = d3.scalePoint().domain([0, 1, 2]).range([100, width - 100]);
 
     var zoom = d3.select(".everything");

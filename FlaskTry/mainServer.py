@@ -1,6 +1,6 @@
 from time import sleep
 from logos import *
-from flask import Flask, render_template, request, redirect, send_from_directory, send_file
+from flask import Flask, render_template, request, redirect, send_from_directory, make_response
 from AlgorithmSolver import createJson as cJson
 from Crawler.TwitterCrawler import TwitterCrawler
 from Crawler.FBCrawler import FBCrawler
@@ -51,6 +51,18 @@ class myThread (threading.Thread):
         for path in self.paths:
             self.facebook_crawler.crawl_data_of_user_friends(path, self.threadID)
         #logger.info("Finished work on thread: " + self.name)
+
+@app.route('/docs/<filename>')
+def get_pdf(filename=None):
+    if filename is not None:
+        binary_pdf = open("static/UserManual.pdf", "rb")
+
+        response = make_response(binary_pdf.read())
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = \
+            'inline; filename=%s.pdf' % 'yourfilename'
+        binary_pdf.close()
+        return response
 
 @app.route('/database_download/<filename>')
 def database_download(filename):

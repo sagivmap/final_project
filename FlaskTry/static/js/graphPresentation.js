@@ -311,7 +311,7 @@ var calc_link_weight = function (MF, FD) {
         return c_MF;
     if (calc_FD && (!calc_MF))
         return c_FD;
-    
+
     return (c_MF + c_FD) / 2;
 }
 
@@ -872,15 +872,17 @@ function ReCalculate() {
         calc_FD = true;
     } else {
         calc_FD = false;
-    } if (document.getElementById('mspToChange').value != '') {
+    }
+    if (document.getElementById('mspToChange').value != '') {
         msp = parseFloat(document.getElementById('mspToChange').value);
-        console.log(msp);
+
     } 
     ReCalculate_helper();
 }
 
 function ReCalculate_helper() {
     for (i = 1; i < nodes.length; i++) {
+
         nodes[i]['Weight'] = calc_node_weight(nodes[i]['TF'], nodes[i]['AUA'])
         nodes[i]['TSP'] = -1;
     }

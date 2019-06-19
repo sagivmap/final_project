@@ -19,8 +19,8 @@ class TestAddNewNodes(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
-        def test_a(self):
-            self.__add_first_circle_node("first", "100", "365", "40", "30", True)
+    def test_a(self):
+        self.__add_first_circle_node("first", "100", "365", "40", "30", True)
 
         self.__add_first_circle_node("second", "1", "1", "0", "0", True)
         self.__add_first_circle_node("third", "50", "200", "8", "3", True)

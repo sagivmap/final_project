@@ -193,9 +193,9 @@ class TestAddNewNodes(unittest.TestCase):
         nodes = self.__get_nodes()
         links = self.__get_links()
         self.assertTrue(self.__validate_node(nodes, 1, 'first', 100, 365, [0], [40], [30], 1, 1, -1))
-        self.assertTrue(self.__validate_node(nodes, 2, 'second', 100, 365, [1], [30], [60], 1, 2, 1))
-        self.assertTrue(self.__validate_link(links, 0, 1, 30, 40, 1))
-        self.assertTrue(self.__validate_link(links, 1, 2, 60, 30, 1))
+        self.assertTrue(self.__validate_node(nodes, 2, 'second', 100, 365, [1], [30], [60], 1, 2, 0.3150215800337774))
+        self.assertTrue(self.__validate_link(links, 0, 1, 30, 40, 0.5410958904109588))
+        self.assertTrue(self.__validate_link(links, 1, 2, 60, 30, 0.5821917808219178))
         pass
 
     def test_add_second_node_to_not_exits_first_node(self):

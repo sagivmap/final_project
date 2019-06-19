@@ -1,0 +1,6 @@
+ID,Name,TF,MF,AUA,FD,CF
+bob,b'bob',89,6,197,10,['0']
+charlie,b'charlie',78,9,124,10,['0']
+david,b'david',97,21,356,6,['0']
+eve,b'eve',76,3,51,,"['bob', 'charlie', 'david']"
+frank,b'frank',95,2,334,,"['charlie', 'david']"

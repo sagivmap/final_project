@@ -110,9 +110,12 @@ class AlgorithmSolver:
                     name = row["Name"][2:-1]
                 else:
                     name = row["Name"];
-
-                if not name[0].isalpha():
-                    name = self._decode_name(name)
+                try:
+                    if(len(name)>0):
+                        if not name[0].isalpha():
+                            name = self._decode_name(name)
+                except Exception as e:
+                    print (e)
 
                 cf = self.makearrayfromstring(row["CF"])
 

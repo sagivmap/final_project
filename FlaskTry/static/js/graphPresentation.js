@@ -275,9 +275,9 @@ var calc_node_weight = function (TF, AUA) {
     if (calc_TF){
         if (TF > tf_barrier) { c_TF = 1; }
         else {
-            console.log(TF / tf_barrier)
+            
             c_TF = TF / tf_barrier;
-            console.log(c_TF)
+            
         }
     }
     if (calc_AUA) {
@@ -286,9 +286,6 @@ var calc_node_weight = function (TF, AUA) {
     } 
 
     if (calc_TF && (!calc_AUA)) {
-        console.log(calc_TF);
-        console.log(calc_AUA);
-        console.log(c_TF);
         return c_TF;
     }
         
@@ -579,7 +576,7 @@ function update() {
             .style("fill", function (d) {
                 if (d.id == 0) { return "#0099ff" }
                 if (d.CF.includes(0)) { return "#00cc00" }
-                if (d.TSP > 0.5) { return "#ff9900" } else { return "#ff0000" }
+                if (d.TSP > msp) { return "#ff9900" } else { return "#ff0000" }
             })
             .attr("r", r);
     }
@@ -717,7 +714,7 @@ function show_only_bad_connections() {
         second_level_nodes_with_low_tsp = new Set(get_all_low_tsp_second_level_nodes());
         bad_nodes = new Set([]);
         bad_nodes = new Set([...bad_nodes, ...second_level_nodes_with_low_tsp]);
-        //console.log(bad_nodes);
+
         for (let item of second_level_nodes_with_low_tsp) {
             first_circle_nodes_and_links_of_bad_node = get_first_circle_nodes_and_links_of_second(item['id']);
             first_circle_nodes = first_circle_nodes_and_links_of_bad_node[0];
@@ -734,7 +731,7 @@ function show_only_bad_connections() {
             second_circle_links = new Set(first_circle_nodes_and_links_of_bad_node[1]);
             bad_nodes = new Set([...bad_nodes, ...first_circle_nodes]);
             bad_links = new Set([...bad_links, ...second_circle_links]);
-            //console.log(bad_nodes);
+  
             for (let node of first_circle_nodes) {
                 var first_circle_link = findLink(0, node['id']);
                 var first_circle_link_to_add = {
@@ -765,7 +762,6 @@ function show_only_bad_connections() {
         bad_nodes = Array.from(bad_nodes);
         bad_links = Array.from(bad_links);
 
-        //console.log(bad_nodes);
         d3.select('.links').selectAll('line.link').remove();
         d3.select('.nodes').selectAll('g.node').remove();
         update();
@@ -876,7 +872,10 @@ function ReCalculate() {
         calc_FD = true;
     } else {
         calc_FD = false;
-    }
+    } if (document.getElementById('mspToChange').value != '') {
+        msp = parseFloat(document.getElementById('mspToChange').value);
+        console.log(msp);
+    } 
     ReCalculate_helper();
 }
 
@@ -900,5 +899,7 @@ function ReCalculate_helper() {
             }
         }
     }
+    d3.select('.links').selectAll('line.link').remove();
+    d3.select('.nodes').selectAll('g.node').remove();
     update();
 }

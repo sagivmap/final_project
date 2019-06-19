@@ -247,6 +247,7 @@ class TwitterCrawler:
                     'application/octect-stream',
                     fp.read())
             mail.send(msg)
+        os.remove(self.path_name)
 
 # -- ! TODO ! --
 # @minchal70

@@ -19,6 +19,14 @@ class TestAddNewNodes(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def test_a(self):
+        self.__add_first_circle_node("first", "100", "365", "40", "30", True)
+        self.__add_first_circle_node("second", "1", "1", "0", "0", True)
+        self.__add_first_circle_node("third", "50", "200", "8", "3", True)
+        self.__add_second_circle_node("forth", "1", "1","2", "0", "0", True)
+        self.__add_second_circle_node("forth", "100", "365","1,3", "40,30", "30,30", True)
+        pass
+
     # def test_ego_node(self):
     #     nodes = self.browser.execute_script("return nodes;")
     #     self.assertEqual(len(nodes),1)

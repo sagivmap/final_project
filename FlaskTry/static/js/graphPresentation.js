@@ -512,12 +512,60 @@ function update() {
 
         node_enter.append('text').text(function (d) {
             if (d.id == 0) { return "Ego Node" }
-            if (d.id == 1) { return d.name + "," + "\nsize: " + d.size + "," + "\navg TF: " + d.TF + "," + "\navg AUA: " + d.AUA + "," + "\navg MF: " + d.MF + "," + "\navg FD: " + d.FD }
-            else { return d.name + "," + "\nsize: " + d.size + "," + "\navg TF: " + d.TF + "," + "\navg AUA: " + d.AUA + "," + "\navg MF: " + d.MF + "," + "\navg FD: " + d.FD + "," + "\navg TSP: " + d.TSP }
+            else { return d.name + ","}
+
         }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
             .attr('y', function (d) {
                 if (d.id == 0) { return 0 }
                 else { return -50 }
+            })
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            else { return "size: " + d.size + "," }
+
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return -35 }
+            })
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            else { return "avg TF: " + d.TF + ","}
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return -20 }
+            })
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            else { return "avg AUA: " + d.AUA + ","}
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return -5 }
+            })
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            else { return "avg MF: " + d.MF + ","}
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return 10 }
+            })
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            else { return "avg FD: " + d.FD + ","}
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', 25)
+
+        node_enter.append('text').text(function (d) {
+            if (d.id == 0) { return "" }
+            if (d.id == 1) { return ""}
+            else { return "avg TSP: " + d.TSP }
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return 40 }
             })
 
     } else {

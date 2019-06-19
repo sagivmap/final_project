@@ -58,5 +58,10 @@ def create(path,csvType, toBig=False,tsp=0.03):
 
         links.append(tmp)
 
+    for node in nodes:
+        if node['id'] == 'Ego_Node' and node['level'] !=0:
+            nodes.remove(node)
+
+
     json.dump({'nodes': nodes, 'links': links}, file)
     file.close()

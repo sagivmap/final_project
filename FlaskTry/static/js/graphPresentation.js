@@ -512,9 +512,13 @@ function update() {
 
         node_enter.append('text').text(function (d) {
             if (d.id == 0) { return "Ego Node" }
-            if (d.id == 1) { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD }
-            else { return d.name + "," + "\nsize: " + d.size + "," + "\navarage TF: " + d.TF + "," + "\navarage AUA: " + d.AUA + "," + "\navarage MF: " + d.MF + "," + "\navarage FD: " + d.FD + "," + "\navarage TSP: " + d.TSP }
-        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill','black')
+            if (d.id == 1) { return d.name + "," + "\nsize: " + d.size + "," + "\navg TF: " + d.TF + "," + "\navg AUA: " + d.AUA + "," + "\navg MF: " + d.MF + "," + "\navg FD: " + d.FD }
+            else { return d.name + "," + "\nsize: " + d.size + "," + "\navg TF: " + d.TF + "," + "\navg AUA: " + d.AUA + "," + "\navg MF: " + d.MF + "," + "\navg FD: " + d.FD + "," + "\navg TSP: " + d.TSP }
+        }).style("white-space", "pre-line").style('color', 'black').style("opacity", 1).style('fill', 'black').style('font-size', '12px')
+            .attr('y', function (d) {
+                if (d.id == 0) { return 0 }
+                else { return -50 }
+            })
 
     } else {
         node_enter.append("text")

@@ -333,11 +333,11 @@ Once the information comes from one of the previous components, the system displ
 							</p>
                             <br>
                                 <form method=post enctype=multipart/form-data align="center">
-                                    <input type=file name=file>
+                                    <input id="ChooseFileFacebook" type=file name=file>
                                     <input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">
-                                    <input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
+                                    <input id="uploadCSVFileFacebook" type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
                                 </form>
-                            <p class="errors">
+                            <p id="upload file error" class="errors">
                                 {{errorFBU}}
                             </p>
                         </div>
@@ -372,9 +372,9 @@ Once the information comes from one of the previous components, the system displ
 										<!--</p>-->
 								<!--<br>-->
 								<!--The Twitter CSV contains unique field such as following/followers ration and etc.-->
-							<!--</p>-->
+                                            <input id="ChooseFileTwitter" type=file name=file>
                                         <!--<form method=post enctype=multipart/form-data align="center">-->
-                                            <!--<input type=file name=file>-->
+                                            <input id="uploadCSVFileTwitter" type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>
                                             <!--<input type="number" name="tspFCBNum" min="0.01" max="0.5" step="0.01" placeholder="Choose 0<TSP<0.5">-->
                                             <!--<input type=submit class="main-btn" name="button" onclick="showFloatingWindow()" value=Upload>-->
                                         <!--</form>-->

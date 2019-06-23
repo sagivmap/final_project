@@ -12,8 +12,8 @@ mail_settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": "alexan.c09@gmail.com",
-    "MAIL_PASSWORD": "15Po23G7"
+    "MAIL_USERNAME": "IFCMproject@gmail.com",
+    "MAIL_PASSWORD": "IFCM2019"
 }
 app2.config.update(mail_settings)
 mail = Mail(app2)
